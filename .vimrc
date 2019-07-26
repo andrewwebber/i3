@@ -38,6 +38,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'branch': 'release/1.x',
@@ -129,7 +130,8 @@ let g:ale_linters = {
 \   'go': [ 'gopls', 'golangci-lint' ],
 \}
 let g:ale_go_gometalinter_options = '--enable-all --enable=staticcheck --enable=gosimple --enable=unused'
-let g:ale_completion_enabled = 0
+let g:completor_auto_trigger = 0
+let g:ale_completion_enabled = 1
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
