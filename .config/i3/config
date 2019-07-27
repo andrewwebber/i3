@@ -22,7 +22,9 @@ exec_always --no-startup-id /usr/bin/xrandr --auto
 exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --primary --output HDMI-0 --primary
 exec --no-startup-id feh --bg-fill ~/Downloads/ISS-Space-Shuttle-NASA-space-station-endeavour-_465696-41.jpg
 exec --no-startup-id nm-applet
-#exec --no-startup-id pasystray
+exec --no-startup-id pasystray&
+exec --no-startup-id blueman-tray&
+exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
 #exec --no-startup-id compton
 # Before i3 v4.8, we used to recommend this one as the default:
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
