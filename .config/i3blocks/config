@@ -39,11 +39,23 @@ command=$SCRIPT_DIR/kubernetes
 interval=10
 
 
-[docker]
-command=$SCRIPT_DIR/docker
-color=#0db7ed
-interval=10
-LABEL=🐳 
+#[docker]
+#command=$SCRIPT_DIR/docker
+#color=#0db7ed
+#interval=10
+#LABEL=🐳 
+#
+
+[cpu_usage2]
+command=$SCRIPT_DIR/cpu_usage2
+markup=pango
+interval=persist
+#min_width=CPU 100.00%
+#REFRESH_TIME=1
+#LABEL=CPU 
+#WARN_PERCENT=50
+#CRIT_PERCENT=80
+#DECIMALS=2
 
 # Memory usage
 #
@@ -53,6 +65,19 @@ label=MEM
 separator=true
 interval=30
 
+[disk]
+label=Storage Root 
+BLOCK_INSTANCE=/
+ALERT_LOW=20
+separator=true
+interval=30
+
+[disk]
+label=Storage Home 
+BLOCK_INSTANCE=/home/awebber
+ALERT_LOW=20
+separator=true
+interval=30
 
 
 # Network interface monitoring
