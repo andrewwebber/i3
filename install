@@ -1,5 +1,5 @@
 #!/usr/bin/bash -ex
-sudo apt install -y rxvt-unicode curl wget git vim-nox i3 i3blocks i3lock i3lock-fancy feh xserver-xorg xinit evince nemo clipit file-roller qalculate network-manager-gnome gthumb xfce4-session pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn
+sudo apt install -y rxvt-unicode curl wget git vim-nox i3 i3blocks i3lock i3lock-fancy feh xserver-xorg xinit evince nemo clipit file-roller qalculate network-manager-gnome gthumb xfce4-session pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn python3-tk fonts-font-awesome
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
