@@ -1,15 +1,14 @@
-sudo apt curl wget git vim-nox install i3 i3blocks dmenu i3lock i3lock-fancy feh xserver-xorg xinit evince nemo clipit file-roller qalculate network-manager-gnome gthumb xfce4-session
-pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution evolution-ews nodejs
+#!/usr/bin/bash -ex
+sudo apt install -y rxvt-unicode curl wget git vim-nox i3 i3blocks i3lock i3lock-fancy feh xserver-xorg xinit evince nemo clipit file-roller qalculate network-manager-gnome gthumb xfce4-session pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
-sudo apt install ./google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb && rm ./google-chrome-stable_current_amd64.deb
 
 wget https://github.com/authmane512/i3-config/raw/master/fontawesome.ttf
 sudo mv fontawesome.ttf /usr/local/share/fonts/
 xrdb ~/.Xresources
 
-wget https://github.com/teejee2008/ukuu/releases/download/v18.9.1/ukuu-v18.9.1-amd64.deb

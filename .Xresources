@@ -50,8 +50,8 @@ URxvt*scrollTtyKeypress: true
 urxvt.termName: rxvt-unicode
 urxvt.scrollBar: false
 !! Font prefferenes
-urxvt.font: xft:Go Mono for Powerline:pixelsize=13
-urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:weight=bold
+urxvt.font: xft:Go Mono for Powerline:pixelsize=16
+urxvt.boldFont: xft:Go Mono for Powerline:pixelsize=16:weight=bold
 urxvt.letterSpace: -1
 !! Larger history limit
 urxvt.saveLines: 1000000
@@ -62,17 +62,11 @@ URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-sel
 URxvt.url-launcher:   /usr/bin/firefox
 URxvt.underlineURLs:  True
 URxvt.matcher.button: 1
-URxvt.keysym.Control-Shift-V:     perl:pasta:paste
+!!URxvt.keysym.Control-Shift-V:     perl:pasta:paste
 
 !! Copy Paste & Other Extensions
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
-!!URxvt.copyCommand: xclip -i -selection clipboard
-!!URxvt.pasteCommand: xclip -o -selection clipboard
-!!URxvt.keysym.M-c: perl:clipboard:copy
-!!URxvt.keysym.M-v: perl:clipboard:paste
-!!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-!!URxvt.keysym.M-Escape: perl:keyboard-select:activate
-!!URxvt.keysym.M-s: perl:keyboard-select:search
-!!URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.iso14755: true
+URxvt.iso14755_52: false

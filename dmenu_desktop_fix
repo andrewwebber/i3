@@ -1,6 +1,0 @@
-#!/bin/bash
-
-unset GTK_IM_MODULE
-unset QT_IM_MODULE
-unset XMODIFIERS
-i3-dmenu-desktop

@@ -20,7 +20,7 @@ font xft:VL PGothic 11
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-exec_always --no-startup-id /usr/bin/xrandr --auto
+exec_always --no-startup-id /etc/lightdm/setup-display.sh
 exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --primary --output HDMI-0 --primary
 exec --no-startup-id feh --bg-fill ~/Downloads/ISS-Space-Shuttle-NASA-space-station-endeavour-_465696-41.jpg
 exec --no-startup-id /usr/bin/nm-applet
@@ -40,7 +40,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec /usr/bin/urxvt
-bindsym Control+$mod+l exec i3lock
+bindsym Control+$mod+l exec i3lock-fancy
 #bindsym $mod+Shift+d exec i3-dmenu-desktop
 #bindsym $mod+Shift+d exec /opt/dmenu_desktop_fix
 bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun
