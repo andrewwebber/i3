@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
 " Plugin options
+Plug 'chriskempson/base16-vim'
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'maralla/completor.vim'
 Plug 'fatih/molokai'
@@ -150,4 +151,5 @@ let g:OmniSharp_highlight_types = 1
 let g:OmniSharp_proc_debug = 1
 let g:OmniSharp_loglevel = 'debug'
 "let g:OmniSharp_server_path = '/home/awebber/Downloads/OmniSharp.exe'
-colo molokai
+"colo molokai
+"colorscheme base16-default-dark
