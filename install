@@ -1,18 +1,8 @@
 #!/usr/bin/bash -ex
-sudo apt install -y rxvt-unicode curl wget git vim-nox i3 i3blocks i3lock i3lock-fancy feh xserver-xorg xinit evince nemo file-roller qalculate network-manager-gnome gthumb xfce4-session pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn python3-tk fonts-font-awesome libgconf-2-4 firmware-misc-nonfree docker.io python-pip firmware-iwlwifi cups apt-transport-https ca-certificates network-manager-openconnect-gnome ssh-askpass-gnome dirmngr ranger lxappearance gtk-chtheme qt4-qtconfig qemu-kvm libvirt0 virt-manager bridge-utils
-
-echo "deb http://deb.debian.org/debian buster-backports main" | sudo tee -a /etc/apt/sources.list.d/buster-backports.list
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-sudo apt-get install -y apt-transport-https ca-certificates
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+sudo pacman -Sy rxvt-unicode curl wget git vim i3 i3blocks i3lock feh evince nemo file-roller networkmanager gthumb xfce4-session pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn ttf-font-awesome docker python-pip cups ca-certificates ranger lxappearance gtk-chtheme
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-
-sudo apt install -y ./google-chrome-stable_current_amd64.deb && rm ./google-chrome-stable_current_amd64.deb
 
 wget https://github.com/authmane512/i3-config/raw/master/fontawesome.ttf
 sudo mv fontawesome.ttf /usr/local/share/fonts/

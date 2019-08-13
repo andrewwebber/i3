@@ -1,0 +1,8 @@
+#!/usr/bin/bash -ex
+sudo pacman -Sy rxvt-unicode curl wget git vim i3 i3blocks i3lock feh evince nemo file-roller networkmanager gthumb xfce4-session pulseaudio blueman arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn ttf-font-awesome docker python-pip cups ca-certificates ranger lxappearance gtk-chtheme networkmanager-dispatcher-ntpd cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2 vlc chromium lightgdm lightdm lightdm-gtk-greeter i3-gaps ttf-font-awesome awesome-terminal-fonts otf-font-awesome adobe-source-code-pro-fonts jsoncpp jgmenu ranger dmenu rofi conky nitrogen dunst albert compton mate-power-manager network-manager-applet adapta-gtk-theme papirus-icon-theme capitaine-cursors xorg xorg-server networkmanager-openconnect bash-completion
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+xrdb ~/.Xresources
+
