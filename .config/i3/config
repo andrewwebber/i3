@@ -39,7 +39,7 @@ exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /usr/bin/urxvt
+bindsym $mod+Return exec /usr/bin/gnome-terminal
 bindsym Control+$mod+l exec i3lock-fancy
 #bindsym $mod+Shift+d exec i3-dmenu-desktop
 #bindsym $mod+Shift+d exec /opt/dmenu_desktop_fix
