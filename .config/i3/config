@@ -10,6 +10,9 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 15
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -39,7 +42,7 @@ exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /usr/bin/gnome-terminal
+bindsym $mod+Return exec dbus-launch gnome-terminal
 bindsym Control+$mod+l exec i3lock-fancy
 #bindsym $mod+Shift+d exec i3-dmenu-desktop
 #bindsym $mod+Shift+d exec /opt/dmenu_desktop_fix

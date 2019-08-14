@@ -4,8 +4,7 @@ sudo pacman -Sy rxvt-unicode curl wget git vim i3 i3blocks i3lock feh evince nem
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp .* ~/
-cp -r .* ~/
-xrdb ~/.Xresources
-cd ~/projects && git clone https://github.com/powerline/powerline && cd powerline && pip install .
+cp .* ~/ || true
+cp -r .* ~/ || true
+cd ~/projects && git clone https://github.com/powerline/powerline && cd powerline && sudo pip install .
 
