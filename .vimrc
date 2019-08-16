@@ -40,37 +40,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
 
 " Initialize plugin system
 call plug#end()
-
-"call ale#linter#Define('go', {
-""\   'name': 'revive',
-""\   'output_stream': 'both',
-""\   'executable': 'revive',
-""\   'read_buffer': 0,
-""\   'command': 'revive %t',
-""\   'callback': 'ale#handlers#unix#HandleAsWarning',
-""\})
 
 filetype plugin on
 map <C-s> :w<cr>
