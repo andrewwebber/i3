@@ -7,34 +7,26 @@ URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
 
-! special colors
-*.foreground:  #c8c8c8
-*.background:  #1b1b1b
-*.cursorColor:  #afbfbf
-! black
-*.color0:      #263640
-*.color8:      #4a697d
-! red
-*.color1:      #b50000
-*.color9:      #fa3935
-! green
-*.color2:      #00aa00
-*.color10:     #00aa00
-! yellow
-*.color3:      #e1a900
-*.color11:     #d9a400
-! blue
-*.color4:      #2587cc
-*.color12:     #2ca2f5
-! magenta
-*.color5:      #565b9d
-*.color13:     #8086e8
-! cyan
-*.color6:      #289c93
-*.color14:     #33c5ba
-! white
-*.color7:      #bfbaac
-*.color15:     #fdf6e3
+! Tango colour theme for rxvt-unicode
+URxvt.background: #2E3436
+URxvt.foreground: #BBBBBBBBBBBB
+URxvt.color0: #17171A1A1B1B
+URxvt.color1: #CCCC00000000
+URxvt.color2: #4E4E9A9A0606
+URxvt.color3: #C4C4A0A00000
+URxvt.color4: #34346565A4A4
+URxvt.color5: #757550507B7B
+URxvt.color6: #060698209A9A
+URxvt.color7: #D3D3D7D7CFCF
+URxvt.color8: #555557575353
+URxvt.color9: #EFEF29292929
+URxvt.color10: #8A8AE2E23434
+URxvt.color11: #FCFCE9E94F4F
+URxvt.color12: #72729F9FCFCF
+URxvt.color13: #ADAD7F7FA8A8
+URxvt.color14: #3434E2E2E2E2
+URxvt.color15: #EEEEEEEEECEC
+
 
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
@@ -42,7 +34,6 @@ URxvt*scrollBar_right:   false
 URxvt*transparent:       false
 
 URxvt*depth: 32
-URxvt.background: [99]#000000
 
 !! Appearance
 urxvt.termName: rxvt-unicode
