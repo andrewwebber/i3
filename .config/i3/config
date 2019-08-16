@@ -18,17 +18,20 @@ gaps outer 15
 # is used in the bar {} block below.
 #font pango:monospace 8
 #font xft:Monospace 12
-font xft:VL PGothic 11
+#font xft:VL PGothic 11
+font pango:Go Mono for Powerline Regular 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 exec_always --no-startup-id /etc/lightdm/setup-display.sh
-exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --primary --output HDMI-0 --primary
+exec_always --no-startup-id /usr/bin/xrandr --auto
+exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --auto --right-of DP-3 --output HDMI-0 --primary
 exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/ISS-Space-Shuttle-NASA-space-station-endeavour-_465696-41.jpg
 exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id pasystray&
-exec --no-startup-id blueman-tray&
+exec --no-startup-id pasystray
+exec --no-startup-id blueman-tray
+exec --no-startup-id dunst
 exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
 #exec --no-startup-id compton
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -46,7 +49,7 @@ bindsym $mod+Return exec dbus-launch gnome-terminal
 bindsym Control+$mod+l exec i3lock-fancy
 #bindsym $mod+Shift+d exec i3-dmenu-desktop
 #bindsym $mod+Shift+d exec /opt/dmenu_desktop_fix
-bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun
+bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun -theme material
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master mute
@@ -197,7 +200,8 @@ for_window [class="Yad"] floating enable
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	font pango:Go Mono for Powerline Regular, Icons 12
         status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
-	#tray_output primary
+	tray_output primary
 
 }
