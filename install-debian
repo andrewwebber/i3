@@ -8,3 +8,14 @@ wget https://github.com/authmane512/i3-config/raw/master/fontawesome.ttf
 sudo mv fontawesome.ttf /usr/local/share/fonts/
 xrdb ~/.Xresources
 
+mkdir -p ~/.config/powerline
+cat <<-'EOF' > ~/.config/powerline/config.json
+{
+    "ext": {
+        "shell": {
+            "theme": "default_leftonly"
+        }
+    }
+}
+EOF
+powerline-daemon --replace

@@ -10,3 +10,14 @@ cp .* ~/ || true
 cp -r .* ~/ || true
 cd ~/projects && git clone https://github.com/powerline/powerline && cd powerline && sudo pip install .
 
+mkdir -p ~/.config/powerline
+cat <<-'EOF' > ~/.config/powerline/config.json
+{
+    "ext": {
+        "shell": {
+            "theme": "default_leftonly"
+        }
+    }
+}
+EOF
+powerline-daemon --replace
