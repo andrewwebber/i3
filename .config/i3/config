@@ -54,6 +54,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+bindsym $mod+Shift+p exec passmenu
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
