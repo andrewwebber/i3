@@ -36,7 +36,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
