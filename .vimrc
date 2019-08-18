@@ -12,12 +12,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'tag': '*' }
 " Plugin options
 Plug 'chriskempson/base16-vim'
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug 'maralla/completor.vim'
 Plug 'fatih/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'avakhov/vim-yaml'
@@ -29,7 +26,6 @@ Plug 'mxw/vim-jsx'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'raimondi/delimitmate'
 Plug 'junegunn/goyo.vim'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired'
 Plug 'NikolayFrantsev/jshint2.vim'
 Plug 'previm/previm'
@@ -40,7 +36,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons', {'branch': 'release'}
 
 " Initialize plugin system
 call plug#end()
