@@ -47,9 +47,9 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym Control+$mod+l exec i3lock-fancy
 bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun -theme material
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
