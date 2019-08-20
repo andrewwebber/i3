@@ -65,12 +65,10 @@ label=MEM
 separator=true
 interval=30
 
-#[disk]
-#label=Storage Root 
-#BLOCK_INSTANCE=/
-#ALERT_LOW=20
-#separator=true
-#interval=30
+[disk]
+label=Storage
+separator=true
+interval=30
 #
 #[disk]
 #label=Storage Home 
