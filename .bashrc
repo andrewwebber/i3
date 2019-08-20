@@ -117,3 +117,5 @@ powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /home/awebber/projects/powerline/powerline/bindings/bash/powerline.sh
+export EDITOR='/usr/bin/vim'
+export VISUAL='/usr/bin/vim'
