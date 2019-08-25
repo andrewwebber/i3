@@ -31,12 +31,12 @@ Plug 'NikolayFrantsev/jshint2.vim'
 Plug 'previm/previm'
 Plug 'tyru/open-browser.vim'
 Plug 'sebdah/vim-delve'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim',  {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'ryanoasis/vim-devicons', {'branch': 'release'}
+Plug 'junegunn/vim-emoji'
 
 " Initialize plugin system
 call plug#end()
@@ -87,38 +87,12 @@ let g:go_metalinter_command = '--enable-all --tests -D lll -D gochecknoglobals -
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'ineffassign', 'dupl', 'goconst', 'gocyclo', 'gotype', 'gotypex', 'ineffassign', 'misspell', 'vetshadow']
 let g:go_auto_type_info = 0
 let g:go_auto_sameids = 1
-"let g:go_def_mode = 'godef'
 let g:go_def_mode='gopls'
-" let g:go_debug = ['shell-commands']
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|svn))$'
-let g:airline#extensions#ale#enabled = 1
-"let g:ale_go_gometalinter_executable = '/usr/local/bin/gometalinter'
-"let g:ale_go_langserver_executable  = '/usr/local/bin/go-langserver'
-let g:ale_go_langserver_executable = 'gopls'
-let g:ale_go_langserver_options = '-gocodecompletion'
-let g:ale_go_bingo_executable = 'bingo'
-let g:ale_go_bingo_options = '--disable-diagnostics -use-global-cache'
-let g:ale_go_golangci_lint_executable = '/usr/local/bin/golangci-lint'
-let g:ale_go_golangci_lint_options = '--enable-all -D lll -D gochecknoglobals'
-let g:ale_go_golangci_lint_package = 0
-let g:ale_linters = {
-\   'go': [ 'gopls', 'golangci-lint' ],
-\}
-let g:ale_go_gometalinter_options = '--enable-all --enable=staticcheck --enable=gosimple --enable=unused'
-let g:completor_auto_trigger = 0
-let g:ale_completion_enabled = 1
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
-let g:ale_sign_column_always = 1
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_keep_list_window_open = 0
-let g:ale_list_window_size = 5
-"let g:ale_set_loclist = 1
-"let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
+let g:airline#extensions#ale#enabled = 0
+let g:airline_powerline_fonts = 1
 " C#
 "let g:OmniSharp_server_use_mono = 0
 let g:OmniSharp_highlight_types = 1
@@ -149,3 +123,31 @@ let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 set signcolumn=yes
+let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+let g:gitgutter_sign_modified_removed = emoji#for('collision')
+let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml']
+
+set laststatus=2
+au FileType text,tex,markdown,gitcommit setlocal wrap linebreak nolist spell spelllang=en_us
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+"Close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
