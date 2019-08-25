@@ -1,4 +1,6 @@
 {
+	"diagnostic.errorSign": "✘",
+	"suggest.snippetIndicator": "►",
   "languageserver": {
     "golang": {
       "command": "gopls",
