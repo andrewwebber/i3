@@ -18,7 +18,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'avakhov/vim-yaml'
-Plug 'plasticboy/vim-markdown'
 Plug 'pangloss/vim-javascript'
 Plug 'junegunn/gv.vim'
 Plug 'elzr/vim-json'
@@ -33,10 +32,10 @@ Plug 'tyru/open-browser.vim'
 Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim',  {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons', {'branch': 'release'}
 Plug 'junegunn/vim-emoji'
+Plug 'jamessan/vim-gnupg'
 
 " Initialize plugin system
 call plug#end()
