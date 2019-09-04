@@ -8,9 +8,7 @@ set wildmode=longest,list,full
 "set completeopt=menu,menuone,preview,noselect,noinsert
 call plug#begin('~/.vim/plugged')
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
-" Plugin options
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -33,9 +31,12 @@ Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdtree'
 
 " Initialize plugin system
 call plug#end()
@@ -72,6 +73,8 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+let g:GPGPreferArmor=1
+let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
