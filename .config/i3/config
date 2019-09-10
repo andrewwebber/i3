@@ -56,6 +56,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 bindsym $mod+Shift+p exec passmenu
+bindsym $mod+Shift+s exec surf google.com
+bindsym $mod+Shift+f exec i3-sensible-terminal -e ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
