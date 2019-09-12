@@ -91,22 +91,16 @@ let g:go_metalinter_command = '--enable-all --tests -D lll -D gochecknoglobals -
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'ineffassign', 'dupl', 'goconst', 'gocyclo', 'gotype', 'gotypex', 'ineffassign', 'misspell', 'vetshadow']
 let g:go_auto_type_info = 0
 let g:go_auto_sameids = 1
-let g:go_def_mode='gopls'
+let g:go_def_mode='godef'
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|svn))$'
 let g:airline#extensions#ale#enabled = 0
 let g:airline_powerline_fonts = 1
 " C#
-"let g:OmniSharp_server_use_mono = 0
 let g:OmniSharp_highlight_types = 1
-"let g:OmniSharp_start_server = 1
-"let g:OmniSharp_port = 8086
 let g:OmniSharp_proc_debug = 1
 let g:OmniSharp_loglevel = 'debug'
-"let g:OmniSharp_server_path = '/home/awebber/Downloads/OmniSharp.exe'
-"colo molokai
-"colorscheme base16-default-dark
 let g:lightline = {}
 
 let g:lightline.component_expand = {
