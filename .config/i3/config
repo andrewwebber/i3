@@ -46,7 +46,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec dbus-launch gnome-terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym Control+$mod+l exec i3lock-fancy
+bindsym Control+$mod+l exec i3lock
 bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun -theme material
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
