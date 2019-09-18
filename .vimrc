@@ -4,6 +4,7 @@ set autowrite
 set mouse=a
 set wildmenu
 set wildmode=longest,list,full
+set clipboard=unnamed
 " set completeopt+=noinsert
 "set completeopt=menu,menuone,preview,noselect,noinsert
 call plug#begin('~/.vim/plugged')
