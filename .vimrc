@@ -4,6 +4,7 @@ set autowrite
 set mouse=a
 set wildmenu
 set wildmode=longest,list,full
+set clipboard=unnamed
 " set completeopt+=noinsert
 "set completeopt=menu,menuone,preview,noselect,noinsert
 call plug#begin('~/.vim/plugged')
@@ -22,8 +23,7 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'raimondi/delimitmate'
-Plug 'junegunn/goyo.vim'
+Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired'
 Plug 'NikolayFrantsev/jshint2.vim'
 Plug 'previm/previm'
@@ -31,7 +31,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
@@ -70,8 +70,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-map <C-k> <Plug>(ale_previous_wrap)
-map <C-j> <Plug>(ale_next_wrap)
 augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
@@ -92,7 +90,7 @@ let g:go_metalinter_command = '--enable-all --tests -D lll -D gochecknoglobals -
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'ineffassign', 'dupl', 'goconst', 'gocyclo', 'gotype', 'gotypex', 'ineffassign', 'misspell', 'vetshadow']
 let g:go_auto_type_info = 0
 let g:go_auto_sameids = 1
-let g:go_def_mode='godef'
+let g:go_def_mode='gopls'
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|svn))$'
