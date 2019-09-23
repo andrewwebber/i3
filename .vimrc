@@ -20,6 +20,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'junegunn/gv.vim'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
+Plug 'maksimr/vim-jsbeautify'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'raimondi/delimitmate'
 Plug 'junegunn/goyo.vim'
@@ -149,3 +150,4 @@ inoremap <silent><expr> <TAB>
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+map <c-x> :call JsxBeautify()<cr>
