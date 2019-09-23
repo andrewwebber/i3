@@ -22,8 +22,7 @@ Plug 'junegunn/gv.vim'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'bronson/vim-trailing-whitespace'
-" Plug 'raimondi/delimitmate'
-Plug 'junegunn/goyo.vim'
+Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired'
 Plug 'NikolayFrantsev/jshint2.vim'
 Plug 'previm/previm'
@@ -31,7 +30,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
@@ -70,8 +69,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-map <C-k> <Plug>(ale_previous_wrap)
-map <C-j> <Plug>(ale_next_wrap)
 augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
