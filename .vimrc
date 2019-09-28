@@ -1,4 +1,5 @@
 ""set spell spelllang=en_us
+set mmp=5000
 set encoding=UTF-8
 set autowrite
 set mouse=a
