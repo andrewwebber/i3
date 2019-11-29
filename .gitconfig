@@ -1,0 +1,17 @@
+[user]
+	name = andrew webber (brainloop)
+	email = andrew.webber@brainloop.com
+[diff "gpg"]
+	textconv = gpg --no-tty --decrypt
+[alias]
+	b    = "branch"
+	ba   = "branch -a"
+	st   = "status"
+	pl   = "log --pretty=\"%Cgreen%h%Creset – %ai – %s (%Cblueby %an%Creset)\""
+	plg  = "log --graph --pretty=\"%Cgreen%h%Creset – %ai – %s (%Cblueby %an%Creset)\""
+	lg2  = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+	slog = "log --pretty=\"%Cgreen%h%Creset – %ai – %s (%Cblueby %cn%Creset)\" HEAD~15..HEAD"
+	co   = "checkout"
+	cob  = "checkout -b"
+	hl   = "log --pretty=\"%h\""
+	yolo = "git push --force"
