@@ -1,4 +1,7 @@
 ""set spell spelllang=en_us
+set tabstop=4
+set expandtab
+set shiftwidth=4
 set mmp=5000
 set encoding=UTF-8
 set autowrite
@@ -11,6 +14,7 @@ set clipboard=unnamed
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'rust-lang/rust.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
