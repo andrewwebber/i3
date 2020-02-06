@@ -74,9 +74,6 @@ interval=30
 #separator=true
 #interval=30
 
-[kubernetes]
-command=$SCRIPT_DIR/kubernetes
-interval=10
 
 # Network interface monitoring
 #
