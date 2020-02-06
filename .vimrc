@@ -13,7 +13,8 @@ set clipboard=unnamed
 "set completeopt=menu,menuone,preview,noselect,noinsert
 call plug#begin('~/.vim/plugged')
 
-Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'kyuhi/vim-emoji-complete'
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'chriskempson/base16-vim'
@@ -88,6 +89,7 @@ let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
 let g:go_fmt_command = "goimports"
+let g:go_gorename_command = "gopls"
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
@@ -159,4 +161,4 @@ inoremap <silent><expr> <TAB>
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-map <c-x> :call JsxBeautify()<cr>
+"map <c-x> :call JsxBeautify()<cr>
