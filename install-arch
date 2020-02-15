@@ -5,6 +5,7 @@ fc-cache -f -v
 git config --global diff.gpg.textconv "gpg --no-tty --decrypt"
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
+sudo systemctl enable org.cups.cupsd.service
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
