@@ -1,6 +1,6 @@
 [user]
-	name = andrew webber (brainloop)
-	email = andrew.webber@brainloop.com
+	name = andrew webber (personal)
+	email = andrewvwebber@googlemail.com
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
 [alias]
