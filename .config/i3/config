@@ -26,7 +26,7 @@ font pango:Lexend Deca 12
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 exec_always --no-startup-id /etc/lightdm/setup-display.sh
 exec_always --no-startup-id /usr/bin/xrandr --auto
-exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --auto --right-of DP-3 --output HDMI-0 --primary
+#exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --auto --right-of DP-3 --output HDMI-0 --primary
 exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id pasystray
@@ -44,8 +44,8 @@ exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec dbus-launch gnome-terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec dbus-launch gnome-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
 bindsym Control+$mod+l exec i3lock
 bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun -theme material
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2%
