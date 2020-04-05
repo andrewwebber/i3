@@ -1,6 +1,6 @@
 #!/usr/bin/bash -ex
 #useradd -m -g users -G wheel,storage,power,lp,network,audio,video,optical -s /bin/bash awebber
-sudo pacman -Syu gnome-terminal curl wget git vim i3 sway i3blocks i3lock feh evince nemo file-roller networkmanager gthumb pulseaudio blueman pulseaudio-bluetooth arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn ttf-font-awesome docker python-pip cups ca-certificates ranger lxappearance gtk-chtheme networkmanager-dispatcher-ntpd cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2 vlc chromium i3-gaps ttf-font-awesome awesome-terminal-fonts otf-font-awesome adobe-source-code-pro-fonts jsoncpp jgmenu dmenu rofi conky nitrogen dunst albert compton mate-power-manager adapta-gtk-theme papirus-icon-theme capitaine-cursors xorg xorg-xinit xorg-server networkmanager-openconnect bash-completion acpi tk go ebtables dnsmasq x11-ssh-askpass openssh seahorse gnome-keyring dunst bridge-utils xfce4-notifyd gnome-screenshot powerline powerline-vim powerline-fonts pass neovim bluez bluez-utils ttf-fira-code extra/noto-fonts extra/noto-fonts-emoji w3m hplip aspell-en
+sudo pacman -Syu htop gnome-terminal curl wget git vim i3 sway i3blocks i3lock feh evince nemo file-roller networkmanager gthumb pulseaudio blueman pulseaudio-bluetooth arandr xfce4-power-manager pavucontrol compton pasystray rofi evolution nodejs npm yarn ttf-font-awesome docker python-pip cups ca-certificates ranger lxappearance gtk-chtheme networkmanager-dispatcher-ntpd cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2 vlc chromium i3-gaps ttf-font-awesome awesome-terminal-fonts otf-font-awesome adobe-source-code-pro-fonts jsoncpp jgmenu dmenu rofi conky nitrogen dunst albert compton mate-power-manager adapta-gtk-theme papirus-icon-theme capitaine-cursors xorg xorg-xinit xorg-server networkmanager-openconnect bash-completion acpi tk go ebtables dnsmasq x11-ssh-askpass openssh seahorse gnome-keyring dunst bridge-utils xfce4-notifyd gnome-screenshot powerline powerline-vim powerline-fonts pass neovim bluez bluez-utils ttf-fira-code extra/noto-fonts extra/noto-fonts-emoji w3m hplip aspell-en
 fc-cache -f -v
 git config --global diff.gpg.textconv "gpg --no-tty --decrypt"
 sudo systemctl start NetworkManager
@@ -31,3 +31,4 @@ powerline-daemon --replace
 cd
 rm -rf .git
 cd -
+cd ~/projects; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si
