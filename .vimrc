@@ -13,6 +13,9 @@ set clipboard=unnamed
 "set completeopt=menu,menuone,preview,noselect,noinsert
 call plug#begin('~/.vim/plugged')
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'kyuhi/vim-emoji-complete'
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
@@ -28,11 +31,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'junegunn/gv.vim'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
-Plug 'maksimr/vim-jsbeautify'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-unimpaired'
-Plug 'NikolayFrantsev/jshint2.vim'
 Plug 'previm/previm'
 Plug 'tyru/open-browser.vim'
 Plug 'sebdah/vim-delve'
