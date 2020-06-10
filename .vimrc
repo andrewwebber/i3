@@ -1,5 +1,6 @@
 ""set spell spelllang=en_us
 set nu
+set hidden
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -10,10 +11,16 @@ set incsearch
 set mmp=5000
 set encoding=UTF-8
 set autowrite
-set mouse=a
+if has('mouse')
+  set mouse=a
+endif
 set wildmenu
 set wildmode=longest,list,full
-set clipboard=unnamed
+if has("macunix") || has('win32')
+  set clipboard=unnamed
+elseif has("unix")
+  set clipboard=unnamedplus
+endif
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
@@ -86,6 +93,16 @@ if executable('rg')
 endif
 
 filetype plugin on
+function! ToggleNERDTree()
+  NERDTreeToggle
+  silent NERDTreeMirror
+endfunction
+
+nmap <leader>n :call ToggleNERDTree()<CR>
+noremap <leader>R :source ~/.vimrc<CR>
+nmap // :BLines!<CR>
+nmap ?? :Rg<CR>
+command! FileHistory execute ":BCommits!"
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
