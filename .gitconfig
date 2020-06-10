@@ -2,6 +2,8 @@
 	name = andrew webber (personal)
 	email = andrewvwebber@googlemail.com
     signingkey = B976107BE2AD4C18
+[gpg]
+    program = /usr/bin/gpg
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
 [alias]
