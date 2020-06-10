@@ -3,7 +3,7 @@
 	email = andrewvwebber@googlemail.com
 	signingkey = B976107BE2AD4C18
 [gpg]
-    program = /usr/bin/gpg
+	program = /usr/bin/gpg
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
 [alias]
@@ -18,3 +18,5 @@
 	cob  = "checkout -b"
 	hl   = "log --pretty=\"%h\""
 	yolo = "git push --force"
+[commit]
+	gpgsign = true
