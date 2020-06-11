@@ -87,9 +87,12 @@ let g:pymode_python = 'python3'
 colorscheme gruvbox
 set background=dark
 
-let mapleader = " "
+let mapleader = "\\"
 if executable('rg')
     let g:rg_derive_root='true'
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
 endif
 
 filetype plugin on
