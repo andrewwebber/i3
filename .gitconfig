@@ -8,6 +8,7 @@
 	textconv = gpg --no-tty --decrypt
 [alias]
 	b    = "branch"
+    p    = "pull --rebase origin master"
 	ba   = "branch -a"
 	st   = "status"
 	pl   = "log --pretty=\"%Cgreen%h%Creset – %ai – %s (%Cblueby %an%Creset)\""
