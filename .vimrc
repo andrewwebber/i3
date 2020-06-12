@@ -76,8 +76,8 @@ Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'scrooloose/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
@@ -87,7 +87,7 @@ let g:pymode_python = 'python3'
 colorscheme gruvbox
 set background=dark
 
-let mapleader = "\\"
+let mapleader = " "
 if executable('rg')
     let g:rg_derive_root='true'
     set grepprg=rg\ --color=never
@@ -101,7 +101,8 @@ function! ToggleNERDTree()
   silent NERDTreeMirror
 endfunction
 
-nmap <leader>n :call ToggleNERDTree()<CR>
+nmap <space>e :CocCommand explorer<CR>
+nmap <space>n :call ToggleNERDTree()<CR>
 noremap <leader>R :source ~/.vimrc<CR>
 nmap // :BLines!<CR>
 nmap ?? :Rg<CR>
