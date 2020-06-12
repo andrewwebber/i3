@@ -123,8 +123,8 @@ nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
 map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
-map <leader>h :tabp<cr>
-map <leader>l :tabn<cr>
+map <C-h> :tabp<cr>
+map <C-l> :tabn<cr>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
@@ -156,6 +156,7 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+nmap <leader>p :PrevimOpen<CR>
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
