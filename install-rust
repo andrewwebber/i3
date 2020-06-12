@@ -1,0 +1,5 @@
+#!/usr/bin/bash -ex
+yay rustup
+rustup toolchain add stable
+rustup toolchain add nightly
+cargo +nightly install racer

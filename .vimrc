@@ -101,8 +101,9 @@ function! ToggleNERDTree()
   silent NERDTreeMirror
 endfunction
 
-nmap <space>e :CocCommand explorer<CR>
-nmap <space>n :call ToggleNERDTree()<CR>
+nmap <leader><leader> :CocCommand explorer<CR>
+nmap <leader>n :call ToggleNERDTree()<CR>
+nmap <leader>g :G<CR>
 noremap <leader>R :source ~/.vimrc<CR>
 nmap // :BLines!<CR>
 nmap ?? :Rg<CR>
@@ -121,8 +122,8 @@ nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
 map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
-map <C-t>h :tabp<cr>
-map <C-t>l :tabn<cr>
+map <leader>h :tabp<cr>
+map <leader>l :tabn<cr>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
