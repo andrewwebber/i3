@@ -104,6 +104,7 @@ endfunction
 nmap <leader><leader> :CocCommand explorer<CR>
 nmap <leader>n :call ToggleNERDTree()<CR>
 nmap <leader>g :G<CR>
+nmap <leader>G :Gcommit<CR>
 noremap <leader>R :source ~/.vimrc<CR>
 nmap // :BLines!<CR>
 nmap ?? :Rg<CR>
