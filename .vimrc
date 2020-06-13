@@ -157,6 +157,7 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 nmap <leader>p :PrevimOpen<CR>
+
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
