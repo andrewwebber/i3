@@ -38,7 +38,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'towolf/vim-helm'
 Plug 'uarun/vim-protobuf'
 Plug 'vim-python/python-syntax'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
