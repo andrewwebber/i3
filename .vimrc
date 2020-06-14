@@ -33,6 +33,7 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
+Plug 'francoiscabrol/ranger.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'towolf/vim-helm'
@@ -82,7 +83,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
-let g:pymode_python = 'python3'
 
 colorscheme gruvbox
 set background=dark
@@ -158,6 +158,10 @@ augroup PrevimSettings
 augroup END
 nmap <leader>p :PrevimOpen<CR>
 
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+let g:pymode_python = 'python3'
+let g:NERDTreeHijackNetrw = 0
+let g:ranger_replace_netrw = 1
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
