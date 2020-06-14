@@ -164,6 +164,9 @@ augroup PrevimSettings
 augroup END
 nmap <leader>p :PrevimOpen<CR>
 
+let g:netrw_browse_split = 2
+let g:vrfr_rg = 'true'
+let g:netrw_banner = 0
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:pymode_python = 'python3'
 let g:NERDTreeHijackNetrw = 0
