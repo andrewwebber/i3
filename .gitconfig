@@ -4,6 +4,8 @@
 	signingkey = B976107BE2AD4C18
 [gpg]
 	program = /usr/bin/gpg
+[merge]
+    conflictstyle = diff3
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
 [alias]
