@@ -101,6 +101,8 @@ function! ToggleNERDTree()
   silent NERDTreeMirror
 endfunction
 
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-l> <Esc>
 inoremap <C-c> <esc>
 nmap <leader><leader> :CocCommand explorer<CR>
