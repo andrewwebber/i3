@@ -102,6 +102,7 @@ function! ToggleNERDTree()
 endfunction
 
 inoremap <C-l> <Esc>
+inoremap <C-c> <esc>
 nmap <leader><leader> :CocCommand explorer<CR>
 nmap <leader>n :call ToggleNERDTree()<CR>
 nmap <leader>g :G<CR>
