@@ -33,6 +33,7 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
+Plug 'mhinz/vim-startify'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ekalinin/Dockerfile.vim'
@@ -87,7 +88,8 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
-let mapleader = " "
+
+"let mapleader = " "
 if executable('rg')
     let g:rg_derive_root='true'
     set grepprg=rg\ --color=never
@@ -107,8 +109,8 @@ inoremap <C-l> <Esc>
 inoremap <C-c> <esc>
 nmap <leader><leader> :CocCommand explorer<CR>
 nmap <leader>n :call ToggleNERDTree()<CR>
-nmap <leader>g :G<CR>
 nmap <leader>G :Gcommit<CR>
+nmap <leader>g :G<CR>
 nmap <leader>gl :diffget //3<CR>
 nmap <leader>gh :diffget //2<CR>
 noremap <leader>R :source ~/.vimrc<CR>
@@ -130,7 +132,7 @@ map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-h> :tabp<cr>
-map <C-l> :tabn<cr>
+"map <C-l> :tabn<cr>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
@@ -154,19 +156,21 @@ autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
+autocmd FileType rust nmap gd <Plug>(rust-def)
+autocmd FileType rust nmap gs <Plug>(rust-def-split)
+autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
+autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
+autocmd FileType rust nmap <leader>t :RustTest<CR>
+autocmd FileType rust nmap <leader>T :Ctest<CR>
 augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 nmap <leader>p :PrevimOpen<CR>
 
-let g:netrw_browse_split = 2
-let g:vrfr_rg = 'true'
-let g:netrw_banner = 0
+"let g:netrw_browse_split = 2
+"let g:vrfr_rg = 'true'
+"let g:netrw_banner = 0
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:pymode_python = 'python3'
 let g:NERDTreeHijackNetrw = 0
