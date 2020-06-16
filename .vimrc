@@ -33,6 +33,7 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
+Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-startify'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'sheerun/vim-polyglot'
