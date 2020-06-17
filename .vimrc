@@ -176,7 +176,7 @@ nmap <leader>p :PrevimOpen<CR>
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:pymode_python = 'python3'
 let g:NERDTreeHijackNetrw = 0
-let g:ranger_replace_netrw = 1
+let g:ranger_replace_netrw = 0
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
