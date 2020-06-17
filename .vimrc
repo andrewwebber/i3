@@ -33,6 +33,7 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
+Plug 'junegunn/goyo.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-startify'
 Plug 'francoiscabrol/ranger.vim'
@@ -90,7 +91,7 @@ colorscheme gruvbox
 set background=dark
 
 
-"let mapleader = " "
+let mapleader = " "
 if executable('rg')
     let g:rg_derive_root='true'
     set grepprg=rg\ --color=never
