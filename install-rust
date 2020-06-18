@@ -1,5 +1,5 @@
 #!/usr/bin/bash -ex
-yay rustup
+sudo pacman -S rustup --noconfirm
 rustup toolchain add stable
 rustup toolchain add nightly
 cargo +nightly install racer
