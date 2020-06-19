@@ -34,7 +34,7 @@ rm -rf .git
 cd -
 cd ~/projects; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si
 ( ln -sf ~/projects/i3/.vimrc ~/.vimrc; ln -sf ~/projects/i3/.gitconfig ~/.gitconfig)
-( mkdir ~/.config/nvim; ln -sf ~/projects/i3/.vimrc ~/.config/nvim/init.vim)
+( mkdir ~/.config/nvim || true; ln -sf ~/projects/i3/.vimrc ~/.config/nvim/init.vim)
 
 ./install-rust
 yay neovim-symlinks
