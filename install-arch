@@ -6,6 +6,8 @@ sudo systemctl enable gdm
 sudo cp ./custom.conf /etc/gdm/custom.conf
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
+sudo systemctl start systemd-resolved
+sudo systemctl enable systemd-resolved
 sudo systemctl enable org.cups.cupsd.service
 sudo systemctl start pcscd.service
 sudo systemctl enable pcscd.service
