@@ -130,6 +130,7 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>el oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
+map <C-t> :term<cr>
 map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
