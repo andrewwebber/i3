@@ -41,3 +41,4 @@ cd ~/projects; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si
 ./install-rust
 yay neovim-symlinks
 yay valgrind
+yay bash-it
