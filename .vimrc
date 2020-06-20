@@ -148,6 +148,12 @@ nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
+
+if has('nvim')
+    autocmd TermOpen term://* startinsert
+endif
+
+autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>tc  <Plug>(go-test-compile)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
