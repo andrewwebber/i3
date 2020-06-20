@@ -128,8 +128,8 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
-nnoremap <Leader>el oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
+"nnoremap <Leader>el oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
+"nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
 map <C-t> :term<cr>
 map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
@@ -175,7 +175,8 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-nmap <leader>p :PrevimOpen<CR>
+autocmd FileType markdown nmap <leader>p :PrevimOpen<CR>
+autocmd FileType javascript nmap <leader>p :Prettier<CR>
 
 "let g:netrw_browse_split = 2
 "let g:vrfr_rg = 'true'
