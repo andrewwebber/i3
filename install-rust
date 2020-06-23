@@ -3,3 +3,4 @@ sudo pacman -S rustup --noconfirm
 rustup toolchain add stable
 rustup toolchain add nightly
 cargo +nightly install racer
+carge install cargo-edit
