@@ -18,8 +18,8 @@ set wildmenu
 set wildmode=longest,list,full
 if has("macunix") || has('win32')
   set clipboard=unnamed
-elseif has("unix")
-  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
 endif
 set cmdheight=2
 set updatetime=300
@@ -169,6 +169,7 @@ autocmd FileType rust nmap gd <Plug>(rust-def)
 autocmd FileType rust nmap gs <Plug>(rust-def-split)
 autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
+autocmd FileType rust nmap gb :Cbuild<CR>
 autocmd FileType rust nmap <leader>t :RustTest<CR>
 autocmd FileType rust nmap <leader>T :Ctest<CR>
 augroup PrevimSettings
