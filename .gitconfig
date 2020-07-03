@@ -23,3 +23,5 @@
 	yolo = "git push --force"
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true

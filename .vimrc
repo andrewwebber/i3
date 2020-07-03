@@ -19,7 +19,7 @@ set wildmode=longest,list,full
 if has("macunix") || has('win32')
   set clipboard=unnamed
 else
-  set clipboard=unnamed
+  set clipboard=unnamedplus
 endif
 set cmdheight=2
 set updatetime=300
@@ -53,7 +53,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'kyuhi/vim-emoji-complete'
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'chriskempson/base16-vim'
