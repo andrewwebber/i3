@@ -1,6 +1,9 @@
 #!/usr/bin/bash -ex
+# RUSTFLAGS=-Clinker=musl-gcc
 sudo pacman -S rustup --noconfirm
 rustup toolchain add stable
 rustup toolchain add nightly
+rustup target add x86_64-unknown-linux-musl
 cargo +nightly install racer
 carge install cargo-edit
+cargo install cargo-audit
