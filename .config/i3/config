@@ -24,10 +24,10 @@ font pango:Lexend Deca 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-exec_always --no-startup-id /etc/lightdm/setup-display.sh
-exec_always --no-startup-id /usr/bin/xrandr --auto
-#exec_always --no-startup-id /usr/bin/xrandr --output eDP-1-1 --auto --right-of DP-3 --output HDMI-0 --primary
-exec --no-startup-id /usr/bin/feh --bg-fill ~/projects/i3/austria.jpg
+# exec_always --no-startup-id /etc/lightdm/setup-display.sh
+exec_always --no-startup-id ~/setup-display.sh
+exec_always --no-startup-id /usr/bin/xrandr --output DP-0 --auto --primary
+exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id blueman-tray
@@ -44,7 +44,8 @@ exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec dbus-launch gnome-terminal
+bindsym $mod+Return exec dbus-launch alacritty
+#bindsym $mod+Return exec dbus-launch gnome-terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym Control+$mod+l exec i3lock
 bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun -theme material
@@ -173,10 +174,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -201,6 +202,10 @@ for_window [class="Yad"] floating enable
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    i3bar_command i3bar -t
+    colors {
+        background #00000000
+    }
 	font pango:Lexend Deca, Icons 16
         status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
 	tray_output primary
