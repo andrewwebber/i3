@@ -13,7 +13,7 @@ window:
   #startup_mode: Fullscreen
 
 scrolling:
-  history: 0
+  history: 10000
   multiplier: 3
 
 font:
