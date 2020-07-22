@@ -24,7 +24,6 @@ font pango:Lexend Deca 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# exec_always --no-startup-id /etc/lightdm/setup-display.sh
 exec_always --no-startup-id ~/setup-display.sh
 exec_always --no-startup-id /usr/bin/xrandr --output DP-0 --auto --primary
 exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
