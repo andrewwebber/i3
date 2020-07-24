@@ -1,9 +1,14 @@
 {
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
+    "rust-client.updateOnStartup":true,
+    "rust.racer_completion": true,
+    "rust.clippy_preference":"on",
+    "rust-analyzer.inlayHints.chainingHints":true,
+    "rust-analyzer.inlayHints.refreshOnInsertMode":true,
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
+        }
     }
-  }
 }
