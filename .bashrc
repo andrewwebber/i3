@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH=$PATH:~/.local/bin:/usr/local/go/bin:~/go/bin
+PATH=$PATH:~/.local/bin:/usr/local/go/bin:~/go/bin:~/.cargo/bin
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1

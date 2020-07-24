@@ -131,7 +131,7 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 "nnoremap <Leader>el oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 "nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
-map <C-t> :term<cr>
+map <C-t> :vs \| term<cr>
 map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
@@ -149,6 +149,19 @@ nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+nmap <leader>ac  <Plug>(coc-codeaction)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 nnoremap <leader>cr :CocRestart
 
 if has('nvim')
@@ -253,4 +266,11 @@ inoremap <silent><expr> <TAB>
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
