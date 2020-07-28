@@ -1,0 +1,12 @@
+#!/usr/bin/bash -ex
+
+yay neovim-symlinks
+yay valgrind
+yay bash-it
+yay eslint-react
+yay vimb
+yay es-lint
+yay ddgr-git
+yay wasm-pack
+
+

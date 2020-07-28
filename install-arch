@@ -42,9 +42,5 @@ cd -
 cd ~/projects/i3
 
 ./install-rust
-yay neovim-symlinks
-yay valgrind
-yay bash-it
-yay eslint-react
-yay vimb
-yay es-lint
+./yay-packages
+
