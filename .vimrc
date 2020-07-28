@@ -106,6 +106,7 @@ function! ToggleNERDTree()
   silent NERDTreeMirror
 endfunction
 
+nnoremap ; :
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-l> <Esc>
