@@ -9,3 +9,4 @@ rustup component add rls rust-analysis rust-src
 # cargo +nightly install racer
 cargo install cargo-edit
 cargo install cargo-audit
+cargo install cargo-generate
