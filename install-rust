@@ -3,6 +3,8 @@
 sudo pacman -S rustup --noconfirm
 rustup toolchain add stable
 rustup toolchain add nightly
+rustup target add wasm32-wasi
+rustup target add wasm32-unknown-unknown
 rustup target add x86_64-unknown-linux-musl
 rustup component add rls rust-analysis rust-src
 # cargo +nightly-2020-05-15 install --version 2.1.33 racer
