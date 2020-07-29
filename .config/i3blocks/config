@@ -58,12 +58,12 @@ interval=persist
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=Memory 
 separator=true
 interval=30
 
 [disk]
-label=Storage
+label=Storage 
 separator=true
 interval=30
 #
@@ -79,21 +79,27 @@ interval=30
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-color=#00FF00
-interval=10
-separator=false
-instance=enp4s0
-
-[iface]
-color=#00FF00
-interval=10
-separator=true
-instance=wlp5s0
-
-# Battery indicator
+#[iface]
+#color=#00FF00
+#interval=10
+#separator=false
+#instance=enp0s31f6
 #
-# The battery instance defaults to 0.
+#[iface]
+#color=#00FF00
+#interval=10
+#separator=false
+#instance=enp0s20f0u2u1
+#
+#[iface]
+#color=#00FF00
+#interval=10
+#separator=true
+#instance=wlp0s20f3
+#
+## Battery indicator
+##
+## The battery instance defaults to 0.
 [battery]
 label=BAT
 label=⚡
