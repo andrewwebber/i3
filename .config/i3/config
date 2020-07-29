@@ -69,7 +69,7 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+b exec vimb
+bindsym $mod+b exec vimb google.com
 
 # change focus
 bindsym $mod+h focus left
