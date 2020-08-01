@@ -77,7 +77,7 @@ colors: *xterm
 
 indexed_colors: []
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   color: '0xffffff'
   duration: 0
