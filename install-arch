@@ -41,6 +41,6 @@ cd -
 ( mkdir ~/.config/nvim || true; ln -sf ~/projects/i3/.vimrc ~/.config/nvim/init.vim)
 cd ~/projects/i3
 
-./install-rust
+#./install-rust
 ./yay-packages
 
