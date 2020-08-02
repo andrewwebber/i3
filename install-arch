@@ -42,5 +42,5 @@ cd -
 cd ~/projects/i3
 
 #./install-rust
-./yay-packages
+#./yay-packages
 
