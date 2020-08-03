@@ -73,7 +73,7 @@ schemes:
       cyan:    '#00ffff'
       white:   '#ffffff'
 
-colors: *xterm
+colors: *gruvbox
 
 indexed_colors: []
 
