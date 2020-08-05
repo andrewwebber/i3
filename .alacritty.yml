@@ -91,7 +91,7 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
