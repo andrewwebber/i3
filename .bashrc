@@ -125,6 +125,7 @@ export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/bin/vim'
 export GPG_TTY=$(tty)
 export BROWSER=vimb
+export RUSTC_WRAPPER=sccache
 gpg-connect-agent updatestartuptty /bye >/dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
