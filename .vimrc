@@ -1,4 +1,5 @@
 ""set spell spelllang=en_us
+set inccommand=nosplit
 set relativenumber
 set hidden
 set tabstop=4 softtabstop=4
