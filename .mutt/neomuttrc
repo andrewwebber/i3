@@ -7,7 +7,7 @@
 
 # custom body highlights -----------------------------------------------
 # highlight my name and other personally relevant strings
-color body          color186        default        "(chloe|Chloe|chloé|Chloé|dequeker|Dequeker)"
+color body          color186        default        "(andrew|Andrew|webber|Webber)"
 # custom index highlights ----------------------------------------------
 # messages which mention my name in the body
 #color index         color136        color234        "~b \"phil(_g|\!| gregory| gold)|pgregory\" !~N !~T !~F !~p !~P"
@@ -197,7 +197,7 @@ set signature        = ~/.mutt/sig           # my signature file
 set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
 set timeout = 3          # idle time before scanning
-set mail_check = 0       # minimum time between scans
+set mail_check = 120       # minimum time between scans
 set mail_check_stats
 unset move               # gmail does that
 set delete               # don't ask, just do
@@ -233,10 +233,11 @@ set editor = "vim"
 set charset = "utf-8"
 
 set realname = "Andrew Webber"
-folder-hook 'deepc' 'source ~/.mutt/deepc'
-folder-hook 'personal' 'source ~/.mutt/personal'
+# folder-hook 'deepc' 'source ~/.mutt/deepc'
+# folder-hook 'personal' 'source ~/.mutt/personal'
 
-source ~/.mutt/personal
+# source ~/.mutt/personal
+source ~/.mutt/deepc
 
 set smtp_authenticators = "plain"
 set ssl_starttls = yes

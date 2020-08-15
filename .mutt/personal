@@ -1,7 +1,9 @@
 # vim: filetype=muttrc
+set from = "andrewvwebber@gmail.com"
 set imap_user = "andrewvwebber@gmail.com"
 # Password assigned from decrypted file
 set imap_pass = `pass neomutt/me`
+set imap_check_subscribed
 
 # Specifies the default location of your mailboxes
 # set folder = "imaps://imap.gmail.com:993"
@@ -15,7 +17,7 @@ set smtp_url = "smtp://andrewvwebber@smtp.gmail.com:587/"
 set smtp_pass = `pass neomutt/me`
 
 # Location of inbox
-set spoolfile = "+INBOX"
+set spoolfile = "+[Google Mail]/Important"
 # Location of drafts
 set postponed = "+[Google Mail]/Drafts"
 
@@ -25,4 +27,5 @@ set message_cachedir = "~/.mutt/cache/personal/bodies"
 
 # Disable saving outgoing mail since Gmail saves them by default.
 set record = ""
+
 
