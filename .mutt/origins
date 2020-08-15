@@ -1,0 +1,22 @@
+# vim: filetype=muttrc
+set smtp_authenticators="login"
+set from =  "awebber@originsinfo.eu"
+set imap_user = "awebber@originsinfo.eu"
+set imap_pass = "`pass originsinfo/awebber`"
+set mbox="imap://outlook.office365.com/INBOX"
+set postponed="imap://outlook.office365.com/Drafts"
+set spoolfile="imap://outlook.office365.com/INBOX"
+set folder="imap://outlook.office365.com/"
+set record="imap://outlook.office365.com/Sent Items"   #set trash="imap://outlook.office365.com/Deleted Items"
+mailboxes
+set ssl_use_sslv3=yes
+# Configure Simple Mail Transfer Protocol for sending mail
+# for Gmail
+set smtp_url = "smtp://$imap_user@smtp.office365.com:587/"
+set smtp_pass = "`pass originsinfo/awebber`"
+
+# Location of inbox
+# Location of drafts
+# Activate caching, as it can greatly improve speed
+set header_cache = "~/.mutt/cache/originsinfo/headers"
+set message_cachedir = "~/.mutt/cache/originsinfo/bodies"
