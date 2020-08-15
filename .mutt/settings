@@ -1,5 +1,5 @@
 # vim: filetype=muttrc
-
+set edit_headers=yes
 #
 #
 # make sure that you are using mutt linked against slang, not ncurses, or
@@ -240,6 +240,8 @@ set ssl_force_tls = yes
 
 # Fetch mail shortcut
 bind index G imap-fetch-mail
+bind index g  noop
+bind index gg first-entry
 # macro index gd "<change-folder>$postponed<enter>" "go to drafts"
 # macro index gs "<change-folder>$record<enter>" "go to sent"
 # macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
