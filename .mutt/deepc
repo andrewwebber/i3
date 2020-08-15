@@ -1,0 +1,29 @@
+# vim: filetype=muttrc
+# Set folders
+set imap_user = "andrew@deepc.ai"
+# Password assigned from decrypted file
+set imap_pass = `pass neomutt/deepc`
+
+# Specifies the default location of your mailboxes
+# set folder = "imaps://imap.gmail.com:993"
+set folder = "imaps://$imap_user@imap.gmail.com:993"
+
+# Configure Simple Mail Transfer Protocol for sending mail
+# for Gmail
+set smtp_url = "smtp://andrew@deepc.ai@smtp.gmail.com:587/"
+# for G Suite with own domain
+#set smtp_url = "smtps://yourusername@yourdomain.ext@smtp.gmail.com:587"
+set smtp_pass = `pass neomutt/deepc`
+
+# Location of inbox
+set spoolfile = "+INBOX"
+# Location of drafts
+set postponed = "+[Google Mail]/Drafts"
+
+# Activate caching, as it can greatly improve speed
+set header_cache = "~/.mutt/cache/deepc/headers"
+set message_cachedir = "~/.mutt/cache/deepc/bodies"
+
+# Disable saving outgoing mail since Gmail saves them by default.
+set record = ""
+
