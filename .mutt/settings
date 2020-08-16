@@ -1,4 +1,6 @@
 # vim: filetype=muttrc
+auto_view text/html
+alternative_order text/plain text/enriched text/html
 set edit_headers=yes
 #
 #

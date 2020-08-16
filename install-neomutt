@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-ls .mutt -h | while read r; do ln -sf ~/projects/i3/.mutt/$r ~/.mutt/$r; done;
+ls ~/projects/i3/.mutt -h | while read r; do ln -sf ~/projects/i3/.mutt/$r ~/.mutt/$r; done;
