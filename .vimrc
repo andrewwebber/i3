@@ -34,6 +34,7 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
+Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/goyo.vim'
 Plug 'rbgrouleff/bclose.vim'
