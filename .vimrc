@@ -277,3 +277,37 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+iabbrev :white_check_mark: ✅
+iabbrev :warning: ⚠
+iabbrev :bulb: 💡
+iabbrev :pushpin: 📌
+iabbrev :bomb: 💣
+iabbrev :pill: 💊
+iabbrev :construction: 🚧
+iabbrev :pencil: 📝
+iabbrev :point_right: 👉
+iabbrev :book: 📖
+iabbrev :link: 🔗
+iabbrev :wrench: 🔧
+iabbrev :info: 🛈
+iabbrev :telephone: 📞
+iabbrev :email: 📧
+iabbrev :computer: 💻
+iabbrev :fire: 🔥
+iabbrev :boom: 💥
+iabbrev :heart: ❤
+iabbrev :100: 💯
+iabbrev :shield: 🛡
+iabbrev :config: 🔧
+iabbrev :bug: 👾
+iabbrev :unicorn: 🦄
+iabbrev :sleep: ⏳
+iabbrev :star: ⭐
+iabbrev :spark: ✨
+iabbrev :balloon: 🎈
+iabbrev :robot: 🤖
+iabbrev :seeno: 🙈
+iabbrev :network: 📡
+iabbrev :chart: 📈
+iabbrev :finish: 🏁
+iabbrev :cloud: ☁
