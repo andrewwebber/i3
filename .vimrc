@@ -311,3 +311,6 @@ iabbrev :network: 📡
 iabbrev :chart: 📈
 iabbrev :finish: 🏁
 iabbrev :cloud: ☁
+iabbrev :smile: 😀
+iabbrev :nerd: 🤓
+iabbrev :hug: 🤗
