@@ -256,7 +256,7 @@ let g:racer_cmd = "/home/awebber/.cargo/bin/racer"
 
 let g:rustfmt_autosave = 1
 
-au FileType text,tex,markdown,gitcommit setlocal wrap linebreak nolist spell spelllang=en_us
+au FileType text,tex,markdown,gitcommit,mail setlocal wrap linebreak nolist spell spelllang=en_us
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
@@ -311,6 +311,7 @@ iabbrev :network: 📡
 iabbrev :chart: 📈
 iabbrev :finish: 🏁
 iabbrev :cloud: ☁
+iabbrev :clock: ⏳
 iabbrev :smile: 😀
 iabbrev :nerd: 🤓
 iabbrev :hug: 🤗
