@@ -10,5 +10,7 @@ rustup component add rls rust-analysis rust-src
 # cargo +nightly-2020-05-15 install --version 2.1.33 racer
 # cargo +nightly install racer
 cargo install cargo-edit
-# cargo install cargo-audit
+cargo install cargo-tarpaulin
 cargo install cargo-generate
+cargo install cargo-expand
+cargo install cargo-audit
