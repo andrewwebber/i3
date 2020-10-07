@@ -2,7 +2,7 @@
 set from =  "andrew@deepc.ai"
 set imap_user = "andrew@deepc.ai"
 # Password assigned from decrypted file
-set imap_pass = `pass neomutt/deepc`
+set imap_pass = "`pass neomutt/deepc`"
 set imap_check_subscribed
 
 # Specifies the default location of your mailboxes
