@@ -120,6 +120,7 @@ PATH=$PATH:~/.local/bin:/usr/local/go/bin:~/go/bin:~/.cargo/bin
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
+export BAT_THEME="gruvbox"
 #. /home/awebber/projects/powerline/powerline/bindings/bash/powerline.sh
 export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/bin/vim'

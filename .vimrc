@@ -155,6 +155,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <C-g> :Rg<Cr>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -194,6 +195,15 @@ augroup PrevimSettings
 augroup END
 autocmd FileType markdown nmap <leader>p :PrevimOpen<CR>
 autocmd FileType javascript nmap <leader>p :Prettier<CR>
+
+command! -bang -nargs=* Rg
+        \ call fzf#vim#grep(
+          \ 'rg --column --line-number --hidden --smart-case '
+            \ . '--no-heading --color=always '
+            \ . shellescape(<q-args>),
+          \ 1,
+          \ {'options':  '--delimiter : --nth 4..'},
+          \ 0)
 
 "let g:netrw_browse_split = 2
 "let g:vrfr_rg = 'true'
