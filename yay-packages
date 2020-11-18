@@ -1,12 +1,9 @@
 #!/usr/bin/bash -ex
 
+yay quicktype
 yay ublock
 yay neovim-symlinks
-yay valgrind
 yay bash-it
-yay vimb
-yay ddgr-git
 yay wasm-pack
 yay nerd-fonts-complete
 yay sccache
-

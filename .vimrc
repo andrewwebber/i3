@@ -102,11 +102,11 @@ if executable('rg')
     let g:ctrlp_use_caching = 0
 endif
 
-filetype plugin on
-function! ToggleNERDTree()
-  NERDTreeToggle
-  silent NERDTreeMirror
-endfunction
+" filetype plugin on
+" function! ToggleNERDTree()
+"   NERDTreeToggle
+"   silent NERDTreeMirror
+" endfunction
 
 "nnoremap ; :
 vnoremap J :m '>+1<CR>gv=gv
@@ -114,7 +114,6 @@ vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-l> <Esc>
 inoremap <C-c> <esc>
 nmap <leader><leader> :CocCommand explorer<CR>
-nmap <leader>n :call ToggleNERDTree()<CR>
 nmap <leader>G :Gcommit<CR>
 nmap <leader>g :G<CR>
 nmap <leader>gl :diffget //3<CR>
