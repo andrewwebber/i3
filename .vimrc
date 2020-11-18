@@ -36,17 +36,14 @@ call plug#begin('~/.vim/plugged')
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-commentary'
-Plug 'junegunn/goyo.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-startify'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'towolf/vim-helm'
 Plug 'uarun/vim-protobuf'
 Plug 'vim-python/python-syntax'
 Plug 'gruvbox-community/gruvbox'
-Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
