@@ -1,9 +1,9 @@
 {
-    "rust-client.updateOnStartup":true,
+    "rust-client.updateOnStartup": true,
     "rust.racer_completion": true,
-    "rust.clippy_preference":"on",
-    "rust-analyzer.inlayHints.chainingHints":true,
-    "rust-analyzer.inlayHints.refreshOnInsertMode":true,
+    "rust.clippy_preference": "on",
+    "rust-analyzer.inlayHints.chainingHints": true,
+    "rust-analyzer.inlayHints.refreshOnInsertMode": true,
     "languageserver": {
         "golang": {
             "command": "gopls",
@@ -12,12 +12,7 @@
         },
         "ccls": {
             "command": "ccls",
-            "filetypes": [
-                "c",
-                "cpp",
-                "objc",
-                "objcpp"
-            ],
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
             "rootPatterns": [
                 ".ccls",
                 "compile_commands.json",
@@ -30,6 +25,12 @@
                     "directory": "/tmp/ccls"
                 }
             }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
         }
     }
 }
