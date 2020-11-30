@@ -14,3 +14,4 @@ cargo install cargo-tarpaulin
 cargo install cargo-generate
 cargo install cargo-expand
 cargo install cargo-audit
+cargo install cargo-outdated
