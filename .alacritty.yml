@@ -105,6 +105,6 @@ live_config_reload: true
 debug:
   render_timer: false
   persistent_logging: false
-  log_level: None
+  log_level: OFF
   print_events: false
   ref_test: false
