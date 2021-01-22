@@ -257,6 +257,7 @@ let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
 let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 let g:gitgutter_sign_modified_removed = emoji#for('collision')
+" https://github.com/rust-analyzer/rust-analyzer/releases/tag/2020-10-12
 let g:coc_global_extensions = ['coc-explorer', 'coc-rls', 'coc-rust-analyzer', 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-marketplace']
 let g:racer_cmd = "/home/awebber/.cargo/bin/racer"
 
