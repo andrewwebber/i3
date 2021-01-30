@@ -13,3 +13,4 @@ cargo install cargo-generate
 cargo install cargo-expand
 cargo install cargo-audit --features=fix
 cargo install cargo-outdated
+cargo install wasm-pack
