@@ -1,9 +1,10 @@
 #!/usr/bin/bash -ex
 
+yay obinskit
 yay quicktype
 yay ublock
 yay neovim-symlinks
-yay bash-it
+# yay bash-it
 yay wasm-pack
-yay nerd-fonts-complete
 yay sccache
+yay nerd-fonts-complete
