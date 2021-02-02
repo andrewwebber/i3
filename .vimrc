@@ -34,6 +34,8 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
+Plug 'icatalina/vim-case-change'
+Plug 'shime/vim-livedown'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-commentary'
 Plug 'rbgrouleff/bclose.vim'
@@ -106,6 +108,7 @@ endif
 " endfunction
 
 "nnoremap ; :
+nnoremap <leader>cs <Plug>(changecase-snakecase)
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-l> <Esc>
