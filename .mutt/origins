@@ -18,3 +18,4 @@ set smtp_pass = "`pass originsinfo/awebber`"
 # Activate caching, as it can greatly improve speed
 set header_cache = "~/.mutt/cache/originsinfo/headers"
 set message_cachedir = "~/.mutt/cache/originsinfo/bodies"
+set signature="~/.signature"
