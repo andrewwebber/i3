@@ -1,0 +1,3 @@
+#!/bin/sh -e
+curl -L -o /usr/share/nvim/runtime/spell/de.utf-8.sug http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug
+curl -L -o /usr/share/nvim/runtime/spell/de.utf-8.spl http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl
