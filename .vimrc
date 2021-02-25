@@ -325,3 +325,10 @@ iabbrev :clock: ⏳
 iabbrev :smile: 😀
 iabbrev :nerd: 🤓
 iabbrev :hug: 🤗
+iabbrev :web: 🕸️
+iabbrev :crab: 🦀
+iabbrev :fish: 🐟
+iabbrev :tropic: 🐠
+iabbrev :blowfish: 🐡
+iabbrev :otter: 🦦
+iabbrev :shark: 🦈
