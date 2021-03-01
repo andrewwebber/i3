@@ -70,8 +70,8 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git aws emoji-clock gpg-agent zsh-kubectl-prompt)
-plugins=(git aws emoji-clock gpg-agent)
+plugins=(git aws emoji-clock gpg-agent zsh-kubectl-prompt)
+# plugins=(git aws emoji-clock gpg-agent)
 
 
 # User configuration
@@ -116,20 +116,20 @@ alias mail-deepc='neomutt -F ~/projects/i3/.mutt/neomuttrc_deepc'
 alias mail-gmail='neomutt -F ~/projects/i3/.mutt/neomuttrc_me'
 alias mail-origins='neomutt -F ~/projects/i3/.mutt/neomuttrc_origins'
 
-# function right_prompt() {
-#   local color="blue"
+function right_prompt() {
+  local color="blue"
 
-#   if [[ "$ZSH_KUBECTL_USER" =~ "admin" ]]; then
-#     color=red
-#   fi
+  if [[ "$ZSH_KUBECTL_USER" =~ "admin" ]]; then
+    color=red
+  fi
 
-#   echo "%{$fg[$color]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}"
-# }
-# RPROMPT='$(right_prompt)'
+  echo "%{$fg[$color]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}"
+}
+RPROMPT='$(right_prompt)'
 
 export PATH=/home/awebber/.local/bin:$PATH
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/mcli mc
-source '/opt/kube-ps1/kube-ps1.sh'
-PROMPT='$(kube_ps1)'$PROMPT
+# source '/opt/kube-ps1/kube-ps1.sh'
+# PROMPT='$(kube_ps1)'$PROMPT
