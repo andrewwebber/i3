@@ -63,13 +63,14 @@ DISABLE_AUTO_UPDATE="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.oh-my-zsh/custom/
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# plugins=(git aws emoji-clock gpg-agent zsh-kubectl-prompt)
 plugins=(git aws emoji-clock gpg-agent)
 
 
@@ -115,3 +116,20 @@ alias mail-deepc='neomutt -F ~/projects/i3/.mutt/neomuttrc_deepc'
 alias mail-gmail='neomutt -F ~/projects/i3/.mutt/neomuttrc_me'
 alias mail-origins='neomutt -F ~/projects/i3/.mutt/neomuttrc_origins'
 
+# function right_prompt() {
+#   local color="blue"
+
+#   if [[ "$ZSH_KUBECTL_USER" =~ "admin" ]]; then
+#     color=red
+#   fi
+
+#   echo "%{$fg[$color]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}"
+# }
+# RPROMPT='$(right_prompt)'
+
+export PATH=/home/awebber/.local/bin:$PATH
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mc
+source '/opt/kube-ps1/kube-ps1.sh'
+PROMPT='$(kube_ps1)'$PROMPT
