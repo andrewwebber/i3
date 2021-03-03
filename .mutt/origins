@@ -1,7 +1,7 @@
 # vim: filetype=muttrc
 set smtp_authenticators="login"
-set from =  "awebber@originsinfo.eu"
-set imap_user = "awebber@originsinfo.eu"
+set from =  "awebber@originsinfo.com"
+set imap_user = "awebber@originsinfo.com"
 set imap_pass = "`pass originsinfo/awebber`"
 set imap_check_subscribed
 

@@ -332,3 +332,4 @@ iabbrev :tropic: 🐠
 iabbrev :blowfish: 🐡
 iabbrev :otter: 🦦
 iabbrev :shark: 🦈
+iabbrev :rocket: 🚀

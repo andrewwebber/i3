@@ -133,3 +133,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/mcli mc
 # source '/opt/kube-ps1/kube-ps1.sh'
 # PROMPT='$(kube_ps1)'$PROMPT
+# export RUSTC_WRAPPER=sccache
