@@ -1,6 +1,6 @@
 #!/usr/bin/bash -ex
 #useradd -m -g users -G wheel,storage,power,lp,network,audio,video,optical -s /bin/bash awebber
-sudo pacman -Syu cmake bash-language-server ccls bat jq yq neomutt alacritty musl aspell-uk aspell-de  yubikey-manager yubico-pam networkmanager-openvpn openvpn freerdp neovim ripgrep peek simple-scan htop curl wget git vim i3 sway i3blocks i3lock feh evince nemo file-roller networkmanager gthumb pulseaudio blueman pulseaudio-bluetooth arandr xfce4-power-manager pavucontrol compton pasystray rofi nodejs npm yarn ttf-font-awesome docker python-pip cups ca-certificates lxappearance gtk-chtheme cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2 vlc chromium i3-gaps ttf-font-awesome awesome-terminal-fonts otf-font-awesome adobe-source-code-pro-fonts jsoncpp jgmenu dmenu rofi conky nitrogen dunst compton mate-power-manager adapta-gtk-theme papirus-icon-theme capitaine-cursors xorg xorg-xinit xorg-server networkmanager-openconnect bash-completion acpi tk go ebtables dnsmasq x11-ssh-askpass openssh dunst bridge-utils xfce4-notifyd pass neovim bluez bluez-utils ttf-fira-code extra/noto-fonts extra/noto-fonts-emoji w3m hplip aspell-en
+sudo pacman -Syu zsh cmake bash-language-server ccls bat jq yq neomutt alacritty musl aspell-uk aspell-de  yubikey-manager yubico-pam networkmanager-openvpn openvpn freerdp neovim ripgrep peek simple-scan htop curl wget git vim i3 sway i3blocks i3lock feh evince nemo file-roller networkmanager gthumb pulseaudio blueman pulseaudio-bluetooth arandr xfce4-power-manager pavucontrol compton pasystray rofi nodejs npm yarn ttf-font-awesome docker python-pip cups ca-certificates lxappearance gtk-chtheme cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2 vlc chromium i3-gaps ttf-font-awesome awesome-terminal-fonts otf-font-awesome adobe-source-code-pro-fonts jsoncpp jgmenu dmenu rofi conky nitrogen dunst compton mate-power-manager adapta-gtk-theme papirus-icon-theme capitaine-cursors xorg xorg-xinit xorg-server networkmanager-openconnect bash-completion acpi tk go ebtables dnsmasq x11-ssh-askpass openssh dunst bridge-utils xfce4-notifyd pass neovim bluez bluez-utils ttf-fira-code extra/noto-fonts extra/noto-fonts-emoji w3m hplip aspell-en
 fc-cache -f -v
 # sudo systemctl disable gdm
 # sudo cp ./custom.conf /etc/gdm/custom.conf
@@ -30,8 +30,9 @@ cd -
 cd ~/projects/i3
 
 mkdir -p ~/.oh-my-zsh/custom
-git clone git@github.com:superbrothers/zsh-kubectl-prompt.git ~/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt
+git clone https://github.com/superbrothers/zsh-kubectl-prompt ~/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt
 
 ./install-rust
 ./yay-packages
+chsh -s /usr/bin/zsh
 
