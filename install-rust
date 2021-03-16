@@ -14,3 +14,5 @@ cargo install cargo-expand
 cargo install cargo-audit --features=fix
 cargo install cargo-outdated
 cargo install wasm-pack
+mkdir -p ~/.local/bin || true
+ln -s /bin/g++ ~/.local/bin/musl-g++
