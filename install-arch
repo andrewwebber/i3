@@ -32,7 +32,6 @@ cd ~/projects/i3
 mkdir -p ~/.oh-my-zsh/custom
 git clone https://github.com/superbrothers/zsh-kubectl-prompt ~/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt
 
-./install-rust
-./yay-packages
 chsh -s /usr/bin/zsh
-
+./yay-packages
+# ./install-rust
