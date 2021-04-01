@@ -71,7 +71,7 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws emoji-clock gpg-agent zsh-kubectl-prompt npm kubectl helm)
+plugins=(git aws gcloud emoji-clock gpg-agent zsh-kubectl-prompt npm kubectl helm cargo docker rustup)
 # plugins=(git aws emoji-clock gpg-agent)
 
 
