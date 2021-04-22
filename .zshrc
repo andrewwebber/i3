@@ -131,7 +131,10 @@ RPROMPT='$(right_prompt)'
 export PATH=/home/awebber/.local/bin:$PATH
 
 # source <(kubectl completion zsh)
+fpath=($fpath ~/.zsh/completion)
 autoload -U +X bashcompinit && bashcompinit
+autoload -U compinit
+compinit
 complete -o nospace -C /usr/bin/mcli mc
 # source '/opt/kube-ps1/kube-ps1.sh'
 # PROMPT='$(kube_ps1)'$PROMPT
