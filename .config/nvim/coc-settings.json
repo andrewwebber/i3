@@ -1,5 +1,5 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["css", "java"],
+    "coc.preferences.formatOnSaveFiletypes": ["css", "java", "javascript", "javascriptreact", "json", "graphql"],
     "java.format.enabled": true,
     "rust-client.updateOnStartup": true,
     "rust.racer_completion": true,
