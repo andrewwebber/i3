@@ -12,6 +12,6 @@ cargo install cargo-tarpaulin
 cargo install cargo-expand
 cargo install cargo-audit --features=fix
 cargo install cargo-kcov
-# cargo install wasm-pack
+cargo install wasm-pack
 mkdir -p ~/.local/bin || true
 ln -s /bin/g++ ~/.local/bin/musl-g++

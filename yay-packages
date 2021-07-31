@@ -5,8 +5,4 @@ yay obinskit
 yay quicktype
 yay ublock
 yay neovim-symlinks
-# yay bash-it
-yay wasm-pack
-yay sccache
-yay bash-language-server
 yay nerd-fonts-complete
