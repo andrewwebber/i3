@@ -100,10 +100,11 @@ interval=30
 ## Battery indicator
 ##
 ## The battery instance defaults to 0.
-[battery]
-label=BAT
-label=⚡
-interval=30
+# [battery]
+# label=BAT
+# label=⚡
+# interval=30
+
 
 [monitors]
 command=$SCRIPT_DIR/monitor_manager
@@ -115,6 +116,12 @@ interval=once
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
 
+# Agenda
+#
+[gcal]
+command=~/.config/i3blocks/gcal/gcal
+# command=$SCRIPT_DIR/gcal/gcal
+interval=5
 
 
 # Generic media player support
