@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "📆 `/usr/bin/gcalcli --conky --nocolor --calenda "andrew@deepc.ai" agenda | head -2 | tail -1 | awk '{$1=""; print $0}'`"
+echo "📆 `/usr/bin/gcalcli --conky --nocolor --calenda "andrew@deepc.ai" agenda --nostarted | head -2 | tail -1 | awk '{$1=""; print $0}'`"
