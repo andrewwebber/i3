@@ -35,5 +35,5 @@ set message_cachedir = "~/.mutt/cache/deepc/bodies"
 
 # Disable saving outgoing mail since Gmail saves them by default.
 set record = ""
-set signature="~/.signature"
+set signature="~/projects/i3/.mutt/signature_deepc"
 
