@@ -116,7 +116,8 @@ alias cpv='rsync -ah --info=progress2'
 alias mail-deepc='neomutt -F ~/projects/i3/.mutt/neomuttrc_deepc'
 alias mail-gmail='neomutt -F ~/projects/i3/.mutt/neomuttrc_me'
 alias mail-origins='neomutt -F ~/projects/i3/.mutt/neomuttrc_origins'
-alias agenda='gcalcli agenda'
+alias gcal='gcalcli agenda --nostarted'
+alias gcal-links='gcalcli agenda --nostarted --detail url'
 alias '?'='cd `find * -type d | fzf `'
 
 function right_prompt() {
