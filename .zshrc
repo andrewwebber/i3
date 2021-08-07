@@ -118,7 +118,7 @@ alias mail-gmail='neomutt -F ~/projects/i3/.mutt/neomuttrc_me'
 alias mail-origins='neomutt -F ~/projects/i3/.mutt/neomuttrc_origins'
 alias gcal='gcalcli agenda --nostarted'
 alias gcal-links='gcalcli agenda --nostarted --detail url'
-alias '?'='cd `find * -type d | grep -v 'go/pkg' | grep 'projects' | fzf `'
+alias '?'='cd `find * -type d |  grep 'projects' |grep -v 'go/pkg' |grep -v '.git' | fzf `'
 
 function right_prompt() {
   local color="blue"
