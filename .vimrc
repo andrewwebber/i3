@@ -210,8 +210,6 @@ command! -bang -nargs=* Rg
 "let g:netrw_banner = 0
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:pymode_python = 'python3'
-let g:NERDTreeHijackNetrw = 0
-let g:ranger_replace_netrw = 0
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
@@ -235,10 +233,6 @@ let g:molokai_original = 1
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|svn))$'
 let g:airline#extensions#ale#enabled = 0
 let g:airline_powerline_fonts = 1
-" C#
-let g:OmniSharp_highlight_types = 1
-let g:OmniSharp_proc_debug = 1
-let g:OmniSharp_loglevel = 'debug'
 let g:lightline = {}
 
 let g:lightline.component_expand = {
@@ -254,13 +248,10 @@ let g:lightline.component_type = {
       \     'linter_ok': 'left',
       \ }
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
 let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
 let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 let g:gitgutter_sign_modified_removed = emoji#for('collision')
-" https://github.com/rust-analyzer/rust-analyzer/releases/tag/2020-10-12
 let g:coc_global_extensions = [ 'coc-spell-checker', 'coc-explorer', 'coc-rust-analyzer', 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-marketplace', 'coc-docker', 'coc-toml', 'coc-webpack', 'coc-tailwindcss', 'coc-sql', 'coc-python', 'coc-markdownlint', 'coc-go', 'coc-ccls']
 let g:racer_cmd = "/home/awebber/.cargo/bin/racer"
 
@@ -286,6 +277,20 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+
+hi Normal guibg=NONE ctermbg=NONE
+let t:is_transparent = 1
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_tranparent = 0
+    endif
+endfunction
+nnoremap <C-tr> : call Toggle_transparent()<CR>
 
 iabbrev :white_check_mark: ✅
 iabbrev :warning: ⚠
