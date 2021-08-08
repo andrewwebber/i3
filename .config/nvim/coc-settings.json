@@ -1,4 +1,19 @@
 {
+  "cSpell.enabledLanguageIds": [
+    "go",
+    "rust",
+    "sql",
+    "tml",
+    "toml",
+    "yaml",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "plaintext",
+    "typescript",
+    "typescriptreact",
+    "yml"
+  ],
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "java",
