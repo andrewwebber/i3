@@ -1,5 +1,6 @@
 #!/usr/bin/bash -ex
 
+yay pulseaudio-ctl
 yay oh-my-zsh-git
 yay obinskit
 yay quicktype
