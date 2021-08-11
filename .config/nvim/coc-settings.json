@@ -23,6 +23,7 @@
     "graphql"
   ],
   "java.format.enabled": true,
+  "rust-analyzer.cargo.allFeatures": true,
   "rust-client.updateOnStartup": true,
   "rust.racer_completion": true,
   "rust.clippy_preference": "on",
