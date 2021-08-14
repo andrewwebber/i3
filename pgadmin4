@@ -1,0 +1,5 @@
+#!/bin/sh
+docker run -p 80:80 \ 
+    -e 'PGADMIN_DEFAULT_EMAIL=admin@admin.admin' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=admin' \
+    -e 'PGADMIN_LISTEN_PORT=8888' -it --network=host dpage/pgadmin4
