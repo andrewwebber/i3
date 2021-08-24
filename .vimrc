@@ -186,7 +186,7 @@ autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
 " autocmd FileType rust nmap gs <Plug>(rust-def-split)
 " autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-autocmd FileType rust nmap gb :Cbuild<CR>
+autocmd FileType rust nmap gb :Ccheck<CR>
 autocmd FileType rust nmap <leader>t :RustTest<CR>
 autocmd FileType rust nmap <leader>T :Ctest<CR>
 augroup PrevimSettings
@@ -252,7 +252,8 @@ let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
 let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 let g:gitgutter_sign_modified_removed = emoji#for('collision')
-let g:coc_global_extensions = [  'coc-explorer', 'coc-rust-analyzer', 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-marketplace', 'coc-docker', 'coc-toml', 'coc-webpack', 'coc-tailwindcss', 'coc-sql', 'coc-python', 'coc-markdownlint', 'coc-go', 'coc-ccls']
+" let g:coc_global_extensions = [  'coc-explorer', 'coc-rust-analyzer', 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-marketplace', 'coc-docker', 'coc-toml', 'coc-webpack', 'coc-tailwindcss', 'coc-sql', 'coc-python', 'coc-markdownlint', 'coc-go', 'coc-ccls']
+let g:coc_global_extensions = [  'coc-explorer', 'coc-rust-analyzer', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-yaml', 'coc-marketplace', 'coc-toml', 'coc-markdownlint']
 let g:racer_cmd = "/home/awebber/.cargo/bin/racer"
 
 let g:rustfmt_autosave = 1
