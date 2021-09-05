@@ -1,4 +1,3 @@
-""set spell spelllang=en_us
 set inccommand=nosplit
 set relativenumber
 set hidden
@@ -27,67 +26,167 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 set laststatus=2
-set signcolumn=yes
 
-" set completeopt+=noinsert
-"set completeopt=menu,menuone,preview,noselect,noinsert
+" Better completion
+set completeopt=menuone,noinsert,noselect
+" Better display for messages
+set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
 call plug#begin('~/.vim/plugged')
 
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --rust-completer --go-completer' }
 Plug 'icatalina/vim-case-change'
-Plug 'shime/vim-livedown'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-commentary'
-Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-startify'
-Plug 'sheerun/vim-polyglot'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'towolf/vim-helm'
-Plug 'uarun/vim-protobuf'
-Plug 'vim-python/python-syntax'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-Plug 'mustache/vim-mustache-handlebars'
+" Plug 'mustache/vim-mustache-handlebars'
 Plug 'kyuhi/vim-emoji-complete'
-"Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
+
 Plug 'chriskempson/base16-vim'
-Plug 'fatih/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
-Plug 'stephpy/vim-yaml'
-Plug 'pangloss/vim-javascript'
+" Plug 'itchyny/lightline.vim'
 Plug 'junegunn/gv.vim'
-Plug 'elzr/vim-json'
-Plug 'mxw/vim-jsx'
+
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ap/vim-css-color'
-Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-unimpaired'
 Plug 'previm/previm'
 Plug 'tyru/open-browser.vim'
-Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-dispatch'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
-Plug 'godlygeek/tabular'
+
 Plug 'plasticboy/vim-markdown'
-"Plug 'scrooloose/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
+"
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+
+"
+" Semantic language support
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'nvim-lua/completion-nvim'
+
+" Syntactic language support
+Plug 'elzr/vim-json'
+Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
+Plug 'rust-lang/rust.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+"
+"Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
 
 call plug#end()
 
+" Lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileencoding', 'filetype' ] ],
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
+
+" LSP configuration
+lua << END
+local lspconfig = require('lspconfig')
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+  -- Forward to other plugins
+  require'completion'.on_attach(client)
+end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false,
+    signs = true,
+    update_in_insert = true,
+  }
+)
+
+lspconfig.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            lens = {
+                enable = false
+            },
+            checkOnSave = {
+                command = "clippy"
+            },
+            inlayHints = {
+                chainingHints =  true,
+                refreshOnInsertMode = true
+            },
+            assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
+END
+
+" Show diagnostic popup on cursor hold
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 colorscheme gruvbox
 set background=dark
@@ -99,15 +198,18 @@ if executable('rg')
     set grepprg=rg\ --color=never
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
     let g:ctrlp_use_caching = 0
+    set grepprg=rg\ --no-heading\ --vimgrep
+	set grepformat=%f:%l:%c:%m
 endif
 
-" filetype plugin on
-" function! ToggleNERDTree()
-"   NERDTreeToggle
-"   silent NERDTreeMirror
-" endfunction
+" Open hotkeys
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
 
-"nnoremap ; :
+" Quick-save
+nmap <leader>w :w<CR>
+
+nnoremap ; :
 nnoremap <leader>cs <Plug>(changecase-snakecase)
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -131,41 +233,17 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
-"nnoremap <Leader>el oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-"nnoremap <Leader>er oif err != nil {<CR>return nil, err<CR>}<CR><esc>kkI<esc>
 map <C-t> :vs \| term<cr>
 map <C-s> :w<cr>
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-h> :tabp<cr>
-"map <C-l> :tabn<cr>
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>g[ <Plug>(coc-diagnostic-prev)
-nmap <leader>g] <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
-nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-nmap <leader>ac  <Plug>(coc-codeaction)
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" map <C-n> :cnext<CR>
+nnoremap <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <C-m> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+" map <C-m> :cprevious<CR>
+" nnoremap <leader>a :cclose<CR>
 nnoremap <silent> <C-g> :Rg<Cr>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nnoremap <leader>cr :CocRestart
 
 if has('nvim')
     autocmd TermOpen term://* startinsert
@@ -182,9 +260,6 @@ autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
-" autocmd FileType rust nmap gd <Plug>(rust-def)
-" autocmd FileType rust nmap gs <Plug>(rust-def-split)
-" autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
 autocmd FileType rust nmap gb :Ccheck<CR>
 autocmd FileType rust nmap <leader>t :RustTest<CR>
@@ -208,7 +283,6 @@ command! -bang -nargs=* Rg
 "let g:netrw_browse_split = 2
 "let g:vrfr_rg = 'true'
 "let g:netrw_banner = 0
-let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:pymode_python = 'python3'
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
@@ -229,10 +303,7 @@ let g:go_auto_type_info = 1
 let g:go_auto_sameids = 0
 let g:go_def_mode='gopls'
 let g:rehash256 = 1
-let g:molokai_original = 1
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|svn))$'
-let g:airline#extensions#ale#enabled = 0
-let g:airline_powerline_fonts = 1
 let g:lightline = {}
 
 let g:lightline.component_expand = {
@@ -252,46 +323,43 @@ let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
 let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 let g:gitgutter_sign_modified_removed = emoji#for('collision')
-" let g:coc_global_extensions = [  'coc-explorer', 'coc-rust-analyzer', 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-marketplace', 'coc-docker', 'coc-toml', 'coc-webpack', 'coc-tailwindcss', 'coc-sql', 'coc-python', 'coc-markdownlint', 'coc-go', 'coc-ccls']
-let g:coc_global_extensions = [  'coc-explorer', 'coc-rust-analyzer', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-yaml', 'coc-marketplace', 'coc-toml', 'coc-markdownlint']
-let g:racer_cmd = "/home/awebber/.cargo/bin/racer"
 
+" Rust
 let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
+
+" Decent wildmenu
+set wildmenu
+set wildmode=list:longest
+set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 au FileType text,tex,markdown,gitcommit,mail setlocal wrap linebreak nolist spell spelllang=en_us
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" Settings needed for .lvimrc
+set exrc
+set secure
 
-"Close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" Proper search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
 
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" Show those damn hidden characters
+" Verbose: set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
+" Enable type inlay hints
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs
+\ lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
 
-hi Normal guibg=NONE ctermbg=NONE
-let t:is_transparent = 1
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_tranparent = 0
-    endif
-endfunction
-nnoremap <C-tr> : call Toggle_transparent()<CR>
+" autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
+
+" I can type :help on my own, thanks.
+map <F1> <Esc>
+imap <F1> <Esc>
 
 iabbrev :white_check_mark: ✅
 iabbrev :warning: ⚠
