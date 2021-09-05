@@ -1,0 +1,2 @@
+#!/bin/bash
+./oauth2.py --user=$1 --client_id 536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com --client_secret `pass console.google.com/credentials/neomutt/536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com` --generate_oauth2_token
