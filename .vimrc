@@ -21,7 +21,6 @@ if has("macunix") || has('win32')
 else
   set clipboard=unnamedplus
 endif
-set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
@@ -36,41 +35,31 @@ set updatetime=300
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'icatalina/vim-case-change'
-Plug 'neomutt/neomutt.vim'
-Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-startify'
-Plug 'towolf/vim-helm'
+Plug 'icatalina/vim-case-change'
+Plug 'tpope/vim-commentary'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-" Plug 'mustache/vim-mustache-handlebars'
 Plug 'kyuhi/vim-emoji-complete'
-
-Plug 'chriskempson/base16-vim'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'chriskempson/base16-vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
-" Plug 'itchyny/lightline.vim'
 Plug 'junegunn/gv.vim'
-
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ap/vim-css-color'
-" Plug 'tpope/vim-unimpaired'
 Plug 'previm/previm'
 Plug 'tyru/open-browser.vim'
 Plug 'tpope/vim-dispatch'
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
 
-Plug 'plasticboy/vim-markdown'
-" Plug 'nathanaelkane/vim-indent-guides'
 "
 " Completion framework
 Plug 'hrsh7th/nvim-cmp'
@@ -99,32 +88,16 @@ Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
-"
+Plug 'plasticboy/vim-markdown'
+Plug 'neomutt/neomutt.vim'
+Plug 'towolf/vim-helm'
 "Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
 
 call plug#end()
 
-" Lightline
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileencoding', 'filetype' ] ],
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename'
-      \ },
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
-
 " LSP configuration
 lua << END
 local lspconfig = require('lspconfig')
-
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -212,25 +185,15 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-
-" autocmd BufEnter * lua require'completion'.on_attach()
-
-" let g:completion_enable_auto_popup = 1
-
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Show diagnostic popup on cursor hold
-" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 colorscheme gruvbox
 set background=dark
-
+let g:gruvbox_transparent_bg=1
+let t:isTransparent = 1
 
 let mapleader = " "
 if executable('rg')
@@ -301,7 +264,7 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-autocmd FileType rust nmap gb :Ccheck<CR>
+autocmd FileType rust nmap gb :Cargo clippy --tests -- -Dwarnings<CR>
 autocmd FileType rust nmap <leader>t :RustTest<CR>
 autocmd FileType rust nmap <leader>T :Ctest<CR>
 augroup PrevimSettings
