@@ -190,7 +190,7 @@ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-colorscheme gruvbox
+" colorscheme gruvbox
 set background=dark
 let g:gruvbox_transparent_bg=1
 let t:isTransparent = 1
@@ -283,9 +283,11 @@ command! -bang -nargs=* Rg
           \ {'options':  '--delimiter : --nth 4..'},
           \ 0)
 
-"let g:netrw_browse_split = 2
-"let g:vrfr_rg = 'true'
-"let g:netrw_banner = 0
+let g:netrw_winsize = 75
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:vrfr_rg = 'true'
+let g:netrw_banner = 0
 let g:pymode_python = 'python3'
 let g:GPGPreferArmor=1
 let g:vim_markdown_folding_disabled = 1
