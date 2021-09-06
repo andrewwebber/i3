@@ -190,7 +190,7 @@ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-" colorscheme gruvbox
+colorscheme gruvbox
 set background=dark
 let g:gruvbox_transparent_bg=1
 let t:isTransparent = 1
