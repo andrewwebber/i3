@@ -213,6 +213,7 @@ nmap <leader>; :Buffers<CR>
 nmap <leader>w :w<CR>
 
 nnoremap ; :
+nmap <leader>pp <c-^><cr>
 nnoremap <leader>cs <Plug>(changecase-snakecase)
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
