@@ -1,0 +1,2 @@
+#!/bin/sh
+./projects/i3/oauth2.py --generate_oauth2_token --client_id=536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com --client_secret=`pass console.google.com/credentials/neomutt/536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com`

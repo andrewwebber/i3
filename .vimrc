@@ -59,6 +59,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
+Plug 'preservim/nerdtree'
 
 "
 " Completion framework
@@ -189,6 +190,7 @@ nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <leader><leader> :NERDTreeToggle<CR>
 
 colorscheme gruvbox
 set background=dark
@@ -219,7 +221,6 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-l> <Esc>
 inoremap <C-c> <esc>
-nmap <leader><leader> :CocCommand explorer<CR>
 nmap <leader>G :Gcommit<CR>
 nmap <leader>g :G<CR>
 nmap <leader>gl :diffget //3<CR>
