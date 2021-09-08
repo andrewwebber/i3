@@ -35,7 +35,8 @@ set updatetime=300
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'mhinz/vim-startify'
+Plug 'preservim/nerdtree'
+" Plug 'mhinz/vim-startify'
 Plug 'icatalina/vim-case-change'
 Plug 'tpope/vim-commentary'
 Plug 'gruvbox-community/gruvbox'
@@ -108,6 +109,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+lspconfig.pyright.setup{}
+lspconfig.pylsp.setup{}
+lspconfig.bashls.setup{}
 lspconfig.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
@@ -221,6 +225,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-l> <Esc>
 inoremap <C-c> <esc>
+nmap <leader><leader> :NERDTreeToggle<CR>
 nmap <leader>G :Gcommit<CR>
 nmap <leader>g :G<CR>
 nmap <leader>gl :diffget //3<CR>
