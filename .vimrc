@@ -109,6 +109,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+lspconfig.tsserver.setup{}
 lspconfig.pyright.setup{}
 lspconfig.pylsp.setup{}
 lspconfig.bashls.setup{}
