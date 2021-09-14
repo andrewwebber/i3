@@ -35,7 +35,7 @@ set updatetime=300
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 " Plug 'mhinz/vim-startify'
 Plug 'icatalina/vim-case-change'
 Plug 'tpope/vim-commentary'
@@ -291,7 +291,7 @@ command! -bang -nargs=* Rg
           \ {'options':  '--delimiter : --nth 4..'},
           \ 0)
 
-let g:netrw_winsize = 75
+let g:netrw_winsize = 30
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
