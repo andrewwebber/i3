@@ -35,7 +35,7 @@ set updatetime=300
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 " Plug 'mhinz/vim-startify'
 Plug 'icatalina/vim-case-change'
 Plug 'tpope/vim-commentary'
