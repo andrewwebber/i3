@@ -121,6 +121,7 @@ lspconfig.rust_analyzer.setup({
                 enable = false
             },
             checkOnSave = {
+                allFeatures = true,
                 command = "clippy"
             },
             inlayHints = {
@@ -272,7 +273,7 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-autocmd FileType rust nmap gb :Cargo clippy --tests -- -Dwarnings<CR>
+autocmd FileType rust nmap gb :Cargo clippy --all-features --tests -- -Dwarnings<CR>
 autocmd FileType rust nmap <leader>t :RustTest<CR>
 autocmd FileType rust nmap <leader>T :Ctest<CR>
 augroup PrevimSettings
