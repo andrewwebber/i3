@@ -3,16 +3,16 @@
 sudo pacman -S rustup --noconfirm
 rustup toolchain add stable
 rustup toolchain add nightly
-rustup target add wasm32-wasi
-rustup target add wasm32-unknown-unknown
-rustup target add x86_64-unknown-linux-musl
+for target in "wasm32-wasi" "wasm32-unknown-unknown" "x86_64-unknown-linux-musl" "aarch64-unknown-linux-gnu" "aarch64-unknown-linux-musl";
+do
+    rustup target add $target;
+done;
 rustup component add rls rust-analysis rust-src clippy
 sudo pacman -S rust-analyzer --noconfirm
 cargo install cargo-edit
 cargo install cargo-tarpaulin
 cargo install cargo-expand
 cargo install cargo-audit --features=fix
-cargo install cargo-kcov
 cargo install wasm-pack
 mkdir -p ~/.local/bin || true
 ln -s /bin/g++ ~/.local/bin/musl-g++
