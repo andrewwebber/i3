@@ -93,7 +93,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'neomutt/neomutt.vim'
 Plug 'towolf/vim-helm'
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
 Plug 'chrisbra/csv.vim'
 
 call plug#end()
