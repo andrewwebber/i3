@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 mkdir ~/.mutt || true
 ls ~/projects/i3/.mutt -h | while read r; do ln -sf ~/projects/i3/.mutt/$r ~/.mutt/$r; done;
-mkdir ~/.mutt/cache/{personal,deepc}/{headers,bodies}
+mkdir ~/.mutt/cache/{personal,deepc,originsinfo}/{headers,bodies}
