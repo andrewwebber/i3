@@ -422,3 +422,5 @@ iabbrev :blowfish: 🐡
 iabbrev :otter: 🦦
 iabbrev :shark: 🦈
 iabbrev :rocket: 🚀
+iabbrev :peng: 🐧
+iabbrev :package: 📦
