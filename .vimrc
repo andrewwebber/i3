@@ -400,6 +400,7 @@ iabbrev :shield: 🛡
 iabbrev :config: 🔧
 iabbrev :bug: 👾
 iabbrev :unicorn: 🦄
+iabbrev :cal: 📅
 iabbrev :sleep: ⏳
 iabbrev :star: ⭐
 iabbrev :spark: ✨
@@ -426,3 +427,7 @@ iabbrev :peng: 🐧
 iabbrev :package: 📦
 iabbrev :toolbox: 🧰
 iabbrev :hammer: 🛠️
+iabbrev :ice: 🧊
+iabbrev :air: 💨
+iabbrev :ailabs: 🤖
+iabbrev :design: 💘
