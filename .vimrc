@@ -424,3 +424,5 @@ iabbrev :shark: 🦈
 iabbrev :rocket: 🚀
 iabbrev :peng: 🐧
 iabbrev :package: 📦
+iabbrev :toolbox: 🧰
+iabbrev :hammer: 🛠️
