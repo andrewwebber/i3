@@ -431,3 +431,4 @@ iabbrev :ice: 🧊
 iabbrev :air: 💨
 iabbrev :ailabs: 🤖
 iabbrev :design: 💘
+iabbrev :aim: 🎯
