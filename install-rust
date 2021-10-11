@@ -3,7 +3,7 @@
 sudo pacman -S rustup --noconfirm
 rustup toolchain add stable
 rustup toolchain add nightly
-for target in "wasm32-wasi" "wasm32-unknown-unknown" "x86_64-unknown-linux-musl" "aarch64-unknown-linux-gnu" "aarch64-unknown-linux-musl" "aarch64-unknown-linux-gnu" "aarch64-unknown-linux-musl";
+for target in "wasm32-wasi" "wasm32-unknown-unknown" "x86_64-unknown-linux-musl" "aarch64-unknown-linux-gnu" "aarch64-unknown-linux-musl";
 do
     rustup target add $target;
 done;
