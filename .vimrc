@@ -199,6 +199,9 @@ nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader><leader> :NERDTreeToggle<CR>
 
+nnoremap <silent> gn :cn<CR>
+nnoremap <silent> gm :cp<CR>
+
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_transparent_bg=1
