@@ -435,3 +435,4 @@ iabbrev :air: 💨
 iabbrev :ailabs: 🤖
 iabbrev :design: 💘
 iabbrev :aim: 🎯
+iabbrev :gate: 🌉
