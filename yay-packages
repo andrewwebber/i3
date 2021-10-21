@@ -3,10 +3,8 @@
 yay pulseaudio-ctl
 yay oh-my-zsh-git
 yay obinskit
-yay quicktype
 yay ublock
 yay neovim-symlinks
 yay gcalcli
-yay fzf
-yay typescript-language-server
+yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<< 1
 yay nerd-fonts-complete

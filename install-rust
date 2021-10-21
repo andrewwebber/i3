@@ -14,7 +14,8 @@ cargo install cargo-tarpaulin
 cargo install cargo-expand
 cargo install cargo-audit --features=fix
 cargo install wasm-pack
-mkdir -p ~/.local/bin || true
+cargo install flamegraph
+
 ln -s /bin/g++ ~/.local/bin/musl-g++
 cat << EOF > ~/.cargo/config
 [target.aarch64-unknown-linux-gnu]
