@@ -1,10 +1,13 @@
 #!/usr/bin/bash -ex
 
 yay pulseaudio-ctl
-yay oh-my-zsh-git
+yay --nouseask --nocleanmenu --nodiffmenu oh-my-zsh-git <<< 1
 yay obinskit
 yay ublock
-yay neovim-symlinks
-yay gcalcli
+yay -R --useask --nocleanmenu --nodiffmenu vim <<< y
+yay --nouseask --nocleanmenu --nodiffmenu neovim-symlinks <<< 1
+yay --nouseask --nocleanmenu --nodiffmenu eksctl <<< 1
+yay --nouseask --nocleanmenu --nodiffmenu rancher-k3d-bin <<< 1
+yay --nouseask --nocleanmenu --nodiffmenu gcalcli <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<< 1
 yay nerd-fonts-complete
