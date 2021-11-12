@@ -131,7 +131,7 @@ function right_prompt() {
 }
 RPROMPT='$(right_prompt)'
 
-export PATH=/home/awebber/.local/bin:$PATH
+export PATH=/home/awebber/.local/bin:/home/awebber/.cargo/bin:$PATH
 
 # source <(kubectl completion zsh)
 fpath=($fpath ~/.zsh/completion)
