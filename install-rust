@@ -15,9 +15,19 @@ cargo install cargo-expand
 cargo install cargo-audit --features=fix
 cargo install wasm-pack
 cargo install flamegraph
+cargo install sccache
 
 ln -s /bin/g++ ~/.local/bin/musl-g++
+SCCACHE=`echo $HOME/.cargo/bin/sccache`
 cat << EOF > ~/.cargo/config
+[build]
+rustc-wrapper = "$SCCACHE"
+
+[target.x86_64-unknown-linux-gnu]
+rustflags = [
+    "-C", "link-arg=-fuse-ld=lld",
+]
+
 [target.aarch64-unknown-linux-gnu]
 linker = "aarch64-linux-gnu-gcc"
 
