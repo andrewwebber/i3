@@ -133,6 +133,8 @@ RPROMPT='$(right_prompt)'
 
 export PATH=/home/awebber/.local/bin:/home/awebber/.cargo/bin:$PATH
 
+export MAKEFLAGS='-j 8'
+
 # source <(kubectl completion zsh)
 fpath=($fpath ~/.zsh/completion)
 autoload -U +X bashcompinit && bashcompinit
