@@ -122,7 +122,8 @@ lspconfig.rust_analyzer.setup({
                 enable = false
             },
             checkOnSave = {
-                allFeatures = true,
+                enable = false,
+                allFeatures = false,
                 command = "clippy"
             },
             inlayHints = {
@@ -134,7 +135,7 @@ lspconfig.rust_analyzer.setup({
                 importPrefix = "by_self",
             },
             cargo = {
-                allFeatures = true,
+                allFeatures = false,
                 loadOutDirsFromCheck = true
             },
             procMacro = {
@@ -194,7 +195,7 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
+" autocmd CursorHold * lua vim.diagnostic.show_line_diagnostics({focusable = false})
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader><leader> :NERDTreeToggle<CR>
@@ -277,7 +278,7 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
 autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
-autocmd FileType rust nmap gb :Cargo clippy --all-features --tests -- -Dwarnings<CR>
+autocmd FileType rust nmap gb :Cargo clippy --tests -- -Dwarnings<CR>
 autocmd FileType rust nmap <leader>t :RustTest<CR>
 autocmd FileType rust nmap <leader>T :Ctest<CR>
 augroup PrevimSettings
