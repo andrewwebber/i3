@@ -127,8 +127,7 @@ lspconfig.rust_analyzer.setup({
                 command = "clippy"
             },
             inlayHints = {
-                chainingHints =  true,
-                refreshOnInsertMode = true
+                chainingHints =  true
             },
             assist = {
                 importGranularity = "module",
