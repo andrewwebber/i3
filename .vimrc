@@ -436,3 +436,4 @@ iabbrev :ailabs: 🤖
 iabbrev :design: 💘
 iabbrev :aim: 🎯
 iabbrev :gate: 🌉
+iabbrev :tada: 🎉
