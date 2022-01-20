@@ -11,4 +11,5 @@ yay --nouseask --nocleanmenu --nodiffmenu eksctl <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu rancher-k3d-bin <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu gcalcli <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<< 1
+yay --nouseask --nocleanmenu --nodiffmenu otf-nerd-fonts-monacob-mono <<< 1
 # yay nerd-fonts-complete
