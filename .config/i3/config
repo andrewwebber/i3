@@ -31,7 +31,7 @@ exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id blueman-tray
 exec --no-startup-id dunst
-exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
+exec --no-startup-id picom  --experimental-backend --backend glx  --vsync --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
 # Before i3 v4.8, we used to recommend this one as the default:
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -216,6 +216,6 @@ bar {
     }
 	font pango:Lexend Deca, Icons 16
         status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
-	tray_output eDP-1
+	tray_output DP-4
 
 }
