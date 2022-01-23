@@ -5,6 +5,7 @@ key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 
 window:
+  opacity: .8
   dimensions:
     columns: 0
     lines: 0
@@ -81,8 +82,6 @@ bell:
   animation: EaseOutExpo
   color: '0xffffff'
   duration: 0
-
-background_opacity: .8 
 
 mouse:
   double_click: { threshold: 300 }
