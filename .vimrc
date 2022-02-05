@@ -95,6 +95,7 @@ Plug 'neomutt/neomutt.vim'
 Plug 'towolf/vim-helm'
 " Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
 Plug 'chrisbra/csv.vim'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -123,7 +124,7 @@ lspconfig.rust_analyzer.setup({
             },
             checkOnSave = {
                 enable = true,
-                allFeatures = true,
+                allFeatures = false,
                 command = "clippy"
             },
             assist = {
