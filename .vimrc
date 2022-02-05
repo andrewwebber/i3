@@ -111,10 +111,27 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-lspconfig.tsserver.setup{}
-lspconfig.pyright.setup{}
-lspconfig.pylsp.setup{}
-lspconfig.bashls.setup{}
+lspconfig.tsserver.setup({})
+lspconfig.pyright.setup({})
+lspconfig.pylsp.setup({
+    settings = {
+       ["pylsp"] = {
+           plugins = {
+                 pylint = {
+                     enabled = true
+                 },
+                 pycodestyle = {
+                     maxLineLength = 200
+                 },
+                 flake8 = {
+                     enabled = true,
+                     maxLineLength = 200
+                 }
+            }
+        }
+    }
+})
+lspconfig.bashls.setup({})
 lspconfig.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
