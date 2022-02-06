@@ -95,7 +95,7 @@ Plug 'neomutt/neomutt.vim'
 Plug 'towolf/vim-helm'
 " Plug 'fatih/vim-go', { 'tag': '*', 'do': ':silent :GoUpdateBinaries' }
 Plug 'chrisbra/csv.vim'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -110,7 +110,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = true,
   }
 )
-
+lspconfig.tailwindcss.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.pyright.setup({})
 lspconfig.pylsp.setup({
@@ -252,6 +252,7 @@ nmap <leader>g :G<CR>
 nmap <leader>gd :Gvdiff!<CR>
 nmap <leader>gl :diffget //3<CR>
 nmap <leader>gh :diffget //2<CR>
+nmap <leader>b :!black -q %<CR>
 noremap <leader>R :source ~/.vimrc<CR>
 nmap // :BLines!<CR>
 nmap ?? :Rg<CR>

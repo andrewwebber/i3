@@ -1,6 +1,5 @@
 #!/bin/env sh
 
-yay flake8
 pip install pyls-flake8
 pip install pyls-isort
 pip install python-lsp-black
