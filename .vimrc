@@ -67,7 +67,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'antoinemadec/FixCursorHold.nvim'
+" Plug 'antoinemadec/FixCursorHold.nvim'
 
 "
 " Completion framework
