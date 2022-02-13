@@ -61,6 +61,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
 Plug 'preservim/nerdtree'
+Plug 'WhoIsSethDaniel/goldsmith.nvim'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "
 " Completion framework
@@ -130,6 +133,16 @@ lspconfig.pylsp.setup({
             }
         }
     }
+})
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.diagnostics.eslint,
+        require("null-ls").builtins.completion.spell,
+    },
+})
+lspconfig.gopls.setup({
+
 })
 lspconfig.bashls.setup({})
 lspconfig.rust_analyzer.setup({

@@ -131,7 +131,7 @@ function right_prompt() {
 }
 RPROMPT='$(right_prompt)'
 
-export PATH=/home/awebber/.local/bin:/home/awebber/.cargo/bin:$PATH
+export PATH=/home/awebber/.local/bin:/home/awebber/go/bin:/home/awebber/.cargo/bin:$PATH
 
 # export MAKEFLAGS='-j 8'
 
