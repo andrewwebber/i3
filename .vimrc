@@ -64,6 +64,10 @@ Plug 'preservim/nerdtree'
 Plug 'WhoIsSethDaniel/goldsmith.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'antoinemadec/FixCursorHold.nvim'
 
 "
 " Completion framework
@@ -134,23 +138,14 @@ lspconfig.pylsp.setup({
         }
     }
 })
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.stylua,
-        require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.completion.spell,
-    },
-})
-lspconfig.gopls.setup({
-
-})
+lspconfig.gopls.setup({})
 lspconfig.bashls.setup({})
 lspconfig.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
             lens = {
-                enable = false
+                enable = true
             },
             checkOnSave = {
                 enable = false,
@@ -400,10 +395,10 @@ set gdefault
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 " Enable type inlay hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs
-\ lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
+" autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs
+" \ lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
 
-" autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
+autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
 
 " I can type :help on my own, thanks.
 map <F1> <Esc>
