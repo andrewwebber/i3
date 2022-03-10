@@ -148,7 +148,7 @@ lspconfig.rust_analyzer.setup({
                 enable = true
             },
             checkOnSave = {
-                enable = false,
+                enable = true,
                 allFeatures = false,
                 command = "clippy"
             },
