@@ -61,7 +61,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
 Plug 'preservim/nerdtree'
-Plug 'WhoIsSethDaniel/goldsmith.nvim'
+" Plug 'WhoIsSethDaniel/goldsmith.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
