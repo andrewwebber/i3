@@ -62,6 +62,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'jamessan/vim-gnupg'
 Plug 'preservim/nerdtree'
 " Plug 'WhoIsSethDaniel/goldsmith.nvim'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -138,34 +139,33 @@ lspconfig.pylsp.setup({
         }
     }
 })
-lspconfig.gopls.setup({})
-lspconfig.bashls.setup({})
-lspconfig.rust_analyzer.setup({
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            lens = {
-                enable = true
-            },
-            checkOnSave = {
-                enable = true,
-                allFeatures = false,
-                command = "clippy"
-            },
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                allFeatures = false,
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-})
+require('rust-tools').setup({})
+-- lspconfig.rust_analyzer.setup({
+--     on_attach=on_attach,
+--     settings = {
+--         ["rust-analyzer"] = {
+--             lens = {
+--                 enable = false
+--             },
+--             checkOnSave = {
+--                 enable = true,
+--                 allFeatures = false,
+--                 command = "clippy"
+--             },
+--             assist = {
+--                 importGranularity = "module",
+--                 importPrefix = "by_self",
+--             },
+--             cargo = {
+--                 allFeatures = false,
+--                 loadOutDirsFromCheck = true
+--             },
+--             procMacro = {
+--                 enable = true
+--             },
+--         }
+--     }
+-- })
 
 END
 
@@ -218,8 +218,8 @@ nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 " autocmd CursorHold * lua vim.diagnostic.show_line_diagnostics({focusable = false})
-nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <leader><leader> :NERDTreeToggle<CR>
 
 nnoremap <silent> gn :cn<CR>
@@ -280,8 +280,8 @@ map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-h> :tabp<cr>
 " map <C-n> :cnext<CR>
-nnoremap <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <C-m> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <C-n> <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <C-m> <cmd>lua vim.diagnostic.goto_next()<CR>
 " map <C-m> :cprevious<CR>
 " nnoremap <leader>a :cclose<CR>
 nnoremap <silent> <C-g> :Rg<Cr>
@@ -398,7 +398,13 @@ set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 " autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs
 " \ lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
 
-autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
+" autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}, only_current_line = false }
+" Show diagnostic popup on cursor hover
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+
+" Enable type inlay hints
+" autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs
+" \ lua require'lsp_extensions'.inlay_hints{ prefix = '<- ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 " I can type :help on my own, thanks.
 map <F1> <Esc>
