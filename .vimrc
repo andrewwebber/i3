@@ -83,6 +83,8 @@ Plug 'hrsh7th/cmp-vsnip'
 " Other usefull completion sources
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 "
 " Semantic language support
