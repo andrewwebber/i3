@@ -156,35 +156,30 @@ local opts = {
         max_len_align = false,
         max_len_align_padding = 1
       }
+    },
+    server = {
+      settings = {
+        ['rust-analyzer'] = {
+          cargo = {
+            checkOnSave = {
+                enable = true,
+                command = "clippy",
+                extraArgs = "--tests -- -Dwarnings -A deprecated",
+                allFeatures = true,
+                overrideCommand = {
+                    "cargo",
+                    "clippy",
+                    "--all-features",
+                    "--tests -- -Dwarnings -A deprecated"
+                }
+            }
+          }
+        }
+      }
     }
 }
 require('rust-tools').setup(opts)
--- lspconfig.rust_analyzer.setup({
---     on_attach=on_attach,
---     settings = {
---         ["rust-analyzer"] = {
---             lens = {
---                 enable = false
---             },
---             checkOnSave = {
---                 enable = true,
---                 allFeatures = false,
---                 command = "clippy"
---             },
---             assist = {
---                 importGranularity = "module",
---                 importPrefix = "by_self",
---             },
---             cargo = {
---                 allFeatures = false,
---                 loadOutDirsFromCheck = true
---             },
---             procMacro = {
---                 enable = true
---             },
---         }
---     }
--- })
+
 
 END
 
