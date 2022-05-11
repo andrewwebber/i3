@@ -13,4 +13,5 @@ yay --nouseask --nocleanmenu --nodiffmenu gopls <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu revive <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<< 1
 yay --nouseask --nocleanmenu --nodiffmenu otf-nerd-fonts-monacob-mono <<< 1
+# yay plasma-pa
 # yay nerd-fonts-complete
