@@ -112,6 +112,7 @@ call plug#end()
 " LSP configuration
 lua << END
 local lspconfig = require('lspconfig')
+local util = require('lspconfig/util')
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -122,6 +123,21 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 lspconfig.tailwindcss.setup({})
 lspconfig.tsserver.setup({})
+lspconfig.gopls.setup({
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        hints = { assignVariableTypes = true},
+      gopls = {
+
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+})
 lspconfig.pyright.setup({})
 lspconfig.pylsp.setup({
     settings = {
