@@ -30,6 +30,10 @@ packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    use {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        requires = { 'nvim-treesitter/nvim-treesitter' }
+    }
     use 'kyazdani42/nvim-web-devicons' -- File icons
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
@@ -54,4 +58,8 @@ packer.startup(function(use)
     use 'bronson/vim-trailing-whitespace'
     use 'jamessan/vim-gnupg'
     use 'plasticboy/vim-markdown'
+    use 'tpope/vim-commentary'
+    use 'folke/tokyonight.nvim'
+    -- use { 'WhoIsSethDaniel/goldsmith.nvim', branch = 'basic_mason_support' }
+    use 'williamboman/nvim-lsp-installer'
 end)

@@ -4,6 +4,7 @@ local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
+local configs = require('lspconfig/configs')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -123,6 +124,44 @@ nvim_lsp.pylsp.setup({
     }
 })
 
+
+
+-- require 'goldsmith'.config()
+--[[
+
+util = require "lspconfig/util"
+
+nvim_lsp.gopls.setup {
+    cmd = { "gopls", "serve" },
+    filetypes = { "go", "gomod" },
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+}
+]]
+
+if not configs.golangcilsp then
+    configs.golangcilsp = {
+        default_config = {
+            cmd = { 'golangci-lint-langserver' },
+            root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
+            init_options = {
+                command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json" };
+            }
+        };
+    }
+end
+
+nvim_lsp.golangci_lint_ls.setup {
+    filetypes = { 'go', 'gomod' }
+}
+
 local opts = {
     tools = {
         autoSetHints = true,
@@ -161,7 +200,10 @@ local opts = {
     }
 }
 
+
 require('rust-tools').setup(opts)
+
+require("nvim-lsp-installer").setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {

@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   ["git.nvim"] = {
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/git.nvim",
@@ -159,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -168,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
@@ -213,6 +228,36 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gnupg"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-gnupg",
+    url = "https://github.com/jamessan/vim-gnupg"
+  },
+  ["vim-markdown"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-markdown",
+    url = "https://github.com/plasticboy/vim-markdown"
+  },
+  ["vim-trailing-whitespace"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace",
+    url = "https://github.com/bronson/vim-trailing-whitespace"
   },
   ["zen-mode.nvim"] = {
     loaded = true,
