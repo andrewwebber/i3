@@ -81,10 +81,6 @@ nvim_lsp.tsserver.setup {
     capabilities = capabilities
 }
 
-nvim_lsp.sourcekit.setup {
-    on_attach = on_attach,
-}
-
 nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
     settings = {
@@ -124,11 +120,7 @@ nvim_lsp.pylsp.setup({
     }
 })
 
-
-
--- require 'goldsmith'.config()
 --[[
-
 util = require "lspconfig/util"
 
 nvim_lsp.gopls.setup {
@@ -179,6 +171,8 @@ local opts = {
         }
     },
     server = {
+        capabilities = capabilities,
+        on_attach = on_attach,
         settings = {
             ['rust-analyzer'] = {
                 cargo = {
@@ -186,7 +180,7 @@ local opts = {
                         enable = true,
                         command = "clippy",
                         extraArgs = "--tests -- -Dwarnings -A deprecated",
-                        allFeatures = true,
+                        allFeatures = false,
                         overrideCommand = {
                             "cargo",
                             "clippy",

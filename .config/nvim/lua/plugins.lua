@@ -60,6 +60,14 @@ packer.startup(function(use)
     use 'plasticboy/vim-markdown'
     use 'tpope/vim-commentary'
     use 'folke/tokyonight.nvim'
-    -- use { 'WhoIsSethDaniel/goldsmith.nvim', branch = 'basic_mason_support' }
     use 'williamboman/nvim-lsp-installer'
+    use 'junegunn/limelight.vim'
+    use {
+        'saecki/crates.nvim',
+        tag = 'v0.2.1',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
+        end,
+    }
 end)

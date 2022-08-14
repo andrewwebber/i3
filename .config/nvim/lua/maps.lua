@@ -6,6 +6,9 @@ keymap.set('i', '<C-c>', '<Esc>')
 keymap.set('n', ';', ':')
 keymap.set('n', '//', ':BLines!<CR>')
 keymap.set('n', '<C-p>', ':GFiles!<CR>')
+keymap.set('n', '<leader>g', ':G<CR>')
+keymap.set('n', '<leader>l', ':Limelight')
+keymap.set('x', '<leader>l', ':Limelight')
 
 -- Increment/decrement
 keymap.set('n', '+', '<C-a>')
