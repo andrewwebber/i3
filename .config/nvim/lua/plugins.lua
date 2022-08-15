@@ -41,10 +41,6 @@ packer.startup(function(use)
     use 'windwp/nvim-ts-autotag'
     use 'norcalli/nvim-colorizer.lua'
     use 'folke/zen-mode.nvim'
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
     use 'akinsho/nvim-bufferline.lua'
     -- use 'github/copilot.vim'
 
@@ -57,7 +53,6 @@ packer.startup(function(use)
     use 'tpope/vim-fugitive'
     use 'bronson/vim-trailing-whitespace'
     use 'jamessan/vim-gnupg'
-    use 'plasticboy/vim-markdown'
     use 'tpope/vim-commentary'
     use 'folke/tokyonight.nvim'
     use 'williamboman/nvim-lsp-installer'
@@ -86,9 +81,33 @@ packer.startup(function(use)
             require('nvim-tree').setup()
         end,
     }]]
-    use 'rcarriga/nvim-notify'
+    -- use 'rcarriga/nvim-notify'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-emoji' -- nvim-cmp source for neovim's built-in LSP
     use 'rust-lang/rust.vim'
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        }
+    }
+    use 'rouge8/neotest-rust'
+    use {
+        "kkoomen/vim-doge",
+        run = ":call doge#install()",
+        cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+        disable = false,
+    }
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+        ft = "markdown",
+        cmd = { "MarkdownPreview" },
+        requires = { "zhaozg/vim-diagram", "aklt/plantuml-syntax" },
+    }
+
 end)

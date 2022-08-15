@@ -9,8 +9,10 @@ keymap.set('n', ';', ':')
 keymap.set('n', '//', ':BLines!<CR>')
 keymap.set('n', '<C-p>', ':GFiles!<CR>')
 keymap.set('n', '<leader>g', ':G<CR>')
-keymap.set('n', '<leader><leader>', ':NvimTreeToggle<CR>')
-keymap.set('n', '<leader>t', ':ToggleTerm<CR>')
+keymap.set('n', '<C-\\>', ':ToggleTerm<CR>')
+keymap.set('n', '<leader><leader>', ':lua require("neotest").run.run()<CR>')
+keymap.set('n', '<leader>d', ':DogeGenerate<CR>')
+
 
 -- Increment/decrement
 keymap.set('n', '+', '<C-a>')
@@ -43,5 +45,15 @@ keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
-vim.api.nvim_exec([[ autocmd FileType rust nmap gb :Cargo clippy --all-features --tests -- -Dwarnings -A deprecated<CR> ]]
-    , false)
+-- vim.api.nvim_exec([[ autocmd FileType rust nmap gb :Cargo clippy --all-features --tests -- -Dwarnings -A deprecated<CR> ]]
+--     , false)
+
+local api = vim.api
+
+-- Rust
+local rustUtil = api.nvim_create_augroup("RustUtil", { clear = true })
+api.nvim_create_autocmd("FileType", {
+    pattern = { "rust" },
+    command = "nmap gb :Cargo clippy --all-features --tests -- -Dwarnings -A deprecated<CR>",
+    group = rustUtil,
+})
