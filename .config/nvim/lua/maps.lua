@@ -1,5 +1,7 @@
 local keymap = vim.keymap
 
+keymap.set('x', '<leader>l', ':Limelight')
+keymap.set('n', '<leader>l', ':Limelight')
 keymap.set('n', 'x', '"_x')
 keymap.set('i', '<C-l>', '<Esc>')
 keymap.set('i', '<C-c>', '<Esc>')
@@ -7,8 +9,8 @@ keymap.set('n', ';', ':')
 keymap.set('n', '//', ':BLines!<CR>')
 keymap.set('n', '<C-p>', ':GFiles!<CR>')
 keymap.set('n', '<leader>g', ':G<CR>')
-keymap.set('n', '<leader>l', ':Limelight')
-keymap.set('x', '<leader>l', ':Limelight')
+keymap.set('n', '<leader><leader>', ':NvimTreeToggle<CR>')
+keymap.set('n', '<leader>t', ':ToggleTerm<CR>')
 
 -- Increment/decrement
 keymap.set('n', '+', '<C-a>')
@@ -40,3 +42,6 @@ keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
+
+vim.api.nvim_exec([[ autocmd FileType rust nmap gb :Cargo clippy --all-features --tests -- -Dwarnings -A deprecated<CR> ]]
+    , false)

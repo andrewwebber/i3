@@ -70,4 +70,25 @@ packer.startup(function(use)
             require('crates').setup()
         end,
     }
+    use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+        require("toggleterm").setup({
+            insert_mappings = true
+        })
+    end,
+    }
+    --[[use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly', -- optional, updated every week. (see issue #1193)
+        config = function()
+            require('nvim-tree').setup()
+        end,
+    }]]
+    use 'rcarriga/nvim-notify'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-emoji' -- nvim-cmp source for neovim's built-in LSP
+    use 'rust-lang/rust.vim'
 end)
