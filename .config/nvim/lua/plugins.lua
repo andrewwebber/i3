@@ -109,5 +109,11 @@ packer.startup(function(use)
         cmd = { "MarkdownPreview" },
         requires = { "zhaozg/vim-diagram", "aklt/plantuml-syntax" },
     }
-
+    use({
+        "andythigpen/nvim-coverage",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("coverage")
+        end,
+    })
 end)
