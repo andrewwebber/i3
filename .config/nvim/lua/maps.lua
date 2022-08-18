@@ -1,5 +1,7 @@
 local keymap = vim.keymap
 
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+
 keymap.set('x', '<leader>l', ':Limelight')
 keymap.set('n', '<leader>l', ':Limelight')
 keymap.set('n', 'x', '"_x')
@@ -10,7 +12,7 @@ keymap.set('n', '//', ':BLines!<CR>')
 keymap.set('n', '<C-p>', ':GFiles!<CR>')
 keymap.set('n', '<leader>g', ':G<CR>')
 keymap.set('n', '<C-\\>', ':ToggleTerm<CR>')
-keymap.set('n', '<leader>t', ':lua require("neotest").run.run()<CR>')
+keymap.set('n', '<leader>c', ':Coverage<CR>')
 keymap.set('n', '<leader>d', ':DogeGenerate<CR>')
 
 
@@ -52,5 +54,23 @@ local rustUtil = api.nvim_create_augroup("RustUtil", { clear = true })
 api.nvim_create_autocmd("FileType", {
     pattern = { "rust" },
     command = "nmap gb :Cargo clippy --all-features --tests -- -Dwarnings -A deprecated<CR>",
+    group = rustUtil,
+})
+api.nvim_create_autocmd("FileType", {
+    pattern = { "rust" },
+    command = 'nmap <leader>t :lua require("neotest").run.run({vim.fn.expand("%"), env = {RUSTFLAGS="-C instrument-coverage"}})<CR>',
+    group = rustUtil,
+})
+
+-- Golang
+local goUtil = api.nvim_create_augroup("GolangUtil", { clear = true })
+api.nvim_create_autocmd("FileType", {
+    pattern = { "go" },
+    command = ":Coverage",
+    group = goUtil,
+})
+api.nvim_create_autocmd("FileType", {
+    pattern = { "go" },
+    command = "nmap <leader>t :TestNearest -strategy=neovim --coverprofile=coverage.out<CR>| :Coverage",
     group = rustUtil,
 })

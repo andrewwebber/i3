@@ -90,10 +90,22 @@ packer.startup(function(use)
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter"
-        }
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-neotest/neotest-go",
+            "nvim-neotest/neotest-vim-test",
+            "rouge8/neotest-rust"
+        },
+        config = function()
+            require("neotest").setup({
+              adapters = {
+                require("neotest-go"),
+                require("neotest-rust"),
+                require("neotest-vim-test")
+              }
+            })
+        end
     }
-    use 'rouge8/neotest-rust'
+    use 'vim-test/vim-test'
     use {
         "kkoomen/vim-doge",
         run = ":call doge#install()",
@@ -113,7 +125,26 @@ packer.startup(function(use)
         "andythigpen/nvim-coverage",
         requires = "nvim-lua/plenary.nvim",
         config = function()
-            require("coverage")
+            require("coverage").setup({
+                commands = true, -- create commands
+                highlights = {
+                    -- customize highlight groups created by the plugin
+                    covered = { fg = "#C3E88D" },   -- supports style, fg, bg, sp (see :h highlight-gui)
+                    uncovered = { fg = "#F07178" },
+                },
+                signs = {
+                    -- use your own highlight groups or text markers
+                    covered = { hl = "CoverageCovered", text = "▎" },
+                    uncovered = { hl = "CoverageUncovered", text = "▎" },
+                },
+                summary = {
+                    -- customize the summary pop-up
+                    min_coverage = 70.0,      -- minimum coverage threshold (used for highlighting)
+                },
+                lang = {
+                    -- customize language specific settings
+                },
+            })
         end,
     })
 end)

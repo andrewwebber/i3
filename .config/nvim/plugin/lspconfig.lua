@@ -120,8 +120,7 @@ nvim_lsp.pylsp.setup({
     }
 })
 
---[[
-util = require "lspconfig/util"
+local util = require "lspconfig/util"
 
 nvim_lsp.gopls.setup {
     cmd = { "gopls", "serve" },
@@ -136,7 +135,6 @@ nvim_lsp.gopls.setup {
         },
     },
 }
-]]
 
 if not configs.golangcilsp then
     configs.golangcilsp = {

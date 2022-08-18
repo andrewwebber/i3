@@ -169,14 +169,25 @@ _G.packer_plugins = {
     url = "https://github.com/svrana/neosolarized.nvim"
   },
   neotest = {
+    config = { "\27LJ\2\n¬\1\0\0\a\0\b\1\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0004\3\4\0006\4\0\0'\6\3\0B\4\2\2>\4\1\0036\4\0\0'\6\4\0B\4\2\2>\4\2\0036\4\0\0'\6\5\0B\4\2\0?\4\0\0=\3\a\2B\0\2\1K\0\1\0\radapters\1\0\0\21neotest-vim-test\17neotest-rust\15neotest-go\nsetup\fneotest\frequire\a€€À™\4\0" },
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/neotest",
     url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-go"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/neotest-go",
+    url = "https://github.com/nvim-neotest/neotest-go"
   },
   ["neotest-rust"] = {
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/neotest-rust",
     url = "https://github.com/rouge8/neotest-rust"
+  },
+  ["neotest-vim-test"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/neotest-vim-test",
+    url = "https://github.com/nvim-neotest/neotest-vim-test"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -204,7 +215,7 @@ _G.packer_plugins = {
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-coverage"] = {
-    config = { "\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rcoverage\frequire\0" },
+    config = { "\27LJ\2\n«\2\0\0\5\0\17\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\3=\3\t\0025\3\v\0005\4\n\0=\4\6\0035\4\f\0=\4\b\3=\3\r\0025\3\14\0=\3\15\0024\3\0\0=\3\16\2B\0\2\1K\0\1\0\tlang\fsummary\1\0\1\17min_coverage\3F\nsigns\1\0\2\ahl\22CoverageUncovered\ttext\bâ–Ž\1\0\0\1\0\2\ahl\20CoverageCovered\ttext\bâ–Ž\15highlights\14uncovered\1\0\1\afg\f#F07178\fcovered\1\0\0\1\0\1\afg\f#C3E88D\1\0\1\rcommands\2\nsetup\rcoverage\frequire\0" },
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/nvim-coverage",
     url = "https://github.com/andythigpen/nvim-coverage"
@@ -323,6 +334,11 @@ _G.packer_plugins = {
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-gnupg",
     url = "https://github.com/jamessan/vim-gnupg"
   },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-test",
+    url = "https://github.com/vim-test/vim-test"
+  },
   ["vim-trailing-whitespace"] = {
     loaded = true,
     path = "/home/awebber/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace",
@@ -336,24 +352,28 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: crates.nvim
+time([[Config for crates.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vcrates\frequire\0", "config", "crates.nvim")
+time([[Config for crates.nvim]], false)
 -- Config for: nvim-coverage
 time([[Config for nvim-coverage]], true)
-try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rcoverage\frequire\0", "config", "nvim-coverage")
+try_loadstring("\27LJ\2\n«\2\0\0\5\0\17\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\3=\3\t\0025\3\v\0005\4\n\0=\4\6\0035\4\f\0=\4\b\3=\3\r\0025\3\14\0=\3\15\0024\3\0\0=\3\16\2B\0\2\1K\0\1\0\tlang\fsummary\1\0\1\17min_coverage\3F\nsigns\1\0\2\ahl\22CoverageUncovered\ttext\bâ–Ž\1\0\0\1\0\2\ahl\20CoverageCovered\ttext\bâ–Ž\15highlights\14uncovered\1\0\1\afg\f#F07178\fcovered\1\0\0\1\0\1\afg\f#C3E88D\1\0\1\rcommands\2\nsetup\rcoverage\frequire\0", "config", "nvim-coverage")
 time([[Config for nvim-coverage]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\nP\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\20insert_mappings\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
--- Config for: crates.nvim
-time([[Config for crates.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vcrates\frequire\0", "config", "crates.nvim")
-time([[Config for crates.nvim]], false)
+-- Config for: neotest
+time([[Config for neotest]], true)
+try_loadstring("\27LJ\2\n¬\1\0\0\a\0\b\1\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0004\3\4\0006\4\0\0'\6\3\0B\4\2\2>\4\1\0036\4\0\0'\6\4\0B\4\2\2>\4\2\0036\4\0\0'\6\5\0B\4\2\0?\4\0\0=\3\a\2B\0\2\1K\0\1\0\radapters\1\0\0\21neotest-vim-test\17neotest-rust\15neotest-go\nsetup\fneotest\frequire\a€€À™\4\0", "config", "neotest")
+time([[Config for neotest]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DogeGenerate lua require("packer.load")({'vim-doge'}, { cmd = "DogeGenerate", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DogeCreateDocStandard lua require("packer.load")({'vim-doge'}, { cmd = "DogeCreateDocStandard", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DogeGenerate lua require("packer.load")({'vim-doge'}, { cmd = "DogeGenerate", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
