@@ -34,7 +34,7 @@ local select_issue = function(issues)
 
                     -- fix for empty line
                     if not c == 0 then
-                        c = c + 1
+                        c = c + 2
                     end
 
                     vim.api.nvim_buf_set_text(buffer, r, c, r, c, { selection })
