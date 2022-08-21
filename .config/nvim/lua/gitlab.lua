@@ -8,16 +8,12 @@ local curl = require "plenary.curl"
 local M = {}
 
 local select_issue = function(issues)
+    local buffer = vim.fn.bufnr()
+    local r, c = unpack(vim.api.nvim_win_get_cursor(0))
     local _issues = {}
     for _, v in pairs(issues) do
         table.insert(_issues, v.title)
     end
-
-    local buffer = vim.fn.bufnr()
-    local r, c = unpack(vim.api.nvim_win_get_cursor(0))
-    print(r)
-    print(c)
-    local selection = {}
 
     popup.create(_issues, {
         line = "cursor+2",
@@ -29,7 +25,6 @@ local select_issue = function(issues)
         callback = function(_, sel)
             for _, v in pairs(issues) do
                 if v.title == sel then
-                    selection = v.id
                     r = r - 1
 
                     -- fix for empty line
@@ -37,7 +32,7 @@ local select_issue = function(issues)
                         c = c + 2
                     end
 
-                    vim.api.nvim_buf_set_text(buffer, r, c, r, c, { selection })
+                    vim.api.nvim_buf_set_text(buffer, r, c, r, c, { v.id })
                     return
                 end
             end
@@ -59,26 +54,26 @@ M.gitlab_issues = function()
             token = line
         end,
     }
+
     job:sync()
 
     local username = {}
-    local file = "https://gitlab.com/api/v4/user"
+    local url = "https://gitlab.com/api/v4/user"
 
     local headers = {}
     headers["PRIVATE-TOKEN"] = token
-    local res = curl.get(file, { headers = headers })
+    local res = curl.get(url, { headers = headers })
     if res then
         local body = res.body
         if body then
             local body_json = vim.json.decode(body)
             username = body_json.username
-            print(vim.inspect.inspect(username))
         end
     end
 
     local issues = {}
-    file = string.format("https://gitlab.com/api/v4/issues?state=opened&scope=all&assignee_username=%s", username)
-    res = curl.get(file, { headers = headers })
+    url = string.format("https://gitlab.com/api/v4/issues?state=opened&scope=all&assignee_username=%s", username)
+    res = curl.get(url, { headers = headers })
     if res then
         local body = res.body
         if body then
@@ -108,5 +103,5 @@ M.gitlab_issues = function()
     select_issue(M._issues)
 end
 
-vim.keymap.set('n', '<C-g>', ':lua require"gitlab".gitlab_issues()<CR>')
+vim.keymap.set('n', '<C-g>', ':lua require"gitlab".gitlab_issues()<CR><CR>')
 return M
