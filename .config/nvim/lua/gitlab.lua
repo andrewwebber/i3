@@ -1,31 +1,43 @@
+--[[
+-- Gitlab Plug to insert assigned issues
+--]]
 local popup = require "popup"
 local Job = require "plenary.job"
 local curl = require "plenary.curl"
 
 local M = {}
 
-local show_issues = function(issues)
+local select_issue = function(issues)
     local _issues = {}
     for _, v in pairs(issues) do
         table.insert(_issues, v.title)
     end
 
-    local buffer = vim.api.nvim_buf_get_name(0)
-    local r, c = vim.api.nvim_win_get_cursor(0)
-    -- nvim get buf line
+    local buffer = vim.fn.bufnr()
+    local r, c = unpack(vim.api.nvim_win_get_cursor(0))
+    print(r)
+    print(c)
+    local selection = {}
+
     popup.create(_issues, {
         line = "cursor+2",
         col = "cursor+2",
         border = { 1, 1, 1, 1 },
         enter = true,
         cursorline = true,
+        title = "Gitlab Issues",
         callback = function(_, sel)
             for _, v in pairs(issues) do
                 if v.title == sel then
-                    print(v.id)
-                    -- local line = vim.api.nvim_buf_get_lines(0, start, end, false)
-                    vim.api.nvim_buf_set_text(buffer, r, c, r, 10, { v.id })
-                    -- nvim_buf_set_text
+                    selection = v.id
+                    r = r - 1
+
+                    -- fix for empty line
+                    if not c == 0 then
+                        c = c + 1
+                    end
+
+                    vim.api.nvim_buf_set_text(buffer, r, c, r, c, { selection })
                     return
                 end
             end
@@ -35,7 +47,7 @@ end
 
 M.gitlab_issues = function()
     if M._issues then
-        show_issues(M._issues)
+        select_issue(M._issues)
         return
     end
 
@@ -93,8 +105,8 @@ M.gitlab_issues = function()
     end
 
     M._issues = issues
-    show_issues(M._issues)
+    select_issue(M._issues)
 end
 
-vim.keymap.set('n', '<C-g>', ':lua require"example".gitlab_issues()<CR>')
+vim.keymap.set('n', '<C-g>', ':lua require"gitlab".gitlab_issues()<CR>')
 return M
