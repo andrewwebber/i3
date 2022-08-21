@@ -14,6 +14,7 @@ packer.startup(function(use)
     }
     use 'nvim-lualine/lualine.nvim' -- Statusline
     use 'nvim-lua/plenary.nvim' -- Common utilities
+    use 'nvim-lua/popup.nvim'
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
@@ -97,11 +98,11 @@ packer.startup(function(use)
         },
         config = function()
             require("neotest").setup({
-              adapters = {
-                require("neotest-go"),
-                require("neotest-rust"),
-                require("neotest-vim-test")
-              }
+                adapters = {
+                    require("neotest-go"),
+                    require("neotest-rust"),
+                    require("neotest-vim-test")
+                }
             })
         end
     }
@@ -129,7 +130,7 @@ packer.startup(function(use)
                 commands = true, -- create commands
                 highlights = {
                     -- customize highlight groups created by the plugin
-                    covered = { fg = "#C3E88D" },   -- supports style, fg, bg, sp (see :h highlight-gui)
+                    covered = { fg = "#C3E88D" }, -- supports style, fg, bg, sp (see :h highlight-gui)
                     uncovered = { fg = "#F07178" },
                 },
                 signs = {
@@ -139,7 +140,7 @@ packer.startup(function(use)
                 },
                 summary = {
                     -- customize the summary pop-up
-                    min_coverage = 70.0,      -- minimum coverage threshold (used for highlighting)
+                    min_coverage = 70.0, -- minimum coverage threshold (used for highlighting)
                 },
                 lang = {
                     -- customize language specific settings
