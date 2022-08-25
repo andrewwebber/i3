@@ -66,12 +66,6 @@ packer.startup(function(use)
             require('crates').setup()
         end,
     }
-    use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-        require("toggleterm").setup({
-            insert_mappings = true
-        })
-    end,
-    }
     --[[use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -122,6 +116,17 @@ packer.startup(function(use)
         cmd = { "MarkdownPreview" },
         requires = { "zhaozg/vim-diagram", "aklt/plantuml-syntax" },
     }
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
     use({
         "andythigpen/nvim-coverage",
         requires = "nvim-lua/plenary.nvim",
@@ -147,16 +152,5 @@ packer.startup(function(use)
                 },
             })
         end,
-        use {
-            "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
-            config = function()
-                require("trouble").setup {
-                    -- your configuration comes here
-                    -- or leave it empty to use the default settings
-                    -- refer to the configuration section below
-                }
-            end
-        }
     })
 end)
