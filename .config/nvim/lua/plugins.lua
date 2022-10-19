@@ -127,6 +127,7 @@ packer.startup(function(use)
             }
         end
     }
+    use { "ellisonleao/gruvbox.nvim" }
     use({
         "andythigpen/nvim-coverage",
         requires = "nvim-lua/plenary.nvim",
