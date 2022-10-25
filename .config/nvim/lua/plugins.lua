@@ -154,7 +154,6 @@ packer.startup(function(use)
             })
         end,
     })
-    use { "ellisonleao/gruvbox.nvim" }
     use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
         require("toggleterm").setup()
     end }
