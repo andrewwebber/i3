@@ -5,7 +5,7 @@ key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 
 window:
-  opacity: .8
+  opacity: 0.8
   dimensions:
     columns: 0
     lines: 0
