@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = vim.api.nvim_create_augroup("Format", { clear = true }),
             buffer = bufnr,
-            callback = function() vim.lsp.buf.formatting_seq_sync() end
+            callback = function() vim.lsp.buf.format() end
         })
     end
 end
@@ -179,15 +179,7 @@ local opts = {
                 cargo = {
                     checkOnSave = {
                         enable = true,
-                        command = "clippy",
-                        extraArgs = "--tests -- -Dwarnings -A deprecated",
-                        allFeatures = false,
-                        overrideCommand = {
-                            "cargo",
-                            "clippy",
-                            "--all-features",
-                            "--tests -- -Dwarnings -A deprecated"
-                        }
+                        command = "clippy"
                     }
                 }
             }
