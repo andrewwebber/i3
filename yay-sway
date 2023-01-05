@@ -1,8 +1,10 @@
 
-wofi
-wl-clipboard-x11
-grim slurp
-wdisplays
-xdg-desktop-portal
-xdg-desktop-portal-wlr
+yay --nouseask --nocleanmenu --nodiffmenu wofi
+yay --nouseask --nocleanmenu --nodiffmenu wl-clipboard-x11
+yay --nouseask --nocleanmenu --nodiffmenu grim slurp
+yay --nouseask --nocleanmenu --nodiffmenu wdisplays
+yay --nouseask --nocleanmenu --nodiffmenu xdg-desktop-portal
+yay --nouseask --nocleanmenu --nodiffmenu xdg-desktop-portal-wlr
+yay --nouseask --nocleanmenu --nodiffmenu wf-recorder
+yay --nouseask --nocleanmenu --nodiffmenu swaylock
 
