@@ -26,11 +26,12 @@ font pango:Lexend Deca 12
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # exec_always --no-startup-id ~/setup-display.sh
 # exec_always --no-startup-id /usr/bin/xrandr --output XWAYLAND0 --auto --primary
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+# exec hash dbus-update-activation-environment 2>/dev/null && \
+#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
-exec systemctl --user start xdg-desktop-portal
+#exec systemctl --user start xdg-desktop-portal
+
 # exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
 output "*" bg ~/Downloads/austria.jpg fill
 # exec --no-startup-id /usr/bin/nm-applet
@@ -224,4 +225,9 @@ for_window [class="Yad"] floating enable
 #     status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
 
 # }
-bar swaybar_command waybar
+#exec waybar
+bar {
+        swaybar_command waybar
+}
+
+include /etc/sway/config.d/*

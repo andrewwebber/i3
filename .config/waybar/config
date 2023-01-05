@@ -28,9 +28,8 @@
         "cpu",
         "memory",
         "network",
-        "pulseaudio",
-        "battery",
-        "clock#time"
+        "clock#time",
+        "clock#date"
     ],
 
 
@@ -59,7 +58,7 @@
     },
 
     "clock#time": {
-        "interval": 1,
+        "interval": 30,
         "format": "{:%H:%M:%S}",
         "tooltip": false
     },
@@ -72,7 +71,7 @@
 
     "cpu": {
         "interval": 5,
-        "format": "  {usage}%", // Icon: microchip
+        "format": "CPU: {usage}%", // Icon: microchip
         "states": {
           "warning": 70,
           "critical": 90
@@ -91,7 +90,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "  {}%", // Icon: memory
+        "format": "RAM: {}%", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -101,7 +100,7 @@
     "network": {
         "interval": 5,
         "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-ethernet": "   {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}"
     },
