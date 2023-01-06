@@ -119,6 +119,7 @@ alias mail-origins='neomutt -F ~/projects/i3/.mutt/neomuttrc_origins'
 alias gcal='gcalcli agenda --nostarted'
 alias gcal-links='gcalcli agenda --nostarted --detail url'
 alias '?'='cd `find ~/projects/** -type d | grep -v 'go/pkg' |grep -v '.git' | grep -v 'target' | fzf `'
+alias screenshot='grim -g "$(slurp)"'
 
 function right_prompt() {
   local color="blue"
