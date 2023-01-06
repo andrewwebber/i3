@@ -17,7 +17,7 @@
 
     // If height property would be not present, it'd be calculated dynamically
     "height": 30,
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 6, // Gaps between modules (4px)
 
     "modules-left": [
         "sway/workspaces",
@@ -32,9 +32,7 @@
         "pulseaudio",
         "clock#time",
         "clock#date",
-        "battery",
-        "battery#bat2",
-        "tray"
+        "battery"
     ],
 
     // Modules configuration
