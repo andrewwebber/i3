@@ -128,6 +128,13 @@ packer.startup(function(use)
     }
     use { "ellisonleao/gruvbox.nvim" }
     use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        config = function()
+            vim.cmd('colorscheme rose-pine')
+        end
+    })
+    use({
         "andythigpen/nvim-coverage",
         requires = "nvim-lua/plenary.nvim",
         config = function()
