@@ -58,12 +58,12 @@ interval=persist
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=Memory 
+label= 
 separator=true
 interval=30
 
 [disk]
-label=Storage 
+label=兩 
 separator=true
 interval=30
 #
@@ -100,25 +100,20 @@ interval=30
 ## Battery indicator
 ##
 ## The battery instance defaults to 0.
-[battery]
-label=BAT
-label=⚡
-interval=30
+
 
 # Agenda
 #
-[gcal]
-command=~/.config/i3blocks/gcal/gcal
-# command=$SCRIPT_DIR/gcal/gcal
-interval=60
-
-[monitors]
-command=$SCRIPT_DIR/monitor_manager
-interval=once
+# [gcal]
+# command=~/.config/i3blocks/gcal/gcal
+# # command=$SCRIPT_DIR/gcal/gcal
+# interval=60
 
 # Date Time
 #
 [time]
+label=  
+separator=true
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
 

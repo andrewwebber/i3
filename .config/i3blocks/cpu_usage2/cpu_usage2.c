@@ -69,7 +69,7 @@ ulli get_usage(ulli *used_jiffies)
 int main(int argc, char *argv[])
 {
   int warning = 50, critical = 80, t = 1, decimals = 2;
-  char *label = "CPU ";
+  char *label = " ";
   int c;
   char *envvar = NULL;
 
