@@ -30,9 +30,10 @@
         "memory",
         "network",
         "pulseaudio",
+        "battery",
         "clock#time",
-        "clock#date",
-        "battery"
+        "clock#date"
+
     ],
 
     // Modules configuration
@@ -57,23 +58,22 @@
     // -------------------------------------------------------------------------
 
     "battery": {
-        "interval": 10,
         "states": {
+            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
-        // Not connected to AC
-        "format-discharging": "{icon}  {capacity}%",
-        "format-icons": [
-            "", // Icon: battery-full
-            "", // Icon: battery-three-quarters
-            "", // Icon: battery-half
-            "", // Icon: battery-quarter
-            ""  // Icon: battery-empty
-        ],
-        "tooltip": true
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "battery#bat2": {
+        "bat": "BAT2"
     },
 
     "clock#time": {
@@ -90,7 +90,7 @@
 
     "cpu": {
         "interval": 5,
-        "format": "CPU: {usage}%", // Icon: microchip
+        "format": "{usage}% ", // Icon: microchip
         "states": {
           "warning": 70,
           "critical": 90
@@ -109,7 +109,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "RAM: {}%", // Icon: memory
+        "format": "{}% ", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -117,11 +117,13 @@
     },
 
     "network": {
-        "interval": 5,
-        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "   {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-        "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "sway/mode": {
