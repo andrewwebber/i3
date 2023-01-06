@@ -20,8 +20,7 @@
     "spacing": 6, // Gaps between modules (4px)
 
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode"
+        "wlr/workspaces",
     ],
     "modules-center": [
     ],
@@ -37,7 +36,7 @@
     ],
 
     // Modules configuration
-    "sway/workspaces": {
+    "wlr/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{name}: {icon}",

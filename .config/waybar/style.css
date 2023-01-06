@@ -9,6 +9,11 @@
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
 
 @keyframes blink-warning {
     70% {
@@ -176,6 +181,12 @@
 
 #window {
     font-weight: bold;
+}
+
+#workspaces {
+    margin: 0 4px;
+    color: white;
+    background-color: black;
 }
 
 #workspaces button {
