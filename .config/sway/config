@@ -220,6 +220,10 @@ for_window [class="Yad"] floating enable
 bar {
     colors {
         background #00000000
+        statusline #FFFFFF
+        inactive_workspace #00000000 #00000000 #FFFFFF
+        active_workspace #00000000 #202020 #FFFFFF
+        focused_workspace #00000000 #202020 #FFFFFF
     }
 	font pango:Lexend Deca, Icons 16
     status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
