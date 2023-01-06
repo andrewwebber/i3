@@ -17,6 +17,7 @@
 
     // If height property would be not present, it'd be calculated dynamically
     "height": 30,
+    "spacing": 4, // Gaps between modules (4px)
 
     "modules-left": [
         "sway/workspaces",
@@ -28,10 +29,30 @@
         "cpu",
         "memory",
         "network",
+        "pulseaudio",
         "clock#time",
-        "clock#date"
+        "clock#date",
+        "battery",
+        "battery#bat2",
+        "tray"
     ],
 
+    // Modules configuration
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{name}: {icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+    },
 
     // -------------------------------------------------------------------------
     // Modules
@@ -58,7 +79,7 @@
     },
 
     "clock#time": {
-        "interval": 30,
+        "interval": 1,
         "format": "{:%H:%M:%S}",
         "tooltip": false
     },
@@ -132,18 +153,21 @@
     },
 
     "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon}  {volume}%",
-        "format-muted": "",
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
+            "headphone": "",
+            "hands-free": "",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
