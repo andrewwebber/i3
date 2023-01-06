@@ -1,2 +1,3 @@
 yay hyprland
-yay waybar
+yay -S xdg-desktop-portal-hyprland-git
+yay waybar-hyprland
