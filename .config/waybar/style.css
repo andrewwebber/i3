@@ -65,6 +65,7 @@
 #cpu,
 #custom-keyboard-layout,
 #memory,
+#submap,
 #mode,
 #network,
 #pulseaudio,
@@ -173,6 +174,10 @@
 
 #temperature.critical {
     color: red;
+}
+
+#submap {
+    /* No styles */
 }
 
 #tray {

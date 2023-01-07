@@ -27,13 +27,31 @@
     "modules-right": [
         "cpu",
         "memory",
+        "disk",
         "network",
         "pulseaudio",
-        "battery",
+        "bluetooth",
         "clock#time",
-        "clock#date"
-
+        "clock#date",
+        "battery",
+        "tray"
     ],
+
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 8,
+        "tooltip": false
+    },
+
+    "bluetooth" :{
+        "on-click" : "blueman-manager"
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "兩 {percentage_used}%",
+        "path": "/"
+    },
 
     // Modules configuration
     "wlr/workspaces": {
@@ -89,7 +107,7 @@
 
     "cpu": {
         "interval": 5,
-        "format": "{usage}% ", // Icon: microchip
+        "format": " {usage}%", // Icon: microchip
         "states": {
           "warning": 70,
           "critical": 90
@@ -108,7 +126,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "{}% ", // Icon: memory
+        "format": " {}%", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -118,11 +136,11 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} ﯱ",
+        "tooltip-format": "{ifname} via {gwaddr} ﯱ",
+        "format-linked": "{ifname} (No IP) ﯱ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr} ﯱ"
     },
 
     "sway/mode": {
@@ -161,8 +179,8 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
