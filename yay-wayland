@@ -6,4 +6,5 @@ yay --nouseask --nocleanmenu --nodiffmenu wdisplays
 yay --nouseask --nocleanmenu --nodiffmenu wf-recorder
 yay --nouseask --nocleanmenu --nodiffmenu swaylock
 yay --nouseask --nocleanmenu --nodiffmenu slack-desktop-wayland
+yay --nouseask --nocleanmenu --nodiffmenu swappy
 
