@@ -22,7 +22,7 @@ scrolling:
 
 font:
   normal:
-    family: "anonymice nerd font"
+    family: "fira code nerd font"
     style: Regular
   size: 18.0
   offset:
