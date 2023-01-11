@@ -23,6 +23,7 @@
         "wlr/workspaces",
     ],
     "modules-center": [
+        "hyprland/window",
     ],
     "modules-right": [
         "cpu",
@@ -151,6 +152,11 @@
     "sway/window": {
         "format": "{}",
         "max-length": 120
+    },
+
+    "hyprland/window": {
+        "format": "👉 {}",
+        "separate-outputs": false
     },
 
     "sway/workspaces": {

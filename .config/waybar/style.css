@@ -184,8 +184,14 @@
     /* No styles */
 }
 
+/* #window { */
+/*     font-weight: bold; */
+/* } */
+
 #window {
-    font-weight: bold;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #workspaces {
