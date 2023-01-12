@@ -179,7 +179,14 @@ local opts = {
                 cargo = {
                     checkOnSave = {
                         enable = true,
-                        command = "clippy"
+                        command = "clippy",
+                        extraArgs = "--tests -- -Dwarnings -A deprecated",
+                        allFeatures = false,
+                        overrideCommand = {
+                            "cargo",
+                            "clippy",
+                            "--tests -- -Dwarnings -A deprecated"
+                        }
                     }
                 }
             }
