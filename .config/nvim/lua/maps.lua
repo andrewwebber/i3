@@ -53,7 +53,7 @@ local api = vim.api
 local rustUtil = api.nvim_create_augroup("RustUtil", { clear = true })
 api.nvim_create_autocmd("FileType", {
     pattern = { "rust" },
-    command = "nmap gb :Cargo clippy --all-features --tests -- -Dwarnings -A deprecated<CR>",
+    command = "nmap gb :Cargo clippy --tests -- -Dwarnings -A deprecated<CR>",
     group = rustUtil,
 })
 api.nvim_create_autocmd("FileType", {

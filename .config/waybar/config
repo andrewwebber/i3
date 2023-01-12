@@ -155,7 +155,7 @@
     },
 
     "hyprland/window": {
-        "format": "👉 {}",
+        "format": "➡️ {}",
         "separate-outputs": false
     },
 
