@@ -3,10 +3,18 @@ set from = "andrewvwebber@gmail.com"
 set imap_user = "andrewvwebber@gmail.com"
 # Password assigned from decrypted file
 # set imap_pass = `pass neomutt/me`
-set imap_authenticators="oauthbearer"
-set imap_oauth_refresh_command="~/projects/i3/oauth2.py --quiet --user=andrewvwebber@gmail.com\
-    --client_id=536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com --client_secret=`pass console.google.com/credentials/neomutt/536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com` \
-    --refresh_token=`pass console.google.com/refresh_tokens/neomutt/andrewvwebber@gmail.com`"
+set imap_authenticators="oauthbearer:xoauth2"
+set imap_oauth_refresh_command="~/.local/bin/mutt_oauth2.py \
+	~/andrewvwebber@gmail.com.tokens \
+	--provider google \
+    --encryption-pipe "gpg --encrypt --recipient andrewvwebber@googlemail.com>" \
+    --decryption-pipe "gpg --encrypt --recipient andrewvwebber@googlemail.com>" \
+    --email andrewvwebber@gmail.com \
+	--client_id 536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com \
+	--client_secret `pass console.google.com/credentials/neomutt/536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com`"
+
+set smtp_authenticators=${imap_authenticators}
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
 set imap_check_subscribed
 
 # Specifies the default location of your mailboxes
@@ -18,10 +26,8 @@ set folder = "imaps://$imap_user@imap.gmail.com:993"
 set smtp_url = "smtp://andrewvwebber@smtp.gmail.com:587/"
 # for G Suite with own domain
 #set smtp_url = "smtps://yourusername@yourdomain.ext@smtp.gmail.com:587"
-set smtp_authenticators="oauthbearer"
-set smtp_oauth_refresh_command="~/projects/i3/oauth2.py --quiet --user=andrewvwebber@gmail.com\
-    --client_id=536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com --client_secret=`pass console.google.com/credentials/neomutt/536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com` \
-    --refresh_token=`pass console.google.com/refresh_tokens/neomutt/andrewvwebber@gmail.com`"
+# set smtp_authenticators="oauthbearer"
+# set smtp_oauth_refresh_command="~/.local/bin/mutt_oauth2.py ~/.mutt_gmail_smtp"
 # set smtp_pass = `pass neomutt/me`
 
 # Location of inbox

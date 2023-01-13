@@ -1,0 +1,8 @@
+mutt_oauth2.py $1 \
+        --verbose \
+        --authorize \
+        --provider google \
+        --encryption-pipe "gpg --encrypt --recipient $1" \
+        --client-id 536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com \
+        --client-secret `pass console.google.com/credentials/neomutt/536220415180-s2f65ora8pnpr78tqpcmssm2h8l952ra.apps.googleusercontent.com` \
+        --authflow authcode
