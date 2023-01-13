@@ -7,8 +7,9 @@
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
     #export XDG_SESSION_TYPE=wayland
     #export XDG_CURRENT_DESKTOP=sway
+    ./.local/bin/hypr
 
-    dbus-run-session sway
+    #dbus-run-session sway
   #exec startx
 fi
 #xmodmap ~/.Xmodmap
