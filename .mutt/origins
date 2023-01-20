@@ -2,16 +2,22 @@
 set smtp_authenticators="login"
 set from =  "awebber@originsinfo.com"
 set imap_user = "awebber@originsinfo.com"
-set imap_pass = "`pass originsinfo/awebber`"
+# set imap_pass = "`pass originsinfo/awebber`"
 set imap_check_subscribed
 
-set folder="imap://outlook.office365.com/"
+set folder="imaps://outlook.office365.com/"
 set spoolfile="+INBOX"
 set ssl_use_sslv3=yes
 # Configure Simple Mail Transfer Protocol for sending mail
 # for Gmail
 set smtp_url = "smtp://$imap_user@smtp.office365.com:587/"
-set smtp_pass = "`pass originsinfo/awebber`"
+# set smtp_pass = "`pass originsinfo/awebber`"
+set imap_authenticators = "xoauth2"
+set imap_oauth_refresh_command = "mutt_oauth2.py ~/awebber_origins"
+set smtp_authenticators = ${imap_authenticators}
+set smtp_oauth_refresh_command = ${imap_oauth_refresh_command}
+set ssl_force_tls = "yes"
+set ssl_starttls  = "yes"
 
 # Location of inbox
 # Location of drafts
