@@ -135,6 +135,7 @@ RPROMPT='$(right_prompt)'
 export PATH=~/.local/bin:~/go/bin:~/.cargo/bin:$PATH
 
 # export MAKEFLAGS='-j 8'
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # source <(kubectl completion zsh)
 fpath=($fpath ~/.zsh/completion)

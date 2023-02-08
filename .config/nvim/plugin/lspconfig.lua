@@ -103,7 +103,12 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 nvim_lsp.tailwindcss.setup {}
-nvim_lsp.pyright.setup({})
+nvim_lsp.pyright.setup({
+    useLibraryCodeForTypes = true
+})
+-- nvim_lsp.ruff_lsp.setup({
+--     on_attach = on_attach,
+-- })
 nvim_lsp.pylsp.setup({
     settings = {
         ["pylsp"] = {
