@@ -71,6 +71,9 @@ protocol.CompletionItemKind = {
 -- )
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+nvim_lsp.lua_ls.setup {
+    on_attach = on_attach
+}
 
 nvim_lsp.flow.setup {
     on_attach = on_attach,
@@ -84,49 +87,54 @@ nvim_lsp.tsserver.setup {
     capabilities = capabilities
 }
 
-nvim_lsp.sumneko_lua.setup {
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-            },
+-- nvim_lsp.sumneko_lua.setup {
+--     on_attach = on_attach,
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = { 'vim' },
+--             },
 
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false
-            },
-        },
-    },
-}
+--             workspace = {
+--                 -- Make the server aware of Neovim runtime files
+--                 library = vim.api.nvim_get_runtime_file("", true),
+--                 checkThirdParty = false
+--             },
+--         },
+--     },
+-- }
 
 nvim_lsp.tailwindcss.setup {}
+
+nvim_lsp.jedi_language_server.setup({
+    on_attach = on_attach
+})
 nvim_lsp.pyright.setup({
+    on_attach = on_attach,
     useLibraryCodeForTypes = true
 })
 -- nvim_lsp.ruff_lsp.setup({
 --     on_attach = on_attach,
 -- })
-nvim_lsp.pylsp.setup({
-    settings = {
-        ["pylsp"] = {
-            plugins = {
-                pylint = {
-                    enabled = true
-                },
-                pycodestyle = {
-                    maxLineLength = 200
-                },
-                flake8 = {
-                    enabled = true,
-                    maxLineLength = 200
-                }
-            }
-        }
-    }
-})
+-- nvim_lsp.pylsp.setup({
+--     settings = {
+--         ["pylsp"] = {
+--             plugins = {
+--                 pylint = {
+--                     enabled = true
+--                 },
+--                 pycodestyle = {
+--                     maxLineLength = 200
+--                 },
+--                 flake8 = {
+--                     enabled = true,
+--                     maxLineLength = 200
+--                 }
+--             }
+--         }
+--     }
+-- })
 
 local util = require "lspconfig/util"
 
@@ -150,9 +158,9 @@ if not configs.golangcilsp then
             cmd = { 'golangci-lint-langserver' },
             root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
             init_options = {
-                command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json" };
+                command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json" },
             }
-        };
+        },
     }
 end
 
@@ -205,13 +213,13 @@ require('rust-tools').setup(opts)
 require("nvim-lsp-installer").setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
-    severity_sort = true,
-}
-)
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = { spacing = 4, prefix = "●" },
+        severity_sort = true,
+    }
+    )
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -234,3 +242,9 @@ vim.cmd([[
 set signcolumn=yes
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
+
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true
+    },
+  }

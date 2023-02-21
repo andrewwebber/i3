@@ -24,6 +24,7 @@ packer.startup(function(use)
     use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
+    use 'nvim-tree/nvim-web-devicons'
 
     use({
         "glepnir/lspsaga.nvim",
@@ -31,6 +32,11 @@ packer.startup(function(use)
         config = function()
             require('lspsaga').setup({})
         end,
+        requires = {
+            { "nvim-tree/nvim-web-devicons" },
+            --Please make sure you install markdown and markdown_inline parser
+            { "nvim-treesitter/nvim-treesitter" }
+        }
     })
     use 'L3MON4D3/LuaSnip'
     use {
@@ -41,7 +47,6 @@ packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter-textobjects',
         requires = { 'nvim-treesitter/nvim-treesitter' }
     }
-    use 'kyazdani42/nvim-web-devicons' -- File icons
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'windwp/nvim-autopairs'
@@ -58,7 +63,7 @@ packer.startup(function(use)
     use 'tyru/open-browser.vim'
     use 'junegunn/fzf.vim'
     use 'tpope/vim-fugitive'
-    use 'bronson/vim-trailing-whitespace'
+    -- use 'bronson/vim-trailing-whitespace'
     use 'jamessan/vim-gnupg'
     use 'tpope/vim-commentary'
     use 'folke/tokyonight.nvim'
