@@ -130,9 +130,6 @@ if not configs.ruff_lsp then
     }
 end
 
-require('lspconfig').ruff_lsp.setup {
-    on_attach = on_attach,
-}
 nvim_lsp.ruff_lsp.setup({
     on_attach = on_attach,
 })
