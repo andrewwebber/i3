@@ -114,9 +114,28 @@ nvim_lsp.pyright.setup({
     on_attach = on_attach,
     useLibraryCodeForTypes = true
 })
--- nvim_lsp.ruff_lsp.setup({
---     on_attach = on_attach,
--- })
+
+if not configs.ruff_lsp then
+    configs.ruff_lsp = {
+        default_config = {
+            cmd = { 'ruff-lsp' },
+            filetypes = { 'python' },
+            root_dir = require('lspconfig').util.find_git_ancestor,
+            init_options = {
+                settings = {
+                    args = {}
+                }
+            }
+        }
+    }
+end
+
+require('lspconfig').ruff_lsp.setup {
+    on_attach = on_attach,
+}
+nvim_lsp.ruff_lsp.setup({
+    on_attach = on_attach,
+})
 -- nvim_lsp.pylsp.setup({
 --     settings = {
 --         ["pylsp"] = {
@@ -213,13 +232,13 @@ require('rust-tools').setup(opts)
 require("nvim-lsp-installer").setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        update_in_insert = false,
-        virtual_text = { spacing = 4, prefix = "●" },
-        severity_sort = true,
-    }
-    )
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+}
+)
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -243,8 +262,8 @@ set signcolumn=yes
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true
     },
-  }
+}
