@@ -58,7 +58,13 @@ api.nvim_create_autocmd("FileType", {
 })
 api.nvim_create_autocmd("FileType", {
     pattern = { "rust" },
-    command = 'nmap <leader>t :lua require("neotest").run.run({vim.fn.expand("%"), env = {RUSTFLAGS="-C instrument-coverage"}})<CR>',
+    command = "nmap gB :Cargo clippy --tests --all-features -- -Dwarnings -A deprecated<CR>",
+    group = rustUtil,
+})
+api.nvim_create_autocmd("FileType", {
+    pattern = { "rust" },
+    command =
+    'nmap <leader>t :lua require("neotest").run.run({vim.fn.expand("%"), env = {RUSTFLAGS="-C instrument-coverage"}})<CR>',
     group = rustUtil,
 })
 
