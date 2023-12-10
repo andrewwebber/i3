@@ -20,7 +20,7 @@ gaps outer 15
 #font xft:Monospace 12
 #font xft:VL PGothic 11
 #font pango:Go Mono for Powerline Regular 11
-font pango:Lexend Deca 12
+font Fira Code Nerd Font 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -51,11 +51,12 @@ exec --no-startup-id picom   --config ~/.config/compton.conf -b
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec dbus-launch alacritty
+bindsym $mod+Return exec dbus-launch kitty
 #bindsym $mod+Return exec dbus-launch gnome-terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym Control+$mod+l exec swaylock
-bindsym $mod+Shift+d exec  wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun -theme material
+bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+Shift+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
 bindsym XF86MonBrightnessUp exec brightnessctl s +20
 bindsym XF86MonBrightnessDown exec brightnessctl s 20-
 
@@ -217,19 +218,19 @@ for_window [class="Yad"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    colors {
-        background #00000000
-        statusline #FFFFFF
-        inactive_workspace #00000000 #00000000 #FFFFFF
-        active_workspace #00000000 #202020 #FFFFFF
-        focused_workspace #00000000 #202020 #FFFFFF
-    }
-	font pango:Lexend Deca, Icons 16
-    status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
+# bar {
+#     colors {
+#         background #00000000
+#         statusline #FFFFFF
+#         inactive_workspace #00000000 #00000000 #FFFFFF
+#         active_workspace #00000000 #202020 #FFFFFF
+#         focused_workspace #00000000 #202020 #FFFFFF
+#     }
+# 	font pango:Lexend Deca, Icons 16
+#     status_command waybar
 
-}
-#exec waybar
+# }
+exec waybar
 # bar {
 #         swaybar_command waybar
 # }

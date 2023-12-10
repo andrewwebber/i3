@@ -20,10 +20,10 @@
     "spacing": 6, // Gaps between modules (4px)
 
     "modules-left": [
-        "hyprland/workspaces",
+        "sway/workspaces",
     ],
     "modules-center": [
-        "hyprland/window",
+        "sway/window",
     ],
     "modules-right": [
         "cpu",
@@ -55,6 +55,21 @@
     },
 
     // Modules configuration
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{name}: {icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+    },
     "hyprland/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
