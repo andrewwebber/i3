@@ -52,18 +52,16 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec dbus-launch kitty
-#bindsym $mod+Return exec dbus-launch gnome-terminal
-#bindsym $mod+Return exec i3-sensible-terminal
 bindsym Control+$mod+l exec swaylock
 bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
 bindsym XF86MonBrightnessUp exec brightnessctl s +20
 bindsym XF86MonBrightnessDown exec brightnessctl s 20-
 
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+# bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+# bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
 
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
@@ -169,9 +167,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec i3-msg exit
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
