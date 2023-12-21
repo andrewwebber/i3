@@ -14,20 +14,10 @@ keymap.set('n', '<leader>g', ':G<CR>')
 -- keymap.set('n', '<C-\\>', ':Lspsaga open_floaterm<CR>')
 keymap.set('n', '<C-\\>', ':ToggleTerm<CR>')
 keymap.set('n', '<leader>c', ':Coverage<CR>')
+keymap.set('n', '<leader>a', ':ToggleTerm<CR>')
 keymap.set('n', '<leader>d', ':DogeGenerate<CR>')
+keymap.set('n', 'fp', ':Prettier<CR>')
 
-
--- Increment/decrement
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
-
-
-
--- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
-
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 -- New tab
 keymap.set('n', 'te', ':tabedit')

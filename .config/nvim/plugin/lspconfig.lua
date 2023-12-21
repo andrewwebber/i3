@@ -80,6 +80,12 @@ nvim_lsp.flow.setup {
     capabilities = capabilities
 }
 
+nvim_lsp.tailwindcss.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+
+}
+
 nvim_lsp.tsserver.setup {
     on_attach = on_attach,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
@@ -105,6 +111,9 @@ nvim_lsp.tsserver.setup {
 --     },
 -- }
 
+-- nvim_lsp.astro.setup({
+--     on_attach = on_attach
+-- })
 
 nvim_lsp.jedi_language_server.setup({
     on_attach = on_attach
@@ -241,11 +250,11 @@ require("nvim-lsp-installer").setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
-    severity_sort = true,
-}
+        underline = true,
+        update_in_insert = false,
+        virtual_text = { spacing = 4, prefix = "●" },
+        severity_sort = true,
+    }
 )
 
 -- Diagnostic symbols in the sign column (gutter)

@@ -12,16 +12,16 @@ packer.startup(function(use)
         'svrana/neosolarized.nvim',
         requires = { 'tjdevries/colorbuddy.nvim' }
     }
-    use 'nvim-lualine/lualine.nvim' -- Statusline
-    use 'nvim-lua/plenary.nvim' -- Common utilities
+    use 'nvim-lualine/lualine.nvim'       -- Statusline
+    use 'nvim-lua/plenary.nvim'           -- Common utilities
     use 'nvim-lua/popup.nvim'
-    use 'onsails/lspkind-nvim' -- vscode-like pictograms
-    use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-    use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-    use 'hrsh7th/nvim-cmp' -- Completion
-    use 'neovim/nvim-lspconfig' -- LSP
+    use 'onsails/lspkind-nvim'            -- vscode-like pictograms
+    use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
+    use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
+    use 'hrsh7th/nvim-cmp'                -- Completion
+    use 'neovim/nvim-lspconfig'           -- LSP
     use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-    use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+    use 'MunifTanjim/prettier.nvim'       -- Prettier plugin for Neovim's built-in LSP client
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use 'nvim-tree/nvim-web-devicons'
@@ -121,6 +121,7 @@ packer.startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function()
             vim.fn["mkdp#util#install"]()
+            vim.g.mkdp_browser = "/usr/bin/chromium"
         end,
         ft = "markdown",
         cmd = { "MarkdownPreview" },
