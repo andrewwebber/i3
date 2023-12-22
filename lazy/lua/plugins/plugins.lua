@@ -37,6 +37,37 @@ local rust_opts = {
 
 return {
   {
+    "nvim-telescope/telescope.nvim",
+    -- replace all Telescope keymaps with only one mapping
+    keys = {
+      {
+        "\\f",
+        function()
+          require("telescope.builtin").find_files({
+            cwd = require("lazy.core.config").options.root,
+            no_ignore = false,
+            hidden = true,
+          })
+        end,
+        desc = "Find files",
+      },
+      {
+        "\\g",
+        function()
+          require("telescope.builtin").live_grep()
+        end,
+        desc = "Find grep",
+      },
+      {
+        "\\d",
+        function()
+          require("telescope.builtin").diagnostics()
+        end,
+        desc = "Find diagnostics",
+      },
+    },
+  },
+  {
     "williamboman/mason.nvim",
     optional = true,
     opts = function(_, opts)
