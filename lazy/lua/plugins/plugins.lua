@@ -44,7 +44,6 @@ return {
         "\\f",
         function()
           require("telescope.builtin").find_files({
-            cwd = require("lazy.core.config").options.root,
             no_ignore = false,
             hidden = true,
           })
