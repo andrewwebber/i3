@@ -109,6 +109,25 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 alias xclip="xclip -selection c"
+alias kgp="kubectl get pods"
+alias kgd="kubectl get deploy"
+
+kcfg() {
+  export KUBECONFIG=$1
+}
+
+kctx() {
+  kubectl config set-context --current --namespace=$1
+}
+
+knsvc() {
+  kubectl $1 ksvc $2
+}
+
+kport() {
+  kubectl port-forward $1 $2
+}
+
 # alias ls="ls -alh --color=auto"
 alias cpv='rsync -ah --info=progress2'
 # alias ?='ddgr -n 5'
@@ -146,4 +165,6 @@ complete -o nospace -C /usr/bin/mcli mc
 # source '/opt/kube-ps1/kube-ps1.sh'
 # PROMPT='$(kube_ps1)'$PROMPT
 # export RUSTC_WRAPPER=sccache
+
 export PATH=/home/awebber/.cargo/bin:/home/awebber/.local/bin:/home/awebber/go/bin:/home/awebber/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+source /etc/profile.d/google-cloud-cli.sh
