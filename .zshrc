@@ -110,6 +110,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias xclip="xclip -selection c"
 alias kgp="kubectl get pods"
+alias kgl="kubectl get logs"
+alias kdp="kubectl describe pod"
 alias kgd="kubectl get deploy"
 
 kcfg() {
