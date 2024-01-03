@@ -170,3 +170,5 @@ complete -o nospace -C /usr/bin/mcli mc
 
 export PATH=/home/awebber/.cargo/bin:/home/awebber/.local/bin:/home/awebber/go/bin:/home/awebber/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 source /etc/profile.d/google-cloud-cli.sh
+
+eval "$(starship init zsh)"
