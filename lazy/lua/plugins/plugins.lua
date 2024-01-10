@@ -218,7 +218,6 @@ return {
     },
   },
   { "MunifTanjim/prettier.nvim" },
-  { "simrat39/rust-tools.nvim" },
   { "junegunn/fzf.vim" },
   { "tpope/vim-fugitive" },
   { "jamessan/vim-gnupg" },
