@@ -10,31 +10,37 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 gaps inner 15
 gaps outer 15
-
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
 #font xft:Monospace 12
 #font xft:VL PGothic 11
 #font pango:Go Mono for Powerline Regular 11
-font pango:Lexend Deca 12
+font Fira Code Nerd Font 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#exec_always --no-startup-id /etc/lightdm/setup-display.sh
-#exec_always --no-startup-id /usr/bin/xrandr --auto
-#exec_always --no-startup-id /usr/bin/xrandr --output HDMI-1 --auto --right-of DVI-I-1 --output DVI-I-1 --primary
-#exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/ISS-Space-Shuttle-NASA-space-station-endeavour-_465696-41.jpg
-#output HDMI-A-1 bg ~/Downloads/ISS-Space-Shuttle-NASA-space-station-endeavour-_465696-41.jpg stretch
-#output DVI-I-1 bg ~/Downloads/ISS-Space-Shuttle-NASA-space-station-endeavour-_465696-41.jpg stretch
-#exec --no-startup-id /usr/bin/nm-applet
+# exec_always --no-startup-id ~/setup-display.sh
+# exec_always --no-startup-id /usr/bin/xrandr --output XWAYLAND0 --auto --primary
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+# exec hash dbus-update-activation-environment 2>/dev/null && \
+#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+#exec systemctl --user start xdg-desktop-portal
+
+# exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
+output "*" bg ~/Downloads/austria.jpg fill
+# exec --no-startup-id /usr/bin/nm-applet
 #exec --no-startup-id pasystray
 #exec --no-startup-id blueman-tray
-#exec --no-startup-id dunst
-#exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
+exec --no-startup-id dunst
+# exec --no-startup-id picom  --experimental-backend --backend glx  --vsync --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
+exec --no-startup-id picom   --config ~/.config/compton.conf -b
 # Before i3 v4.8, we used to recommend this one as the default:
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -46,26 +52,29 @@ font pango:Lexend Deca 12
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec dbus-launch gnome-terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec dbus-launch kitty
 bindsym Control+$mod+l exec swaylock
-bindsym $mod+Shift+d exec  rofi -show-icons -modi combi -show combi -combi-modi drun -theme material
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
+bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
+bindsym XF86MonBrightnessUp exec brightnessctl s +20
+bindsym XF86MonBrightnessDown exec brightnessctl s 20-
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+# bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+# bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
+
+bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+Shift+p exec passmenu
-bindsym $mod+Shift+s exec surf google.com
-bindsym $mod+Shift+f exec i3-sensible-terminal -e ranger
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -159,9 +168,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec i3-msg exit
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -175,10 +184,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -200,11 +209,30 @@ for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
 
 for_window [class="Yad"] floating enable
 
+assign [class="Slack"] $ws6
+assign [instance="slack"] $ws6
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	font pango:Lexend Deca, Icons 16
-        status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
-	tray_output primary
+# bar {
+#     colors {
+#         background #00000000
+#         statusline #FFFFFF
+#         inactive_workspace #00000000 #00000000 #FFFFFF
+#         active_workspace #00000000 #202020 #FFFFFF
+#         focused_workspace #00000000 #202020 #FFFFFF
+#     }
+# 	font pango:Lexend Deca, Icons 16
+#     status_command waybar
 
-}
+# }
+exec waybar
+exec nm-applet --indicator
+exec swayidle -w \
+	timeout 120 'swaylock -f' \
+	timeout 125 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"'
+# bar {
+#         swaybar_command waybar
+# }
+
+include /etc/sway/config.d/*
