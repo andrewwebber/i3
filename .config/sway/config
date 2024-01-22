@@ -227,6 +227,7 @@ assign [instance="signal"] $ws7
 #     status_command waybar
 
 # }
+exec wl-paste -t text --watch clipman store --no-persist
 exec waybar
 exec nm-applet --indicator
 exec swayidle -w \
