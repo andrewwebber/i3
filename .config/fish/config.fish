@@ -16,6 +16,8 @@ set -e SSH_AGENT_PID
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+source /opt/google-cloud-cli/path.fish.inc
+
 set PATH ~/.local/bin/ $PATH
 
 if test (tty) = /dev/tty1
