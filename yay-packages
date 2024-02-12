@@ -1,19 +1,15 @@
 #!/usr/bin/bash -ex
 
 yay pulseaudio-ctl
-yay --nouseask --nocleanmenu --nodiffmenu oh-my-zsh-git <<< 1
-yay obinskit
 yay ublock
-yay -R --useask --nocleanmenu --nodiffmenu vim <<< y
-yay --nouseask --nocleanmenu --nodiffmenu neovim-symlinks <<< 1
-ln -sf /usr/bin/nvim ~/.local/bin/vim
-yay --nouseask --nocleanmenu --nodiffmenu eksctl <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu rancher-k3d-bin <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu gopls <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu revive <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu otf-nerd-fonts-monacob-mono <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu mtpfs <<< 1
-yay --nouseask --nocleanmenu --nodiffmenu gvfs-mtp <<< 1
+yay --nouseask --nocleanmenu --nodiffmenu neovim-symlinks <<<1
+yay --nouseask --nocleanmenu --nodiffmenu eksctl <<<1
+yay --nouseask --nocleanmenu --nodiffmenu rancher-k3d-bin <<<1
+yay --nouseask --nocleanmenu --nodiffmenu gopls <<<1
+yay --nouseask --nocleanmenu --nodiffmenu revive <<<1
+yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<<1
+yay --nouseask --nocleanmenu --nodiffmenu otf-nerd-fonts-monacob-mono <<<1
+yay --nouseask --nocleanmenu --nodiffmenu mtpfs <<<1
+yay --nouseask --nocleanmenu --nodiffmenu gvfs-mtp <<<1
 # yay plasma-pa
 # yay nerd-fonts-complete
