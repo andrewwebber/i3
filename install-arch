@@ -13,29 +13,16 @@ sudo systemctl start pcscd.service
 sudo systemctl enable pcscd.service
 
 sudo usermod -aG docker awebber
-sudo npm install -i prettier
 
 mkdir ~/Downloads
 cp ./austria.jpg ~/Downloads
-cd -
 (
 	cd ~/projects
 	git clone https://aur.archlinux.org/yay.git
 	cd yay
 	makepkg -si
 )
-(
-	ln -sf ~/projects/i3/.vimrc ~/.vimrc
-	ln -sf ~/projects/i3/.gitconfig ~/.gitconfig
-)
-(
-	mkdir ~/.config/nvim || true
-	ln -sf ~/projects/i3/.vimrc ~/.config/nvim/init.vim
-)
-cd ~/projects/i3
 
 chsh -s /usr/bin/fish
-./yay-packages
 ./install-vim-spelling
 # ./install-rust
-ln -s /usr/bin/mcli ~/.local/bin/mc

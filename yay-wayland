@@ -2,9 +2,11 @@
 yay --nouseask --nocleanmenu --nodiffmenu wofi
 yay --nouseask --nocleanmenu --nodiffmenu wl-clipboard-x11
 yay --nouseask --nocleanmenu --nodiffmenu grim slurp
+yay --nouseask --nocleanmenu --nodiffmenu slurp
 yay --nouseask --nocleanmenu --nodiffmenu wdisplays
 yay --nouseask --nocleanmenu --nodiffmenu wf-recorder
 yay --nouseask --nocleanmenu --nodiffmenu swaylock
+yay --nouseask --nocleanmenu --nodiffmenu swayidle
 yay --nouseask --nocleanmenu --nodiffmenu swappy
 yay --nouseask --nocleanmenu --nodiffmenu kora
 yay --nouseask --nocleanmenu --nodiffmenu breeze
