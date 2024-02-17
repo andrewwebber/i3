@@ -13,7 +13,7 @@ keymap.set("i", "<C-l>", "<Esc>")
 keymap.set("i", "<C-c>", "<Esc>")
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("n", ";", ":")
-keymap.set("n", "<leader>d", ":DogeGenerate<CR>")
+keymap.set("n", "<leader>gg", ":DogeGenerate<CR>")
 keymap.set("n", "fp", ":Prettier<CR>")
 
 -- Split window
@@ -41,14 +41,15 @@ api.nvim_create_autocmd("FileType", {
 })
 
 -- Golang
-local goUtil = api.nvim_create_augroup("GolangUtil", { clear = true })
-api.nvim_create_autocmd("FileType", {
-  pattern = { "go" },
-  command = ":Coverage",
-  group = goUtil,
-})
-api.nvim_create_autocmd("FileType", {
-  pattern = { "go" },
-  command = "nmap <leader>t :TestNearest -strategy=neovim --coverprofile=coverage.out<CR>| :Coverage",
-  group = rustUtil,
-})
+-- local goUtil = api.nvim_create_augroup("GolangUtil", { clear = true })
+-- api.nvim_create_autocmd("FileType", {
+--   pattern = { "go" },
+--   command = ":Coverage",
+--   group = goUtil,
+-- })
+--
+-- api.nvim_create_autocmd("FileType", {
+--   pattern = { "go" },
+--   command = "nmap <leader>t :TestNearest -strategy=neovim --coverprofile=coverage.out<CR>| :Coverage",
+--   group = rustUtil,
+-- })

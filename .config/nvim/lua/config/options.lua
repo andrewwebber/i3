@@ -4,4 +4,4 @@
 -- local opt = vim.opt
 
 vim.opt.clipboard = "unnamed,unnamedplus" -- Sync with system clipboard
-vim.g.autoformat = false
+vim.g.autoformat = true
