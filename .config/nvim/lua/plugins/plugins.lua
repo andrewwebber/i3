@@ -164,9 +164,9 @@ return {
         -- Ensure mason installs the server
         rust_analyzer = {
           keys = {
-            { "K",          "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
-            { "<leader>cr", "<cmd>RustCodeAction<cr>",   desc = "Code Action (Rust)" },
-            { "<leader>dr", "<cmd>RustDebuggables<cr>",  desc = "Run Debuggables (Rust)" },
+            { "K", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+            { "<leader>cr", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
+            { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
           },
           settings = {
             ["rust-analyzer"] = {
@@ -224,6 +224,10 @@ return {
   { "tpope/vim-commentary" },
   { "rust-lang/rust.vim" },
   { "vim-test/vim-test" },
+  {
+    "kkoomen/vim-doge",
+    build = ":call doge#install({ 'headless': 1 }) ",
+  },
   { "folke/trouble.nvim" },
   {
     "nvim-neotest/neotest",
