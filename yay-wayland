@@ -1,5 +1,6 @@
 
 yay --nouseask --nocleanmenu --nodiffmenu wofi
+yay --nouseask --nocleanmenu --nodiffmenu wayprompt
 yay --nouseask --nocleanmenu --nodiffmenu wl-clipboard-x11
 yay --nouseask --nocleanmenu --nodiffmenu grim
 yay --nouseask --nocleanmenu --nodiffmenu slurp
