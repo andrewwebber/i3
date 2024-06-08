@@ -1,11 +1,11 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.formatting.prettier",
-    "lazyvim.plugins.extras.lsp.none-ls",
-    "lazyvim.plugins.extras.test.core"
+    "lazyvim.plugins.extras.lsp.none-ls"
   ],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "5204"
   },
-  "version": 3
+  "version": 6
 }
