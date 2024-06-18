@@ -38,10 +38,10 @@ return {
       end
     end,
   },
-  {
-    "mrcjkb/rustaceanvim",
-    lazy = false,
-  },
+  -- {
+  --   "mrcjkb/rustaceanvim",
+  --   lazy = false,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -86,6 +86,36 @@ return {
         exclude = {}, -- filetypes for which you don't want to enable inlay hints
       },
       servers = {
+        rust_analyzer = {
+          keys = {
+            { "K",          "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+            { "<leader>cr", "<cmd>RustCodeAction<cr>",   desc = "Code Action (Rust)" },
+            { "<leader>dr", "<cmd>RustDebuggables<cr>",  desc = "Run Debuggables (Rust)" },
+          },
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true,
+                runBuildScripts = true,
+              },
+              -- Add clippy lints for Rust.
+              checkOnSave = {
+                allFeatures = true,
+                command = "clippy",
+                extraArgs = { "--no-deps" },
+              },
+              procMacro = {
+                enable = true,
+                ignored = {
+                  ["async-trait"] = { "async_trait" },
+                  ["napi-derive"] = { "napi" },
+                  ["async-recursion"] = { "async_recursion" },
+                },
+              },
+            },
+          },
+        },
         -- Ensure mason installs the server
         taplo = {
           keys = {
