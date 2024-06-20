@@ -1,7 +1,7 @@
 local status, telescope = pcall(require, "telescope")
-if (not status) then return end
 local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
+local open_with_trouble = require("trouble.sources.telescope").open
 
 local function telescope_buffer_dir()
     return vim.fn.expand('%:p:h')
@@ -13,7 +13,8 @@ telescope.setup {
     defaults = {
         mappings = {
             n = {
-                ["q"] = actions.close
+                ["q"] = actions.close,
+                ["<c-t>"] = open_with_trouble,
             },
         },
     },
@@ -42,14 +43,14 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set('n', '\\f',
+vim.keymap.set('n', '<leader><leader>',
     function()
         builtin.find_files({
             no_ignore = false,
             hidden = true
         })
     end)
-vim.keymap.set('n', '\\g', function()
+vim.keymap.set('n', '\\\\', function()
     builtin.live_grep()
 end)
 vim.keymap.set('n', '\\b', function()
@@ -64,7 +65,7 @@ end)
 vim.keymap.set('n', '\\e', function()
     builtin.diagnostics()
 end)
-vim.keymap.set("n", "<leader><leader>", function()
+vim.keymap.set("n", "\\f", function()
     telescope.extensions.file_browser.file_browser({
         path = "%:p:h",
         cwd = telescope_buffer_dir(),

@@ -1,0 +1,42 @@
+# This is your rocks.nvim plugins declaration file.
+# Here is a small yet pretty detailed example on how to use it:
+#
+# [plugins]
+# nvim-treesitter = "semver_version"  # e.g. "1.0.0"
+
+# List of non-Neovim rocks.
+# This includes things like `toml` or other lua packages.
+[rocks]
+
+# List of Neovim plugins to install alongside their versions.
+# If the plugin name contains a dot then you must add quotes to the key name!
+[plugins]
+"rocks.nvim" = "2.31.1" # rocks.nvim can also manage itself :D
+nvim-lspconfig = "0.1.8"
+nvim-treesitter = "0.9.2"
+cmp-nvim-lsp = "scm"
+nvim-web-devicons = "0.100"
+nvim-cmp = "0.0.1"
+cmp-buffer = "scm"
+# "lspsaga.nvim" = "scm"
+"telescope.nvim" = "scm"
+"telescope-file-browser.nvim" = "scm"
+cmp-path = "scm"
+"toggleterm.nvim" = "2.11.0"
+neotest = "5.3.3"
+nvim-autopairs = { git = "windwp/nvim-autopairs"}
+"bufferline.nvim" = "4.6.1"
+"lspkind.nvim" = "scm"
+"rocks-git.nvim" = "1.5.1"
+gitsigns = { git = "lewis6991/gitsigns.nvim"}
+neotest-rust = { git = "rouge8/neotest-rust"}
+"tokyonight.nvim" = "3.0.1"
+prettier = { git = "MunifTanjim/prettier.nvim"}
+luasnip = "2.3.0"
+"rocks-treesitter.nvim" = "scm"
+"lualine.nvim" = "scm"
+"lualine-time" = { git = "archibate/lualine-time"}
+git = { git = "dinhhuy258/git.nvim" }
+# rustaceanvim = "4.25.0"
+lsp-inlayhints = { git = "lvimuser/lsp-inlayhints.nvim"}
+trouble = { git = "folke/trouble.nvim"}

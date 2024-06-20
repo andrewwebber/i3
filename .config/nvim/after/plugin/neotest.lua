@@ -1,5 +1,5 @@
 require("neotest").setup({
-    adapters = {
-        require("neotest-rust")
-    }
+    -- adapters = {
+    --     require("neotest-rust")
+    -- }
 })

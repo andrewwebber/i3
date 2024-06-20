@@ -1,7 +1,4 @@
-local status, bufferline = pcall(require, "bufferline")
-if (not status) then return end
-
-bufferline.setup({
+require('bufferline').setup({
     options = {
         mode = "tabs",
         separator_style = 'slant',
@@ -31,5 +28,5 @@ bufferline.setup({
     },
 })
 
-vim.keymap.set('n', '\\t', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+vim.keymap.set('n', 'L', '<Cmd>BufferLineCycleNext<CR>', {})
+vim.keymap.set('n', 'H', '<Cmd>BufferLineCyclePrev<CR>', {})
