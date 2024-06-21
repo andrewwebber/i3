@@ -43,3 +43,17 @@ trouble = { git = "folke/trouble.nvim"}
 "crates.nvim" = { git = "Saecki/crates.nvim"}
 "which-key" = { git = "folke/which-key.nvim" }
 tree-sitter-toml = "scm"
+"nui.nvim" = "0.3.0"
+"kkoomen/vim-doge" = { git="kkoomen/vim-doge"}
+"none-ls-extras.nvim" = "scm"
+
+[plugins."neo-tree.nvim"]
+git = "nvim-neo-tree/neo-tree.nvim"
+rev = "v2.9^{}"
+
+[plugins."null-ls.nvim"]
+git = "nvimtools/none-ls.nvim"
+
+[plugins.tree-sitter-markdown]
+git = "tree-sitter-grammars/tree-sitter-markdown"
+rev = "v0.2.3"
