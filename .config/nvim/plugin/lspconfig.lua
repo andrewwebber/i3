@@ -21,6 +21,9 @@ local on_attach = function(client, bufnr)
 
     --Enable completion triggered by <c-x><c-o>
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+    --Inlays
+    -- vim.lsp.inlay_hint.enable(true)
+
     local lsp_inlayhints
     res, lsp_inlayhints = pcall(require, "lsp-inlayhints")
     if not res then
@@ -36,7 +39,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap('n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    -- buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 end
 
 protocol.CompletionItemKind = {
@@ -78,34 +81,44 @@ require 'cmp'.setup {
 --     vim.lsp.protocol.make_client_capabilities()
 -- )
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- nvim_lsp.rust_analyzer.setup {}
-nvim_lsp.rust_analyzer.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            cargo = {
-                allFeatures = true,
-                loadOutDirsFromCheck = true,
-                runBuildScripts = true,
-            },
-            -- Add clippy lints for Rust.
-            checkOnSave = {
-                allFeatures = true,
-                command = "clippy",
-                extraArgs = { "--no-deps" },
-            },
-            procMacro = {
-                enable = true,
-                ignored = {
-                    ["async-trait"] = { "async_trait" },
-                    ["napi-derive"] = { "napi" },
-                    ["async-recursion"] = { "async_recursion" },
+
+vim.g.rustaceanvim = {
+    -- Plugin configuration
+    tools = {
+    },
+    -- LSP configuration
+    server = {
+        on_attach = on_attach,
+        default_settings = {
+            -- rust-analyzer language server configuration
+            ["rust-analyzer"] = {
+                cargo = {
+                    allFeatures = true,
+                    loadOutDirsFromCheck = true,
+                    runBuildScripts = true,
+                },
+                -- Add clippy lints for Rust.
+                checkOnSave = {
+                    allFeatures = true,
+                    command = "clippy",
+                    extraArgs = { "--no-deps" },
+                },
+                procMacro = {
+                    enable = true,
+                    ignored = {
+                        ["async-trait"] = { "async_trait" },
+                        ["napi-derive"] = { "napi" },
+                        ["async-recursion"] = { "async_recursion" },
+                    },
                 },
             },
         },
     },
+    -- DAP configuration
+    dap = {
+    },
 }
+
 nvim_lsp.lua_ls.setup({
     on_attach = on_attach,
 })
@@ -127,24 +140,6 @@ nvim_lsp.tsserver.setup({
     capabilities = capabilities,
 })
 
--- nvim_lsp.sumneko_lua.setup {
---     on_attach = on_attach,
---     settings = {
---         Lua = {
---             diagnostics = {
---                 -- Get the language server to recognize the `vim` global
---                 globals = { 'vim' },
---             },
-
---             workspace = {
---                 -- Make the server aware of Neovim runtime files
---                 library = vim.api.nvim_get_runtime_file("", true),
---                 checkThirdParty = false
---             },
---         },
---     },
--- }
-
 -- nvim_lsp.astro.setup({
 --     on_attach = on_attach
 -- })
@@ -152,6 +147,7 @@ nvim_lsp.tsserver.setup({
 nvim_lsp.jedi_language_server.setup({
     on_attach = on_attach,
 })
+
 nvim_lsp.pyright.setup({
     on_attach = on_attach,
     useLibraryCodeForTypes = true,
@@ -237,45 +233,6 @@ end
 nvim_lsp.golangci_lint_ls.setup({
     filetypes = { "go", "gomod" },
 })
-
-local opts = {
-    tools = {
-        autoSetHints = true,
-        inlay_hints = {
-            show_parameter_hints = true,
-            other_hints_prefix = "\194\187 ",
-            only_current_line_autocmd = "CursorHold",
-            only_current_line = false,
-            right_align_padding = 7,
-            parameter_hints_prefix = "< ",
-            right_align = false,
-            highlight = "RustInlayHint",
-            max_len_align = false,
-            max_len_align_padding = 1,
-        },
-    },
-    server = {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-            ["rust-analyzer"] = {
-                cargo = {
-                    checkOnSave = {
-                        enable = true,
-                        command = "clippy",
-                        extraArgs = "--tests -- -Dwarnings -A deprecated",
-                        allFeatures = false,
-                        overrideCommand = {
-                            "cargo",
-                            "clippy",
-                            "--tests -- -Dwarnings -A deprecated",
-                        },
-                    },
-                },
-            },
-        },
-    },
-}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,

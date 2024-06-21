@@ -16,6 +16,8 @@ require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
         "bash",
         "tsx",
+        "typescript",
+        "javascript",
         "toml",
         "fish",
         "json",

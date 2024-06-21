@@ -1,0 +1,14 @@
+require("lsp-inlayhints").setup({
+    inlay_hints = {
+        show_parameter_hints = true,
+        other_hints_prefix = "\194\187 ",
+        only_current_line_autocmd = "CursorHold",
+        only_current_line = false,
+        right_align_padding = 7,
+        parameter_hints_prefix = "< ",
+        right_align = false,
+        highlight = "RustInlayHint",
+        max_len_align = false,
+        max_len_align_padding = 1,
+    }
+})

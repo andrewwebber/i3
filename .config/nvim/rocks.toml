@@ -18,7 +18,7 @@ cmp-nvim-lsp = "scm"
 nvim-web-devicons = "0.100"
 nvim-cmp = "0.0.1"
 cmp-buffer = "scm"
-# "lspsaga.nvim" = "scm"
+"lspsaga.nvim" = "scm"
 "telescope.nvim" = "scm"
 "telescope-file-browser.nvim" = "scm"
 cmp-path = "scm"
@@ -37,6 +37,9 @@ luasnip = "2.3.0"
 "lualine.nvim" = "scm"
 "lualine-time" = { git = "archibate/lualine-time"}
 git = { git = "dinhhuy258/git.nvim" }
-# rustaceanvim = "4.25.0"
+rustaceanvim = "4.25.0"
 lsp-inlayhints = { git = "lvimuser/lsp-inlayhints.nvim"}
 trouble = { git = "folke/trouble.nvim"}
+"crates.nvim" = { git = "Saecki/crates.nvim"}
+"which-key" = { git = "folke/which-key.nvim" }
+tree-sitter-toml = "scm"
