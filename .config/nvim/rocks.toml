@@ -39,21 +39,24 @@ luasnip = "2.3.0"
 git = { git = "dinhhuy258/git.nvim" }
 rustaceanvim = "4.25.0"
 lsp-inlayhints = { git = "lvimuser/lsp-inlayhints.nvim"}
-trouble = { git = "folke/trouble.nvim"}
+"trouble.nvim" = { git = "folke/trouble.nvim"}
 "crates.nvim" = { git = "Saecki/crates.nvim"}
 "which-key" = { git = "folke/which-key.nvim" }
 tree-sitter-toml = "scm"
 "nui.nvim" = "0.3.0"
-"kkoomen/vim-doge" = { git="kkoomen/vim-doge"}
 "none-ls-extras.nvim" = "scm"
+nvim-treesitter-context = "scm"
+nvim-treesitter-textobjects = { git = "nvim-treesitter/nvim-treesitter-textobjects"}
 
 [plugins."neo-tree.nvim"]
 git = "nvim-neo-tree/neo-tree.nvim"
-rev = "v2.9^{}"
 
 [plugins."null-ls.nvim"]
 git = "nvimtools/none-ls.nvim"
 
 [plugins.tree-sitter-markdown]
 git = "tree-sitter-grammars/tree-sitter-markdown"
-rev = "v0.2.3"
+
+[plugins.neogen]
+git = "danymat/neogen"
+rev = "2.9.2"

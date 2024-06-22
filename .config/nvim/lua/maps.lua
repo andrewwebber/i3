@@ -6,7 +6,7 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<leader>qq", "<cmd>qa<cr>")
 keymap.set("n", "<leader>gt", ":Neotree git_status<CR>")
 keymap.set("n", "<leader>ft", ":Neotree toggle<CR>")
-keymap.set("n", "<leader>dt", ":Neotree document_symbols<CR>")
+keymap.set("n", "<leader>dt", ":Trouble symbols<CR>")
 keymap.set("i", "<C-l>", "<Esc>")
 keymap.set("i", "<C-c>", "<Esc>")
 keymap.set("n", ";", ":")
@@ -45,30 +45,31 @@ local api = vim.api
 -- Rust
 local rustUtil = api.nvim_create_augroup("RustUtil", { clear = true })
 api.nvim_create_autocmd("FileType", {
-	pattern = { "rust" },
-	command = "nmap gb :Cargo clippy --tests -- -Dwarnings -A deprecated<CR>",
-	group = rustUtil,
+    pattern = { "rust" },
+    command = "nmap gb :Cargo clippy --tests -- -Dwarnings -A deprecated<CR>",
+    group = rustUtil,
 })
 api.nvim_create_autocmd("FileType", {
-	pattern = { "rust" },
-	command = "nmap gB :Cargo clippy --tests --all-features -- -Dwarnings -A deprecated<CR>",
-	group = rustUtil,
+    pattern = { "rust" },
+    command = "nmap gB :Cargo clippy --tests --all-features -- -Dwarnings -A deprecated<CR>",
+    group = rustUtil,
 })
 api.nvim_create_autocmd("FileType", {
-	pattern = { "rust" },
-	command = 'nmap <leader>t :lua require("neotest").run.run({vim.fn.expand("%"), env = {RUSTFLAGS="-C instrument-coverage"}})<CR>',
-	group = rustUtil,
+    pattern = { "rust" },
+    command =
+    'nmap <leader>t :lua require("neotest").run.run({vim.fn.expand("%"), env = {RUSTFLAGS="-C instrument-coverage"}})<CR>',
+    group = rustUtil,
 })
 
 -- Golang
 local goUtil = api.nvim_create_augroup("GolangUtil", { clear = true })
 api.nvim_create_autocmd("FileType", {
-	pattern = { "go" },
-	command = ":Coverage",
-	group = goUtil,
+    pattern = { "go" },
+    command = ":Coverage",
+    group = goUtil,
 })
 api.nvim_create_autocmd("FileType", {
-	pattern = { "go" },
-	command = "nmap <leader>t :TestNearest -strategy=neovim --coverprofile=coverage.out<CR>| :Coverage",
-	group = rustUtil,
+    pattern = { "go" },
+    command = "nmap <leader>t :TestNearest -strategy=neovim --coverprofile=coverage.out<CR>| :Coverage",
+    group = rustUtil,
 })

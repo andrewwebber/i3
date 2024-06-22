@@ -70,11 +70,6 @@ protocol.CompletionItemKind = {
     "", -- TypeParameter
 }
 
-require 'cmp'.setup {
-    sources = {
-        { name = 'nvim_lsp' }
-    }
-}
 -- Set up completion using nvim_cmp with LSP source
 -- default_capabilities
 -- local capabilities = require('cmp_nvim_lsp').update_capabilities(
@@ -262,9 +257,3 @@ vim.cmd([[
 set signcolumn=yes
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
-
-require("nvim-treesitter.configs").setup({
-    highlight = {
-        enable = true,
-    },
-})
