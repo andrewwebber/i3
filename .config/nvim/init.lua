@@ -1,70 +1,66 @@
-require('base')
-require('highlights')
-require('maps')
-require('plugins')
+require("base")
+require("highlights")
+require("maps")
 
 local has = function(x)
-    return vim.fn.has(x) == 1
+	return vim.fn.has(x) == 1
 end
-local is_mac = has "macunix"
-local is_win = has "win32"
+local is_mac = has("macunix")
+local is_win = has("win32")
 
 if is_mac then
-    require('macos')
+	require("macos")
 end
 if is_win then
-    require('windows')
+	require("windows")
 end
 
--- vim.g['mkdp_browser'] = '/usr/bin/chromium'
-do
-    -- Specifies where to install/use rocks.nvim
-    local install_location = vim.fs.joinpath(vim.fn.stdpath("data"), "rocks")
+-- [[ Install `lazy.nvim` plugin manager ]]
+--    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+end ---@diagnostic disable-next-line: undefined-field
+vim.opt.rtp:prepend(lazypath)
 
-    -- Set up configuration options related to rocks.nvim (recommended to leave as default)
-    local rocks_config = {
-        rocks_path = vim.fs.normalize(install_location),
-    }
-
-    vim.g.rocks_nvim = rocks_config
-
-    -- Configure the package path (so that plugin code can be found)
-    local luarocks_path = {
-        vim.fs.joinpath(rocks_config.rocks_path, "share", "lua", "5.1", "?.lua"),
-        vim.fs.joinpath(rocks_config.rocks_path, "share", "lua", "5.1", "?", "init.lua"),
-    }
-    package.path = package.path .. ";" .. table.concat(luarocks_path, ";")
-
-    -- Configure the C path (so that e.g. tree-sitter parsers can be found)
-    local luarocks_cpath = {
-        vim.fs.joinpath(rocks_config.rocks_path, "lib", "lua", "5.1", "?.so"),
-        vim.fs.joinpath(rocks_config.rocks_path, "lib64", "lua", "5.1", "?.so"),
-    }
-    package.cpath = package.cpath .. ";" .. table.concat(luarocks_cpath, ";")
-
-    -- Load all installed plugins, including rocks.nvim itself
-    vim.opt.runtimepath:append(vim.fs.joinpath(rocks_config.rocks_path, "lib", "luarocks", "rocks-5.1", "rocks.nvim", "*"))
-end
-
--- If rocks.nvim is not installed then install it!
-if not pcall(require, "rocks") then
-    local rocks_location = vim.fs.joinpath(vim.fn.stdpath("cache"), "rocks.nvim")
-
-    if not vim.uv.fs_stat(rocks_location) then
-        -- Pull down rocks.nvim
-        vim.fn.system({
-            "git",
-            "clone",
-            "--filter=blob:none",
-            "https://github.com/nvim-neorocks/rocks.nvim",
-            rocks_location,
-        })
-    end
-
-    -- If the clone was successful then source the bootstrapping script
-    assert(vim.v.shell_error == 0, "rocks.nvim installation failed. Try exiting and re-entering Neovim!")
-
-    vim.cmd.source(vim.fs.joinpath(rocks_location, "bootstrap.lua"))
-
-    vim.fn.delete(rocks_location, "rf")
-end
+-- [[ Configure and install plugins ]]
+--
+--  To check the current status of your plugins, run
+--    :Lazy
+--
+--  You can press `?` in this menu for help. Use `:q` to close the window
+--
+--  To update plugins you can run
+--    :Lazy update
+--
+-- NOTE: Here is where you install your plugins.
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	install = { missing = true, colorscheme = { "tokyonight" } },
+	-- automatically check for plugin updates
+	checker = { enabled = true },
+}, {
+	ui = {
+		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
+	},
+})

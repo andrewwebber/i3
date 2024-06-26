@@ -15,7 +15,7 @@
 nvim-lspconfig = "0.1.8"
 nvim-treesitter = "0.9.2"
 cmp-nvim-lsp = "scm"
-nvim-web-devicons = "0.100"
+nvim-web-devicons = {git = "nvim-tree/nvim-web-devicons"}
 nvim-cmp = "0.0.1"
 cmp-buffer = "scm"
 "lspsaga.nvim" = "scm"
