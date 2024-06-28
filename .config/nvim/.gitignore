@@ -1,13 +1,1 @@
-<<<<<<< HEAD
 lazy-lock.json
-||||||| parent of 875076c (wip)
-=======
-tt.*
-.tests
-doc/tags
-debug
-.repro
-foo.*
-*.log
-data
->>>>>>> 875076c (wip)
