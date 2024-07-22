@@ -1,6 +1,6 @@
 #!/usr/bin/bash -ex
 #useradd -m -g users -G wheel,storage,power,lp,network,audio,video,optical -s /bin/bash awebber
-sudo pacman -Syu lld linux-tools gnu-netcat aarch64-linux-gnu-gcc minio-client postgresql-libs aws-cli typescript python-virtualenv python-lsp-server pyright brightnessctl fzf helm kubectl cmake ccls jq yq neomutt musl aspell-uk aspell-de yubikey-manager yubico-pam networkmanager-openvpn openvpn freerdp ripgrep simple-scan htop curl wget git nemo file-roller nodejs npm yarn docker python-pip cups network-manager-applet acpid vlc networkmanager-openconnect pass bluez bluez-utils hplip aspell-en
+sudo pacman -Syu lld linux-tools gnu-netcat aarch64-linux-gnu-gcc minio-client postgresql-libs aws-cli typescript python-virtualenv python-lsp-server pyright brightnessctl fzf helm kubectl cmake ccls jq yq neomutt musl aspell-uk aspell-de yubikey-manager yubico-pam networkmanager-openvpn openvpn freerdp ripgrep simple-scan htop curl wget git nemo file-roller nodejs npm yarn docker python-pip cups network-manager-applet acpid vlc networkmanager-openconnect pass bluez bluez-utils hplip aspell-en w3m
 mkdir -p ~/.local/bin || true
 fc-cache -f -v
 # sudo systemctl disable gdm
