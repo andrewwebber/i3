@@ -21,7 +21,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 #font xft:Monospace 12
 #font xft:VL PGothic 11
 #font pango:Go Mono for Powerline Regular 11
-font Fira Code Nerd Font 12
+font Fira Code Nerd Font 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).

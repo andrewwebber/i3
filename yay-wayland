@@ -1,15 +1,15 @@
 
-yay --nouseask --nocleanmenu --nodiffmenu wofi
-yay --nouseask --nocleanmenu --nodiffmenu wayprompt
-yay --nouseask --nocleanmenu --nodiffmenu wl-clipboard-x11
-yay --nouseask --nocleanmenu --nodiffmenu grim
-yay --nouseask --nocleanmenu --nodiffmenu slurp
-yay --nouseask --nocleanmenu --nodiffmenu wdisplays
-yay --nouseask --nocleanmenu --nodiffmenu wf-recorder
-yay --nouseask --nocleanmenu --nodiffmenu swaylock
-yay --nouseask --nocleanmenu --nodiffmenu swayidle
-yay --nouseask --nocleanmenu --nodiffmenu swappy
-yay --nouseask --nocleanmenu --nodiffmenu kora
-yay --nouseask --nocleanmenu --nodiffmenu breeze
-yay --nouseask --nocleanmenu --nodiffmenu dunst
-yay --nouseask --nocleanmenu --nodiffmenu wlr-randr
+yay --noconfirm wofi
+yay --noconfirm wayprompt
+yay --noconfirm wl-clipboard-x11
+yay --noconfirm grim
+yay --noconfirm slurp
+yay --noconfirm wdisplays
+yay --noconfirm wf-recorder
+yay --noconfirm swaylock
+yay --noconfirm swayidle
+yay --noconfirm swappy
+yay --noconfirm kora
+yay --noconfirm breeze
+yay --noconfirm dunst
+yay --noconfirm wlr-randr

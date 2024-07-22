@@ -11,7 +11,6 @@ rustup component add rls rust-analysis rust-src clippy
 rustup component add llvm-tools-preview --toolchain nightly
 sudo pacman -S rust-analyzer --noconfirm
 cargo install cargo-edit
-cargo install cargo-tarpaulin
 cargo install cargo-expand
 cargo install cargo-audit --features=fix
 cargo install wasm-pack
@@ -21,7 +20,7 @@ cargo install sccache
 
 ln -s /bin/g++ ~/.local/bin/musl-g++
 SCCACHE=`echo $HOME/.cargo/bin/sccache`
-cat << EOF > ~/.cargo/config
+cat << EOF > ~/.cargo/config.toml
 [build]
 rustc-wrapper = "$SCCACHE"
 

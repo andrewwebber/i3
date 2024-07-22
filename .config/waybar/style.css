@@ -11,8 +11,8 @@
  * -------------------------------------------------------------------------- */
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Fira Code Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-family: Fira Code Nerd Font, FontAwesome, FontAwesome6Free, SymbolsNerdFont;
+    font-size: 11px;
 }
 
 @keyframes blink-warning {
@@ -55,7 +55,7 @@
 #waybar {
     background: transparent;
     color: white;
-    font-family:  Lexend Deca, Cantarell, Noto Sans, sans-serif;
+    font-family:  Fira Code Nerd Font, FontAwesome6Free, SymbolsNerdFont;
     font-size: 16px;
 }
 
