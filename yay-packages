@@ -2,14 +2,14 @@
 
 yay pulseaudio-ctl
 yay ublock
-yay --nouseask --nocleanmenu --nodiffmenu neovim-symlinks <<<1
-yay --nouseask --nocleanmenu --nodiffmenu eksctl <<<1
-yay --nouseask --nocleanmenu --nodiffmenu rancher-k3d-bin <<<1
-yay --nouseask --nocleanmenu --nodiffmenu gopls <<<1
-yay --nouseask --nocleanmenu --nodiffmenu revive <<<1
-yay --nouseask --nocleanmenu --nodiffmenu typescript-language-server-bin <<<1
-yay --nouseask --nocleanmenu --nodiffmenu otf-nerd-fonts-monacob-mono <<<1
-yay --nouseask --nocleanmenu --nodiffmenu mtpfs <<<1
-yay --nouseask --nocleanmenu --nodiffmenu gvfs-mtp <<<1
+yay  neovim-symlinks 
+yay  eksctl 
+yay  rancher-k3d-bin 
+yay  gopls 
+yay  revive 
+yay  typescript-language-server-bin 
+yay  otf-nerd-fonts-monacob-mono 
+yay  mtpfs 
+yay  gvfs-mtp 
 # yay plasma-pa
 # yay nerd-fonts-complete

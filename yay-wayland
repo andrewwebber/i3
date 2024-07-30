@@ -13,3 +13,4 @@ yay --noconfirm kora
 yay --noconfirm breeze
 yay --noconfirm dunst
 yay --noconfirm wlr-randr
+yay --noconfirm swaybg
