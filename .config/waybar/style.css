@@ -10,33 +10,36 @@
  * Keyframes
  * -------------------------------------------------------------------------- */
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Fira Code Nerd Font, FontAwesome, FontAwesome6Free, SymbolsNerdFont;
-    font-size: 11px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family:
+    Fira Code Nerd Font,
+    FontAwesome,
+    FontAwesome6Free,
+    SymbolsNerdFont;
+  font-size: 12px;
 }
 
 @keyframes blink-warning {
-    70% {
-        color: white;
-    }
+  70% {
+    color: white;
+  }
 
-    to {
-        color: white;
-        background-color: orange;
-    }
+  to {
+    color: white;
+    background-color: orange;
+  }
 }
 
 @keyframes blink-critical {
-    70% {
-      color: white;
-    }
+  70% {
+    color: white;
+  }
 
-    to {
-        color: white;
-        background-color: red;
-    }
+  to {
+    color: white;
+    background-color: red;
+  }
 }
-
 
 /* -----------------------------------------------------------------------------
  * Base styles
@@ -44,19 +47,22 @@
 
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* The whole bar */
 #waybar {
-    background: transparent;
-    color: white;
-    font-family:  Fira Code Nerd Font, FontAwesome6Free, SymbolsNerdFont;
-    font-size: 16px;
+  background: transparent;
+  color: white;
+  font-family:
+    Fira Code Nerd Font,
+    FontAwesome6Free,
+    SymbolsNerdFont;
+  font-size: 16px;
 }
 
 /* Each module */
@@ -72,41 +78,40 @@
 #disk,
 #temperature,
 #tray {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-
 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
 
 #battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #battery.warning {
-    color: orange;
+  color: orange;
 }
 
 #battery.critical {
-    color: red;
+  color: red;
 }
 
 #battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
+  animation-name: blink-warning;
+  animation-duration: 3s;
 }
 
 #battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 #clock {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #cpu {
@@ -114,74 +119,74 @@
 }
 
 #cpu.warning {
-    color: orange;
+  color: orange;
 }
 
 #cpu.critical {
-    color: red;
+  color: red;
 }
 
 #memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #memory.warning {
-    color: orange;
+  color: orange;
 }
 
 #memory.critical {
-    color: red;
-    animation-name: blink-critical;
-    animation-duration: 2s;
+  color: red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 #mode {
-    background: #64727D;
-    border-top: 2px solid white;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
+  background: #64727d;
+  border-top: 2px solid white;
+  /* To compensate for the top border and still have vertical centering */
+  padding-bottom: 2px;
 }
 
 #network {
-    /* No styles */
+  /* No styles */
 }
 
 #network.disconnected {
-    color: orange;
+  color: orange;
 }
 
 #pulseaudio {
-    /* No styles */
+  /* No styles */
 }
 
 #pulseaudio.muted {
-    /* No styles */
+  /* No styles */
 }
 
 #disk {
-    /* No styles */
+  /* No styles */
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+  color: rgb(102, 220, 105);
 }
 
 #temperature {
-    /* No styles */
+  /* No styles */
 }
 
 #temperature.critical {
-    color: red;
+  color: red;
 }
 
 #submap {
-    /* No styles */
+  /* No styles */
 }
 
 #tray {
-    /* No styles */
+  /* No styles */
 }
 
 /* #window { */
@@ -189,33 +194,33 @@
 /* } */
 
 #window {
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #workspaces {
-    margin: 4px;
-    color: white;
-    background-color: black;
+  margin: 4px;
+  color: white;
+  background-color: black;
 }
 
 #workspaces button {
-    border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #888888;
+  border-top: 2px solid transparent;
+  /* To compensate for the top border and still have vertical centering */
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #888888;
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
-    color: white;
-    background-color: #285577;
+  border-color: #4c7899;
+  color: white;
+  background-color: #285577;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+  border-color: #c9545d;
+  color: #c9545d;
 }
