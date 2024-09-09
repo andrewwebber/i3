@@ -128,6 +128,7 @@
     "clock#time": {
         "interval": 1,
         "format": "{:%H:%M:%S}",
+        "timezone": "Europe/Berlin",
         "tooltip": false
     },
 

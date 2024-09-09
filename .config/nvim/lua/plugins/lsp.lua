@@ -89,7 +89,7 @@ vim.g.rustaceanvim = {
         procMacro = {
           enable = true,
           ignored = {
-            ["async-trait"] = { "async_trait" },
+            -- ["async-trait"] = { "async_trait" },
             ["napi-derive"] = { "napi" },
             ["async-recursion"] = { "async_recursion" },
           },
@@ -267,7 +267,7 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      tsserver = {
+      ts_ls = {
         filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
         cmd = { "typescript-language-server", "--stdio" },
         settings = {
