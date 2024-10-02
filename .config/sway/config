@@ -34,7 +34,7 @@ font Fira Code Nerd Font 11
 #exec systemctl --user start xdg-desktop-portal
 
 # exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
-output "*" bg ~/Downloads/austria.jpg fill
+output "*" bg ~/Downloads/austria2.jpg fill
 # exec --no-startup-id /usr/bin/nm-applet
 #exec --no-startup-id pasystray
 #exec --no-startup-id blueman-tray
