@@ -36,7 +36,7 @@ return {
   "MunifTanjim/prettier.nvim",
   "nvim-lualine/lualine.nvim",
   "archibate/lualine-time",
-  "mrcjkb/rustaceanvim",
+  -- "mrcjkb/rustaceanvim",
   "lvimuser/lsp-inlayhints.nvim",
   "Saecki/crates.nvim",
   "MunifTanjim/nui.nvim",

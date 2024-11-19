@@ -66,40 +66,40 @@ local on_attach = function(client, bufnr)
   end
 end
 
-vim.g.rustaceanvim = {
-  -- Plugin configuration
-  tools = {},
-  -- LSP configuration
-  server = {
-    on_attach = on_attach,
-    default_settings = {
-      -- rust-analyzer language server configuration
-      ["rust-analyzer"] = {
-        cargo = {
-          allFeatures = false,
-          loadOutDirsFromCheck = true,
-          runBuildScripts = true,
-        },
-        -- Add clippy lints for Rust.
-        checkOnSave = {
-          allFeatures = true,
-          command = "clippy",
-          extraArgs = { "--no-deps" },
-        },
-        procMacro = {
-          enable = true,
-          ignored = {
-            -- ["async-trait"] = { "async_trait" },
-            ["napi-derive"] = { "napi" },
-            ["async-recursion"] = { "async_recursion" },
-          },
-        },
-      },
-    },
-  },
-  -- DAP configuration
-  dap = {},
-}
+-- vim.g.rustaceanvim = {
+--   -- Plugin configuration
+--   tools = {},
+--   -- LSP configuration
+--   server = {
+--     on_attach = on_attach,
+--     default_settings = {
+--       -- rust-analyzer language server configuration
+--       ["rust-analyzer"] = {
+--         cargo = {
+--           allFeatures = false,
+--           loadOutDirsFromCheck = true,
+--           runBuildScripts = true,
+--         },
+--         -- Add clippy lints for Rust.
+--         checkOnSave = {
+--           allFeatures = true,
+--           command = "clippy",
+--           extraArgs = { "--no-deps" },
+--         },
+--         procMacro = {
+--           enable = true,
+--           ignored = {
+--             -- ["async-trait"] = { "async_trait" },
+--             ["napi-derive"] = { "napi" },
+--             ["async-recursion"] = { "async_recursion" },
+--           },
+--         },
+--       },
+--     },
+--   },
+--   -- DAP configuration
+--   dap = {},
+-- }
 
 return { -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
@@ -247,7 +247,7 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      ruff_lsp = {
+      ruff = {
         default_config = {
           cmd = { "ruff-lsp" },
           filetypes = { "python" },
@@ -260,7 +260,27 @@ return { -- LSP Configuration & Plugins
         },
       },
       -- pyright = {},
-      -- rust_analyzer = {},
+      rust_analyzer = {
+        cargo = {
+          allFeatures = false,
+          loadOutDirsFromCheck = true,
+          runBuildScripts = true,
+        },
+        -- Add clippy lints for Rust.
+        checkOnSave = {
+          allFeatures = true,
+          command = "clippy",
+          extraArgs = { "--no-deps" },
+        },
+        procMacro = {
+          enable = true,
+          ignored = {
+            -- ["async-trait"] = { "async_trait" },
+            ["napi-derive"] = { "napi" },
+            ["async-recursion"] = { "async_recursion" },
+          },
+        },
+      },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:
