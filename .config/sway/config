@@ -53,6 +53,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec dbus-launch kitty
+# bindsym $mod+Return exec "MESA_LOADER_DRIVER_OVERRIDE=amdgpu_dri kitty"
 bindsym Control+$mod+l exec swaylock
 bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
