@@ -262,7 +262,7 @@ return { -- LSP Configuration & Plugins
       -- pyright = {},
       rust_analyzer = {
         cargo = {
-          allFeatures = false,
+          allFeatures = true,
           loadOutDirsFromCheck = true,
           runBuildScripts = true,
         },
