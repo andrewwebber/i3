@@ -262,13 +262,13 @@ return { -- LSP Configuration & Plugins
       -- pyright = {},
       rust_analyzer = {
         cargo = {
-          allFeatures = true,
+          allFeatures = false,
           loadOutDirsFromCheck = true,
           runBuildScripts = true,
         },
         -- Add clippy lints for Rust.
         checkOnSave = {
-          allFeatures = true,
+          allFeatures = false,
           command = "clippy",
           extraArgs = { "--no-deps" },
         },
