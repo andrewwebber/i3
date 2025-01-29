@@ -17,7 +17,7 @@ return {
       file = false, -- Write the payload to a temporary file to keep the command short.
       hidden = false, -- Hide the generation window (if true, will implicitly set `prompt.replace = true`), requires Neovim >= 0.10
       init = function(options)
-        pcall(io.popen, "ollama serve > /dev/null 2>&1 &")
+        -- pcall(io.popen, "ollama serve > /dev/null 2>&1 &")
       end,
       -- Function to initialize Ollama
       command = function(options)
