@@ -21,8 +21,8 @@ set folder = "imaps://$imap_user@imap.gmail.com:993"
 set smtp_url = "smtp://andrew@deepc.ai@smtp.gmail.com:587/"
 # for G Suite with own domain
 #set smtp_url = "smtps://yourusername@yourdomain.ext@smtp.gmail.com:587"
-set smtp_authenticators=${imap_authenticators}
-set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+# set smtp_authenticators=${imap_authenticators}
+# set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
 # set smtp_pass = `pass neomutt/deepc`
 
 # Location of inbox
