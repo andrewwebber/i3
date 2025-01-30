@@ -9,6 +9,7 @@ source ~/projects/i3/.config/fish/functions.fish
 
 set -gx EDITOR /usr/bin/vim
 set -gx VISUAL /usr/bin/vim
+set -gx BROWSER firefox
 
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -22,5 +23,5 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/bin/
 
 if test (tty) = /dev/tty1
-    sway
+    sway || sway --unsupported-gpu
 end
