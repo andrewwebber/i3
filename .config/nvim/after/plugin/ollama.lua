@@ -5,12 +5,12 @@ require("gen").prompts["Analysis"] = {
 
 require("gen").prompts["Coder_Review_Code"] = {
   prompt = "Review the following code and make concise suggestions:\n```$filetype\n$text\n```",
-  model = "deepseek-coder:6.7b",
+  model = "deepseek-coder:1.3b",
 }
 
 require("gen").prompts["Coder_Enhance_Code"] = {
   prompt = "Enhance the following code, only output the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
   replace = true,
   extract = "```$filetype\n(.-)```",
-  model = "deepseek-coder:6.7b",
+  model = "deepseek-coder:1.3b",
 }
