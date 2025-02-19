@@ -118,6 +118,8 @@ return {
         { "<leader>t_", hidden = true },
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>w_", hidden = true },
+        { "<leader>x", group = "[T]rouble" },
+        { "<leader>x_", hidden = true },
       })
       -- Document existing key chains
       --			require("which-key").register({

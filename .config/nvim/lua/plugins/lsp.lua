@@ -259,7 +259,8 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      -- pyright = {},
+      pylsp = {},
+      pyright = {},
       rust_analyzer = {
         cargo = {
           allFeatures = false,
