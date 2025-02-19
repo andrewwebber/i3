@@ -247,20 +247,22 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      ruff = {
-        default_config = {
-          cmd = { "ruff-lsp" },
-          filetypes = { "python" },
-          root_dir = require("lspconfig").util.find_git_ancestor,
-          init_options = {
-            settings = {
-              args = {},
+      -- ruff = {},
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              black = { enabled = false },
+              autopep8 = { enabled = false },
+              yapf = { enabled = false },
+              ruff = {
+                enabled = true,
+                formatEnabled = true,
+              },
             },
           },
         },
       },
-      pylsp = {},
-      pyright = {},
       rust_analyzer = {
         cargo = {
           allFeatures = false,
