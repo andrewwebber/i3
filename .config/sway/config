@@ -52,7 +52,8 @@ exec --no-startup-id dunst
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec dbus-launch kitty
+# bindsym $mod+Return exec dbus-launch kitty
+bindsym $mod+Return exec dbus-launch wezterm
 # bindsym $mod+Return exec "MESA_LOADER_DRIVER_OVERRIDE=amdgpu_dri kitty"
 bindsym Control+$mod+l exec swaylock
 bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
