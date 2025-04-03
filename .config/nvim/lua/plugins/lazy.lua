@@ -73,7 +73,7 @@ return {
   "nvim-lualine/lualine.nvim",
   "archibate/lualine-time",
   -- "mrcjkb/rustaceanvim",
-  "lvimuser/lsp-inlayhints.nvim",
+  -- "lvimuser/lsp-inlayhints.nvim",
   "Saecki/crates.nvim",
   "MunifTanjim/nui.nvim",
   "nvimtools/none-ls.nvim",
