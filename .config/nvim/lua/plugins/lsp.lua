@@ -60,7 +60,7 @@ local on_attach = function(client, bufnr)
   local lsp_inlayhints
   res, lsp_inlayhints = pcall(require, "lsp-inlayhints")
   if not res then
-    vim.notify("lsp-inlayhints not found", vim.log.levels.WARN)
+    -- vim.notify("lsp-inlayhints not found", vim.log.levels.WARN)
   else
     lsp_inlayhints.on_attach(client, bufnr)
   end
