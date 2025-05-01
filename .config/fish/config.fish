@@ -23,5 +23,6 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/bin/
 
 if test (tty) = /dev/tty1
-    sway || sway --unsupported-gpu
+    sway || WLR_DRM_DEVICES=/dev/dri/card1 sway 
+    #|| sway --unsupported-gpu
 end
