@@ -1,6 +1,5 @@
 {
   "mcpServers": {
-
      "youtube": {
          "command": "npx",
          "args": ["@anaisbetts/mcp-youtube"]

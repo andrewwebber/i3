@@ -40,8 +40,8 @@ require("codecompanion").setup({
             default = "llama3.1:8b",
           },
           num_ctx = {
-            -- default = 16384,
-            default = 8192,
+            default = 16384,
+            -- default = 8192,
           },
           num_predict = {
             default = -1,
