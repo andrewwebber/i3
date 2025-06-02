@@ -2,6 +2,21 @@ return {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   "jamessan/vim-gnupg",
   {
+    "azorng/goose.nvim",
+    config = function()
+      require("goose").setup({})
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          anti_conceal = { enabled = false },
+        },
+      },
+    },
+  },
+  {
     "ravitemer/mcphub.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -24,7 +39,7 @@ return {
   {
     "David-Kunz/gen.nvim",
     opts = {
-      model = "llama3.1:8b", -- The default model to use.
+      model = "deepseek-r1:7b", -- The default model to use.
       quit_map = "q", -- set keymap to close the response window
       retry_map = "<c-r>", -- set keymap to re-send the current prompt
       accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result

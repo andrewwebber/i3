@@ -37,7 +37,7 @@ require("codecompanion").setup({
         },
         schema = {
           model = {
-            default = "llama3.1:8b",
+            default = "llama3.2:3b",
           },
           num_ctx = {
             default = 16384,
