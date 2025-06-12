@@ -8,7 +8,7 @@ do
     rustup target add $target;
 done;
 rustup component add rls rust-analysis rust-src clippy
-rustup component add llvm-tools-preview --toolchain nightly
+rustup component add llvm-tools
 sudo pacman -S rust-analyzer --noconfirm
 cargo install cargo-edit
 cargo install cargo-expand

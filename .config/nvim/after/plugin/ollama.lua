@@ -1,10 +1,12 @@
 require("gen").prompts["Analysis"] = {
   prompt = "Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.\n\n$text\n\nQuestion: $input\nHelpful Answer:",
+  model = "deepseek-r1:7b",
   replace = false,
 }
 
 require("gen").prompts["DeepAnalysis"] = {
   prompt = "Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.\n\n$text\n\nQuestion: $input\nHelpful Answer:",
+  model = "deepseek-r1:7b",
   replace = false,
 }
 
