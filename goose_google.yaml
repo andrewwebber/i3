@@ -1,0 +1,26 @@
+GOOSE_MODEL: gemini-2.5-pro-preview-03-25
+GOOSE_PLANNER_MODEL: gemini-2.5-pro-preview-03-25
+GOOSE_PLANNER_PROVIDER: google
+GOOSE_PROVIDER: google
+extensions:
+  developer:
+    bundled: true
+    display_name: Developer Tools
+    enabled: true
+    name: developer
+    timeout: 300
+    type: builtin
+  filesystem:
+    args:
+    - -y
+    - '@modelcontextprotocol/server-filesystem'
+    - .
+    bundled: null
+    cmd: npx
+    description: null
+    enabled: true
+    env_keys: []
+    envs: {}
+    name: filesystem
+    timeout: 300
+    type: stdio

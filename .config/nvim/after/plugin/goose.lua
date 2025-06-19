@@ -50,6 +50,7 @@ require("goose").setup({
       "qwen3:8b",
       "qwen3:4b",
       "llama3.1:8b",
+      "qwen2.5-coder:7b",
     },
     --[[
     Define available providers and their models for quick model switching

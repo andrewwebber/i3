@@ -17,6 +17,42 @@ return {
     },
   },
   {
+    "HakonHarnes/img-clip.nvim",
+    opts = {
+      filetypes = {
+        codecompanion = {
+          prompt_for_file_name = false,
+          template = "[Image]($FILE_PATH)",
+          use_absolute_path = true,
+        },
+      },
+    },
+  },
+  {
+    "echasnovski/mini.diff",
+    config = function()
+      local diff = require("mini.diff")
+      diff.setup({
+        -- Disabled by default
+        source = diff.gen_source.none(),
+      })
+    end,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+    opts = {
+      preview = {
+        filetypes = { "markdown", "codecompanion" },
+        ignore_buftypes = {},
+      },
+    },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
+  },
+  {
     "ravitemer/mcphub.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -45,7 +81,7 @@ return {
       accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result
       host = "localhost", -- The host running the Ollama service.
       port = "11434", -- The port on which the Ollama service is listening.
-      display_mode = "float", -- The display mode. Can be "float" or "split" or "horizontal-split".
+      display_mode = "horizontal-split", -- The display mode. Can be "float" or "split" or "horizontal-split".
       show_prompt = true, -- Shows the prompt submitted to Ollama. Can be true (3 lines) or "full".
       show_model = true, -- Displays which model you are using at the beginning of your chat session.
       no_auto_close = false, -- Never closes the window automatically.
@@ -320,6 +356,9 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         }),
         sources = {
+          per_filetype = {
+            codecompanion = { "codecompanion" },
+          },
           { name = "buffer" },
           { name = "nvim_lsp" },
           { name = "path" },

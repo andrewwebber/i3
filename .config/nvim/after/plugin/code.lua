@@ -11,41 +11,51 @@ require("codecompanion").setup({
   },
   strategies = {
     chat = {
-      adapter = "custom",
+      adapter = "gemini",
     },
     inline = {
-      adapter = "custom",
+      adapter = "gemini",
     },
     cmd = {
-      adapter = "custom",
+      adapter = "gemini",
     },
   },
   adapters = {
+    gemini = function()
+      return require("codecompanion.adapters").extend("gemini", {
+        env = {
+          api_key = "cmd:pass aistudio.google.com/deepc/gemini",
+        },
+      })
+    end,
     custom = function()
-      return require("codecompanion.adapters").extend("ollama", {
+      return require("codecompanion.adapters").extend("openai_compatible", {
         name = "custom",
         env = {
           url = "http://127.0.0.1:11434",
-          api_key = "OLLAMA_API_KEY",
         },
-        headers = {
-          ["Content-Type"] = "application/json",
-          ["Authorization"] = "Bearer ${api_key}",
-        },
+        -- opts = {
+        --   stream = false,
+        --   tools = true,
+        --   vision = false,
+        -- },
+        -- headers = {
+        --   ["Content-Type"] = "application/json",
+        -- },
         parameters = {
           sync = true,
         },
         schema = {
           model = {
-            default = "llama3.2:3b",
+            default = "qwen2.5-coder:7b",
           },
-          num_ctx = {
-            default = 16384,
-            -- default = 8192,
-          },
-          num_predict = {
-            default = -1,
-          },
+          -- num_ctx = {
+          --   default = 16384,
+          --   -- default = 8192,
+          -- },
+          -- num_predict = {
+          --   default = -1,
+          -- },
         },
       })
     end,
