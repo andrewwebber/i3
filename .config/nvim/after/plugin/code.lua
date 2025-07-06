@@ -11,13 +11,13 @@ require("codecompanion").setup({
   },
   strategies = {
     chat = {
-      adapter = "gemini",
+      adapter = "custom",
     },
     inline = {
-      adapter = "gemini",
+      adapter = "custom",
     },
     cmd = {
-      adapter = "gemini",
+      adapter = "custom",
     },
   },
   adapters = {
@@ -29,16 +29,17 @@ require("codecompanion").setup({
       })
     end,
     custom = function()
-      return require("codecompanion.adapters").extend("openai_compatible", {
+      return require("codecompanion.adapters").extend("ollama", {
         name = "custom",
         env = {
           url = "http://127.0.0.1:11434",
+          api_key = "ollama",
         },
-        -- opts = {
-        --   stream = false,
-        --   tools = true,
-        --   vision = false,
-        -- },
+        opts = {
+          stream = false,
+          tools = true,
+          vision = false,
+        },
         -- headers = {
         --   ["Content-Type"] = "application/json",
         -- },
@@ -47,7 +48,7 @@ require("codecompanion").setup({
         },
         schema = {
           model = {
-            default = "qwen2.5-coder:7b",
+            default = "awebber/coder",
           },
           -- num_ctx = {
           --   default = 16384,

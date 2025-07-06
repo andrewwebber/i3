@@ -21,6 +21,7 @@ source /opt/google-cloud-cli/path.fish.inc
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/bin/
+fish_add_path /opt/cuda/bin/
 
 if test (tty) = /dev/tty1
     sway || WLR_DRM_DEVICES=/dev/dri/card1 sway 
