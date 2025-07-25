@@ -203,7 +203,11 @@ return {
   "MunifTanjim/prettier.nvim",
   "nvim-lualine/lualine.nvim",
   "archibate/lualine-time",
-  -- "mrcjkb/rustaceanvim",
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
   -- "lvimuser/lsp-inlayhints.nvim",
   "Saecki/crates.nvim",
   "MunifTanjim/nui.nvim",
