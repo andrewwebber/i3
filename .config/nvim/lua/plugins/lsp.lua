@@ -2,23 +2,23 @@ local util = require("lspconfig/util")
 local protocol = require("vim.lsp.protocol")
 protocol.CompletionItemKind = {
   "", -- Text
-  "", -- Method
-  "", -- Function
-  "", -- Constructor
+  "󰊕", -- Method
+  "󰊕", -- Function
+  "", -- Constructor
   "", -- Field
   "", -- Variable
   "", -- Class
   "ﰮ", -- Interface
-  "", -- Module
+  "󰕳", -- Module
   "", -- Property
   "", -- Unit
-  "", -- Value
+  "", -- Value
   "", -- Enum
-  "", -- Keyword
-  "﬌", -- Snippet
+  "", -- Keyword
+  "", -- Snippet
   "", -- Color
   "", -- File
-  "", -- Reference
+  "", -- Reference
   "", -- Folder
   "", -- EnumMember
   "", -- Constant
@@ -28,7 +28,7 @@ protocol.CompletionItemKind = {
   "", -- TypeParameter
 }
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -98,11 +98,11 @@ return { -- LSP Configuration & Plugins
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { "j-hui/fidget.nvim", opts = {} },
+    { "j-hui/fidget.nvim",       opts = {} },
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",       opts = {} },
   },
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
