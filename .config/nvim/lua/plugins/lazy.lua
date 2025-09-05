@@ -76,18 +76,7 @@ return {
   --     },
   --   },
   -- },
-  {
-    "HakonHarnes/img-clip.nvim",
-    opts = {
-      filetypes = {
-        codecompanion = {
-          prompt_for_file_name = false,
-          template = "[Image]($FILE_PATH)",
-          use_absolute_path = true,
-        },
-      },
-    },
-  },
+
   {
     "echasnovski/mini.diff",
     config = function()
@@ -124,14 +113,7 @@ return {
       })
     end,
   },
-  {
-    "olimorris/codecompanion.nvim",
-    opts = {},
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
+
   {
     "David-Kunz/gen.nvim",
     opts = {
@@ -427,9 +409,7 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         }),
         sources = {
-          per_filetype = {
-            codecompanion = { "codecompanion" },
-          },
+
           { name = "buffer" },
           { name = "nvim_lsp" },
           { name = "path" },
