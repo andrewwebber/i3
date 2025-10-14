@@ -281,6 +281,7 @@ return { -- LSP Configuration & Plugins
             -- ["async-trait"] = { "async_trait" },
             ["napi-derive"] = { "napi" },
             ["async-recursion"] = { "async_recursion" },
+            ["zerocopy-derive"] = { "*" },
           },
         },
       },
