@@ -35,26 +35,29 @@ protocol.CompletionItemKind = {
 -- end
 
 vim.diagnostic.config({
-  signs = {
+  severity_sort = true,
+  float = { border = "rounded", source = "if_many" },
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  signs = vim.g.have_nerd_font and {
     text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.INFO] = " ",
-      [vim.diagnostic.severity.HINT] = "󰠠 ",
+      [vim.diagnostic.severity.ERROR] = "󰅚 ",
+      [vim.diagnostic.severity.WARN] = "󰀪 ",
+      [vim.diagnostic.severity.INFO] = "󰋽 ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
     },
-    linehl = {
-      [vim.diagnostic.severity.ERROR] = "Error",
-      [vim.diagnostic.severity.WARN] = "Warn",
-      [vim.diagnostic.severity.INFO] = "Info",
-      [vim.diagnostic.severity.HINT] = "Hint",
-    },
-  },
+  } or {},
   virtual_text = {
-    prefix = "●",
-  },
-  update_in_insert = true,
-  float = {
-    source = "always", -- Or "if_many"
+    source = "if_many",
+    spacing = 2,
+    format = function(diagnostic)
+      local diagnostic_message = {
+        [vim.diagnostic.severity.ERROR] = diagnostic.message,
+        [vim.diagnostic.severity.WARN] = diagnostic.message,
+        [vim.diagnostic.severity.INFO] = diagnostic.message,
+        [vim.diagnostic.severity.HINT] = diagnostic.message,
+      }
+      return diagnostic_message[diagnostic.severity]
+    end,
   },
 })
 
@@ -116,7 +119,10 @@ return { -- LSP Configuration & Plugins
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
-    { "folke/neodev.nvim", opts = {} },
+    -- { "folke/neodev.nvim", opts = {} },
+
+    -- Allows extra capabilities provided by blink.cmp
+    "saghen/blink.cmp",
   },
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -217,8 +223,10 @@ return { -- LSP Configuration & Plugins
     --  By default, Neovim doesn't support everything that is in the LSP specification.
     --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -264,39 +272,100 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      bacon = {
+        enabled = true,
+      },
+      bacon_ls = {
+        enabled = true,
+      },
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
+            cargo = {
+              allFeatures = true,
+              loadOutDirsFromCheck = true,
+              buildScripts = {
+                enable = true,
+              },
+            },
             check = {
               enabled = true,
               command = "clippy",
               extraArgs = { "--tests", "--", "-Dwarnings" },
             },
+            checkOnSave = {
+              enable = false,
+            },
+            diagnostics = {
+              enable = false,
+            },
+            procMacro = {
+              enable = true,
+              ignored = {
+                -- ["async-trait"] = { "async_trait" },
+                ["napi-derive"] = { "napi" },
+                -- ["async-recursion"] = { "async_recursion" },
+                -- ["zerocopy-derive"] = { "*" },
+              },
+            },
+            files = {
+              exclude = {
+                ".direnv",
+                ".git",
+                ".jj",
+                ".github",
+                ".gitlab",
+                "bin",
+                "node_modules",
+                "target",
+                "venv",
+                ".venv",
+              },
+              -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
+              watcher = "client",
+            },
+          },
+        },
+        cargo = {
+          allFeatures = true,
+          loadOutDirsFromCheck = true,
+          buildScripts = {
+            enable = true,
           },
         },
         check = {
           enabled = true,
           command = "clippy",
           extraArgs = { "--tests", "--", "-Dwarnings" },
-          -- extraArgs = {
-          --   "--no-deps",
-          --   "--tests",
-          --   "--",
-          --   "-Dwarnings",
-          --   "-Dclippy::complexity",
-          --   "-Wclippy::perf",
-          --   "-Wclippy::pedantic",
-          -- },
         },
         checkOnSave = true,
+        diagnostics = {
+          enable = true,
+        },
         procMacro = {
           enable = true,
           ignored = {
             -- ["async-trait"] = { "async_trait" },
             ["napi-derive"] = { "napi" },
-            ["async-recursion"] = { "async_recursion" },
-            ["zerocopy-derive"] = { "*" },
+            -- ["async-recursion"] = { "async_recursion" },
+            -- ["zerocopy-derive"] = { "*" },
           },
+        },
+        files = {
+          exclude = {
+            ".direnv",
+            ".git",
+            ".jj",
+            ".github",
+            ".gitlab",
+            "bin",
+            "node_modules",
+            "target",
+            "venv",
+            ".venv",
+          },
+          -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
+          watcher = "client",
         },
       },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -377,7 +446,7 @@ return { -- LSP Configuration & Plugins
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-          server.on_attach = on_attach
+          -- server.on_attach = on_attach
           require("lspconfig")[server_name].setup(server)
         end,
       },
