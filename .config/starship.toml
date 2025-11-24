@@ -2,10 +2,17 @@ command_timeout = 10000
 
 add_newline = true
 # A minimal left prompt
-format = """$character"""
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$character"""
 
 # move the rest of the prompt to the right
-right_format = """$all"""
+
+# right_format = """$all"""
 
 continuation_prompt = '▶▶ '
 
