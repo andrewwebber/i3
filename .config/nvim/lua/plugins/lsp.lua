@@ -276,6 +276,105 @@ return { -- LSP Configuration & Plugins
           synchronizeAllOpenFilesWaitMillis = 2000,
         },
       },
+      rust_analyzer = {
+        enabled = false,
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              allFeatures = false,
+              loadOutDirsFromCheck = true,
+              buildScripts = {
+                enable = true,
+              },
+            },
+            diagnostics = {
+              enable = false,
+            },
+            checkOnSave = {
+              enable = false,
+              command = "clippy",
+              extraArgs = { "--tests", "--", "-Dwarnings" },
+            },
+            check = {
+              enabled = true,
+              command = "clippy",
+              extraArgs = { "--tests", "--", "-Dwarnings" },
+            },
+            hoverActions = {
+              enable = true,
+              references = true,
+            },
+            callInfo = {
+              full = true,
+            },
+            lens = {
+              enable = true,
+              references = true,
+              implementations = true,
+              enumVariantReferences = true,
+              methodReferences = true,
+            },
+            inlayHints = {
+              enable = true,
+              bindingModeHints = {
+                enable = false,
+              },
+              chainingHints = {
+                enable = true,
+              },
+              closingBraceHints = {
+                enable = true,
+              },
+              closureReturnTypeHints = {
+                enable = true,
+              },
+              lifetimeElisionHints = {
+                enable = false,
+                useParameterNames = true,
+              },
+              parameterHints = {
+                enable = true,
+              },
+              reborrowHints = {
+                enable = "never",
+              },
+              renderColons = true,
+              typeHints = {
+                enable = true,
+                hideClosureInitialization = false,
+                hideNamedConstructor = false,
+              },
+            },
+            cachePriming = {
+              enable = true,
+            },
+            procMacro = {
+              enable = true,
+              ignored = {
+                -- ["async-trait"] = { "async_trait" },
+                ["napi-derive"] = { "napi" },
+                ["async-recursion"] = { "async_recursion" },
+              },
+            },
+            files = {
+              exclude = {
+                ".direnv",
+                ".git",
+                ".jj",
+                ".github",
+                ".gitlab",
+                "bin",
+                "node_modules",
+                "target",
+                "venv",
+                ".venv",
+              },
+              -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
+              watcher = "client",
+            },
+          },
+        },
+      },
       biome = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
