@@ -83,28 +83,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
-vim.g.rustaceanvim = {
-  -- Plugin configuration
-  tools = {},
-  -- LSP configuration
-  server = {
-    on_attach = function(client, bufnr)
-      -- you can also put keymaps in here
-    end,
-    default_settings = {
-      -- rust-analyzer language server configuration
-      ["rust-analyzer"] = {
-        check = {
-          command = "clippy",
-          extraArgs = { "--tests", "--", "-Dwarnings" },
-        },
-      },
-    },
-  },
-  -- DAP configuration
-  dap = {},
-}
-
 return { -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -115,7 +93,7 @@ return { -- LSP Configuration & Plugins
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { "j-hui/fidget.nvim",       opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -277,98 +255,28 @@ return { -- LSP Configuration & Plugins
       },
       bacon_ls = {
         enabled = true,
+        init_options = {
+          -- Bacon export filename (default: .bacon-locations).
+          locationsFile = ".bacon-locations",
+          -- Try to update diagnostics every time the file is saved (default: true).
+          updateOnSave = true,
+          --  How many milliseconds to wait before updating diagnostics after a save (default: 1000).
+          updateOnSaveWaitMillis = 1000,
+          -- Try to update diagnostics every time the file changes (default: true).
+          updateOnChange = true,
+          -- Try to validate that bacon preferences are setup correctly to work with bacon-ls (default: true).
+          validateBaconPreferences = true,
+          -- f no bacon preferences file is found, create a new preferences file with the bacon-ls job definition (default: true).
+          createBaconPreferencesFile = true,
+          -- Run bacon in background for the bacon-ls job (default: true)
+          runBaconInBackground = true,
+          -- Command line arguments to pass to bacon running in background (default "--headless -j bacon-ls")
+          runBaconInBackgroundCommandArguments = "--headless -j bacon-ls",
+          -- How many milliseconds to wait between background diagnostics check to synchronize all open files (default: 2000).
+          synchronizeAllOpenFilesWaitMillis = 2000,
+        },
       },
       biome = {},
-      rust_analyzer = {
-        settings = {
-          ["rust-analyzer"] = {
-            cargo = {
-              allFeatures = true,
-              loadOutDirsFromCheck = true,
-              buildScripts = {
-                enable = true,
-              },
-            },
-            check = {
-              enabled = true,
-              command = "clippy",
-              extraArgs = { "--tests", "--", "-Dwarnings" },
-            },
-            checkOnSave = {
-              enable = false,
-            },
-            diagnostics = {
-              enable = false,
-            },
-            procMacro = {
-              enable = true,
-              ignored = {
-                -- ["async-trait"] = { "async_trait" },
-                ["napi-derive"] = { "napi" },
-                -- ["async-recursion"] = { "async_recursion" },
-                -- ["zerocopy-derive"] = { "*" },
-              },
-            },
-            files = {
-              exclude = {
-                ".direnv",
-                ".git",
-                ".jj",
-                ".github",
-                ".gitlab",
-                "bin",
-                "node_modules",
-                "target",
-                "venv",
-                ".venv",
-              },
-              -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
-              watcher = "client",
-            },
-          },
-        },
-        cargo = {
-          allFeatures = true,
-          loadOutDirsFromCheck = true,
-          buildScripts = {
-            enable = true,
-          },
-        },
-        check = {
-          enabled = true,
-          command = "clippy",
-          extraArgs = { "--tests", "--", "-Dwarnings" },
-        },
-        checkOnSave = true,
-        diagnostics = {
-          enable = true,
-        },
-        procMacro = {
-          enable = true,
-          ignored = {
-            -- ["async-trait"] = { "async_trait" },
-            ["napi-derive"] = { "napi" },
-            -- ["async-recursion"] = { "async_recursion" },
-            -- ["zerocopy-derive"] = { "*" },
-          },
-        },
-        files = {
-          exclude = {
-            ".direnv",
-            ".git",
-            ".jj",
-            ".github",
-            ".gitlab",
-            "bin",
-            "node_modules",
-            "target",
-            "venv",
-            ".venv",
-          },
-          -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
-          watcher = "client",
-        },
-      },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:
