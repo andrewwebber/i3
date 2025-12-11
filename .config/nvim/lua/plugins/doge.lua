@@ -1,3 +1,4 @@
 return {
-	"kkoomen/vim-doge",
+  "kkoomen/vim-doge",
 }
+-- :call doge#install()
