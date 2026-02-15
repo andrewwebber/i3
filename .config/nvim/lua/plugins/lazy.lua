@@ -63,8 +63,8 @@ return {
     "ggml-org/llama.vim",
     init = function()
       vim.g.llama_config = {
-        auto_fim = false,
-        show_info = 0,
+        auto_fim = true,
+        --show_info = 0,
       }
     end,
   },
