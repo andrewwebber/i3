@@ -60,6 +60,15 @@ return {
   --   ft = { "markdown", "codecompanion" },
   -- },
   {
+    "ggml-org/llama.vim",
+    init = function()
+      vim.g.llama_config = {
+        auto_fim = false,
+        show_info = 0,
+      }
+    end,
+  },
+  {
     "David-Kunz/gen.nvim",
     opts = {
       model = "llama3.2:3b", -- The default model to use.

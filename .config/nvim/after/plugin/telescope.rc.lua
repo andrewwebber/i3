@@ -4,7 +4,7 @@ local builtin = require("telescope.builtin")
 -- local open_with_trouble = require("trouble.sources.telescope").open
 --
 local function telescope_buffer_dir()
-	return vim.fn.expand("%:p:h")
+  return vim.fn.expand("%:p:h")
 end
 --
 -- local fb_actions = require "telescope".extensions.file_browser.actions
@@ -44,35 +44,38 @@ end
 -- telescope.load_extension("file_browser")
 
 vim.keymap.set("n", "<leader><leader>", function()
-	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
+  builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    winblend = 10,
+    previewer = false,
+  }))
+end)
+vim.keymap.set("n", "zz", function()
+  builtin.find_files({ hidden = true })
 end)
 vim.keymap.set("n", "\\\\", function()
-	builtin.live_grep()
+  builtin.live_grep()
 end)
 vim.keymap.set("n", "\\b", function()
-	builtin.buffers()
+  builtin.buffers()
 end)
 vim.keymap.set("n", "/t", function()
-	builtin.help_tags()
+  builtin.help_tags()
 end)
 vim.keymap.set("n", "?/", function()
-	builtin.resume()
+  builtin.resume()
 end)
 vim.keymap.set("n", "\\e", function()
-	builtin.diagnostics()
+  builtin.diagnostics()
 end)
 vim.keymap.set("n", "\\f", function()
-	telescope.extensions.file_browser.file_browser({
-		path = "%:p:h",
-		-- cwd = telescope_buffer_dir(),
-		respect_gitignore = false,
-		hidden = true,
-		grouped = true,
-		previewer = false,
-		initial_mode = "normal",
-		layout_config = { height = 40 },
-	})
+  telescope.extensions.file_browser.file_browser({
+    path = "%:p:h",
+    -- cwd = telescope_buffer_dir(),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40 },
+  })
 end)
