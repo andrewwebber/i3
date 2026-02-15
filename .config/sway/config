@@ -32,6 +32,7 @@ font Fira Code Nerd Font 11
 #      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 #exec systemctl --user start xdg-desktop-portal
+exec systemctl --user restart llama.service
 
 # exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
 output "*" bg ~/Downloads/austria2.jpg fill

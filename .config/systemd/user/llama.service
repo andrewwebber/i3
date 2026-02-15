@@ -1,0 +1,16 @@
+[Unit]
+Description=Llama Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/sh -c '/home/awebber/projects/i3/ai.sh'
+User=awebber
+Restart=on-failure
+RestartSec=3
+RestartPreventExitStatus=1
+Type=simple
+
+
+[Install]
+WantedBy=defaut.target

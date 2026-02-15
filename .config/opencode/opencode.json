@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama-server (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8012/v1"
+      },
+      "models": {
+        "unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_XL": {
+          "name": "unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_XL",
+          "limit": {
+            "context": 32000,
+            "output": 65536
+          }
+        }
+      }
+    }
+  }
+}

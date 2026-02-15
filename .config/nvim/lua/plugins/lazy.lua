@@ -18,33 +18,7 @@ return {
       })
     end,
   },
-  {
-    "saxon1964/neovim-tips",
-    version = "*", -- Only update on tagged releases
-    lazy = true, -- Load only when keybinds are triggered
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL: Choose your preferred markdown renderer (or omit for raw markdown)
-      "MeanderingProgrammer/render-markdown.nvim", -- Clean rendering
-      -- OR: "OXY2DEV/markview.nvim", -- Rich rendering with advanced features
-    },
-    opts = {
-      -- IMPORTANT: Daily tip DOES NOT WORK with lazy = true
-      -- Reason: lazy = true loads plugin only when keybinds are triggered,
-      --         but daily_tip needs plugin loaded at startup
-      -- Solution: Keep daily_tip = 0 here, or use Option 2 below for daily tips
-      daily_tip = 0, -- 0 = off, 1 = once per day, 2 = every startup
-      -- Other optional settings...
-      bookmark_symbol = "🌟 ",
-    },
-    keys = {
-      { "<leader>nto", ":NeovimTips<CR>", desc = "Neovim tips" },
-      { "<leader>ntr", ":NeovimTipsRandom<CR>", desc = "Show random tip" },
-      { "<leader>nte", ":NeovimTipsEdit<CR>", desc = "Edit your tips" },
-      { "<leader>nta", ":NeovimTipsAdd<CR>", desc = "Add your tip" },
-      { "<leader>ntp", ":NeovimTipsPdf<CR>", desc = "Open tips PDF" },
-    },
-  },
+
   -- {
   --   "OXY2DEV/markview.nvim",
   --   lazy = false,
@@ -69,17 +43,20 @@ return {
     end,
   },
   {
-    "David-Kunz/gen.nvim",
+    -- dir = "~/projects/gen.nvim",
+    "andrewwebber/gen.nvim",
     opts = {
-      model = "llama3.2:3b", -- The default model to use.
+      model = "unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M", -- The default model to use.
       quit_map = "q", -- set keymap to close the response window
       retry_map = "<c-r>", -- set keymap to re-send the current prompt
       accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result
       host = "localhost", -- The host running the Ollama service.
-      port = "11434", -- The port on which the Ollama service is listening.
+      port = "8012", -- The port on which the Ollama service is listening.
       display_mode = "horizontal-split", -- The display mode. Can be "float" or "split" or "horizontal-split".
       show_prompt = true, -- Shows the prompt submitted to Ollama. Can be true (3 lines) or "full".
       show_model = true, -- Displays which model you are using at the beginning of your chat session.
+      think = false, -- Whether to show thinking messages.
+      body = { think = false, stream = true },
       no_auto_close = false, -- Never closes the window automatically.
       file = false, -- Write the payload to a temporary file to keep the command short.
       hidden = false, -- Hide the generation window (if true, will implicitly set `prompt.replace = true`), requires Neovim >= 0.10

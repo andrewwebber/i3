@@ -10,6 +10,8 @@ source ~/projects/i3/.config/fish/functions.fish
 set -gx EDITOR /usr/bin/vim
 set -gx VISUAL /usr/bin/vim
 set -gx BROWSER firefox
+set -gx ANTHROPIC_BASE_URL http://localhost:8012
+set -gx ANTHROPIC_AUTH_TOKEN testing123
 
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null

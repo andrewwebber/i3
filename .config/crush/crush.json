@@ -1,0 +1,21 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "lsp": {
+     "rust": { "command": "rust-analyzer" }
+  },
+  "providers": {
+    "ollama": {
+      "name": "Ollama",
+      "base_url": "http://localhost:8012/v1/",
+      "type": "openai-compat",
+      "models": [
+        {
+          "name": "unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_XL",
+          "id": "unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_XL",
+          "context_window": 32000,
+          "default_max_tokens": 65536
+        }
+      ]
+    }
+  }
+}
