@@ -10,26 +10,22 @@ require("gen").prompts["DeepAnalysis"] = {
 
 require("gen").prompts["Coder_Review_Code"] = {
   prompt = "Review the following code and make concise suggestions:\n```$filetype\n$text\n```",
-  model = "qwen2.5-coder:7b",
 }
 
 require("gen").prompts["Coder_Add_Code"] = {
   prompt = "Enhance the following code.\n $input\n. Only output the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
-  model = "qwen2.5-coder:7b",
   replace = false,
   extract = "```$filetype\n(.-)```",
 }
 
 require("gen").prompts["Coder_Update_Code"] = {
   prompt = "Enhance the following code.\n $input\n. Only output the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
-  model = "qwen2.5-coder:7b",
   replace = true,
   extract = "```$filetype\n(.-)```",
 }
 
 require("gen").prompts["Coder_Enhance_Code"] = {
   prompt = "Enhance the following code, only output the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
-  model = "qwen2.5-coder:7b",
   replace = true,
   extract = "```$filetype\n(.-)```",
 }

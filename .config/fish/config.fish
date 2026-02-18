@@ -12,6 +12,7 @@ set -gx VISUAL /usr/bin/vim
 set -gx BROWSER firefox
 set -gx ANTHROPIC_BASE_URL http://localhost:8012
 set -gx ANTHROPIC_AUTH_TOKEN testing123
+set -gx ROCR_VISIBLE_DEVICES "GPU-0248d71683dbc479"
 
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -24,6 +25,7 @@ source /opt/google-cloud-cli/path.fish.inc
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/bin/
 fish_add_path /opt/cuda/bin/
+fish_add_path ~/projects/llama.cpp/build/bin/
 
 if test (tty) = /dev/tty1
     sway || WLR_DRM_DEVICES=/dev/dri/card1 sway 
