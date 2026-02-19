@@ -1,5 +1,5 @@
 #! /bin/sh -xe
-llama-server  -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M \
+llama-server  -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q6_K\
     --port 8012 \
     --jinja \
     -ngl 99 \
