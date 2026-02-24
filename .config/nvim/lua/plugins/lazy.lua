@@ -38,6 +38,15 @@ return {
     init = function()
       vim.g.llama_config = {
         auto_fim = true,
+        keymap_fim_trigger = "<Tab>llf",
+        keymap_fim_accept_full = "<Tab>",
+        keymap_fim_accept_line = "<S-Tab>",
+        keymap_fim_accept_word = "<Tab>ll]",
+        keymap_inst_trigger = "<Tab>lli",
+        keymap_inst_retry = "<Tab>llr",
+        keymap_inst_continue = "<Tab>llc",
+        keymap_inst_accept = "<Tab>",
+        keymap_inst_cancel = "<Esc>",
         --show_info = 0,
       }
     end,
