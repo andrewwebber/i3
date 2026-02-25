@@ -1,6 +1,4 @@
 #! /bin/sh -e
-# llama-server  -hf \
-
 function thinking_full(){
   llama-server  -hf unsloth/Qwen3-Coder-Next-GGUF:MXFP4_MOE\
       --port 8012 \
@@ -18,7 +16,7 @@ function thinking_full(){
 }
 
 function thinking(){
-  llama-server  -hf unsloth/Qwen3-Coder-Next-GGUF:MXFP4_MOE\
+  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:Q4_K_M\
       --port 8012 \
       --jinja \
       -ngl 32 \
@@ -35,6 +33,7 @@ function thinking(){
 }
 
 function fast(){
+    # unsloth/Qwen3-Coder-Next-GGUF:MXFP4_MOE
   llama-server  -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M\
       --port 8012 \
       --jinja \
@@ -74,8 +73,3 @@ in
     *) echo "Nothing to do"
        exit ;;
 esac
-
-
-
-
-
