@@ -17,10 +17,10 @@ function thinking(){
 }
 
 function coding(){
-  llama-server  -hf unsloth/Qwen3-Coder-Next-GGUF:MXFP4_MOE\
+  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:Q4_K_M\
       --port 8012 \
       --jinja \
-      -ngl 32 \
+      -ngl 99 \
       -c 132000 \
       --flash-attn on  \
       -b 512  \
