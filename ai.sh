@@ -49,9 +49,9 @@ function small(){
 opt=$1
 case $opt
 in
-    s) small ;;
-    c) coding ;;
-    t) thinking ;;
+    small) small ;;
+    coding) coding ;;
+    thinking) thinking ;;
     *) echo "Nothing to do"
        exit ;;
 esac
