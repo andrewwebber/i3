@@ -21,21 +21,6 @@ function thinking(){
 }
 
 function coding(){
-  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:Q6_K\
-      --port 8012 \
-      --jinja \
-      -ngl 99 \
-      -c 64000 \
-      --flash-attn on  \
-      -b 512  \
-      --temp 1.1 \
-      --top-k 20 \
-      --top-p 0.95 \
-      --cache-type-k q8_0 --cache-type-v q8_0 \
-      --repeat-penalty 1.05 
-}
-
-function small(){
   llama-server  -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M\
       --port 8012 \
       --jinja \
@@ -55,7 +40,6 @@ function small(){
 opt=$1
 case $opt
 in
-    small) small ;;
     coding) coding ;;
     thinking) thinking ;;
     *) echo "Nothing to do"

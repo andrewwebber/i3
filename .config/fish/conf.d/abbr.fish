@@ -7,4 +7,5 @@ abbr -a kgn "kubectl get nodes"
 abbr -a mail-deepc 'neomutt -F ~/projects/i3/.mutt/neomuttrc_deepc'
 abbr -a mail-gmail 'neomutt -F ~/projects/i3/.mutt/neomuttrc_me'
 abbr -a mail-origins 'neomutt -F ~/projects/i3/.mutt/neomuttrc_origins'
-abbr -a start-ai 'bash -c "~/projects/i3/ai.sh"'
+abbr -a start-ai-thinking 'bash -c "~/projects/i3/ai.sh thinking"'
+abbr -a start-ai-coding 'bash -c "~/projects/i3/ai.sh coding"'
