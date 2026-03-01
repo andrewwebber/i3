@@ -8,18 +8,20 @@ function thinking(){
       -c 132000 \
       --flash-attn on  \
       -b 512  \
-      --temp 1.1 \
+      --temp 0.7 \
       --top-k 20 \
-      --top-p 0.95 \
+      --top-p 0.8 \
+      --min-p 0.0 \
       --cache-type-k f16 --cache-type-v f16 \
-      --repeat-penalty 1.05 
+      --repeat-penalty 1.05 \
+      --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
       # -cmoe 
       # -fit
       # --chat-template-kwargs "{\"enable_thinking\": false}"
 }
 
 function coding(){
-  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:Q6_K_L\
+  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:Q6_K\
       --port 8012 \
       --jinja \
       -ngl 99 \
