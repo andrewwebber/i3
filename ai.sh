@@ -1,6 +1,7 @@
 #! /bin/sh -e
 function thinking(){
-  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:Q4_K_M\
+# unsloth/Qwen3.5-35B-A3B-GGUF:Q4_K_M
+  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL\
       --port 8012 \
       --jinja \
       -ngl 99 \
@@ -8,8 +9,9 @@ function thinking(){
       --flash-attn on  \
       -b 512  \
       --temp 1.1 \
-      --top-k 40 \
+      --top-k 20 \
       --top-p 0.95 \
+      --cache-type-k f16 --cache-type-v f16 \
       --repeat-penalty 1.05 
       # -cmoe 
       # -fit
@@ -17,16 +19,17 @@ function thinking(){
 }
 
 function coding(){
-  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:Q4_K_M\
+  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:Q6_K_L\
       --port 8012 \
       --jinja \
       -ngl 99 \
-      -c 132000 \
+      -c 64000 \
       --flash-attn on  \
       -b 512  \
       --temp 1.1 \
-      --top-k 40 \
+      --top-k 20 \
       --top-p 0.95 \
+      --cache-type-k q8_0 --cache-type-v q8_0 \
       --repeat-penalty 1.05 
 }
 
@@ -39,9 +42,10 @@ function small(){
       --flash-attn on  \
       -b 512  \
       --temp 1.1 \
-      --top-k 40 \
+      --top-k 20 \
       --top-p 0.95 \
       --repeat-penalty 1.05 \
+      --cache-type-k q4_0 --cache-type-v q4_0 \
       -cmoe \
       -fit on
 }
