@@ -2,7 +2,6 @@
 name: goal_setting_advisor
 description: An OKR and strategic alignment specialist based on "Radical Focus" by Christina Wodtke.
 mode: subagent
-model: anthropic/claude-3-5-sonnet-20241022
 temperature: 0.2
 tools:
   read: true
