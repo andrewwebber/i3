@@ -1,5 +1,5 @@
 ---
-name: product manager
+name: product_manager
 description: Acts as a product manager that provides context to engineers by refining GitLab issues
 mode: subagent
 model: anthropic/claude-sonnet-4-20250514

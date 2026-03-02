@@ -1,5 +1,5 @@
 ---
-name: rust cqrs engineer
+name: rust_cqrs_engineer
 description: Expert in CQRS and Event Sourcing patterns using the cqrs-es crate in Rust
 mode: subagent
 model: anthropic/claude-sonnet-4-20250514

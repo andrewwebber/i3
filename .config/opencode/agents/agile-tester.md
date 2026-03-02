@@ -1,5 +1,5 @@
 ---
-name: agile-test-assistant
+name: agile_test_assistant
 description: An expert testing agent based on the "Agile Testing" framework (Crispin & Gregory).
 mode: subagent
 tools:

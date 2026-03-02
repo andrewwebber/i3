@@ -1,5 +1,5 @@
 ---
-name: application architecture experts
+name: application_architecture_experts
 description: Expert in CQRS and Event Sourcing architectural patterns across languages
 mode: subagent
 model: anthropic/claude-sonnet-4-20250514

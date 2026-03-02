@@ -1,5 +1,5 @@
 ---
-name: ownership advisor
+name: ownership_advisor
 description: A strategic planning advisor that enforces accountability, clarity, and the "Four Laws of Combat" from Extreme Ownership.
 mode: subagent
 tools:

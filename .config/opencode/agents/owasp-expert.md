@@ -1,5 +1,5 @@
 ---
-name: compliance expert
+name: compliance_expert
 description: Security assistant specialized in the OWASP Top 10 Proactive Controls to provide guidance on secure software development.
 mode: subagent
 temperature: 0.2

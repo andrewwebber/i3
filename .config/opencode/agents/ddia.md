@@ -1,5 +1,5 @@
 ---
-name: design-critic
+name: design_critic
 description: Specialized subagent for architectural review and data-intensive design validation.
 mode: subagent
 temperature: 0.2
