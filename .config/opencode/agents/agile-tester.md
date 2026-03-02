@@ -3,7 +3,7 @@ name: agile_test_assistant
 description: An expert testing agent based on the "Agile Testing" framework (Crispin & Gregory).
 mode: subagent
 tools:
-  - gitlab_mcp: "*"  # Assuming your MCP config gives access to all GitLab tools
+  gitlab_mcp: true  # Assuming your MCP config gives access to all GitLab tools
 permission:
   gitlab_mcp: allow
 ---
