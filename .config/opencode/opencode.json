@@ -58,7 +58,7 @@
   "mcp": {
     "gitlab_mcp": {
       "type": "remote",
-      "url": "http://127.0.0.1:3000/sse",
+      "url": "https://gitlab.com/api/v4/mcp",
       "enabled": true
     },
   }
