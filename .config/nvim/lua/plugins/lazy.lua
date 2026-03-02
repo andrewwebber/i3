@@ -112,6 +112,7 @@ return {
         keymap_inst_continue = "<Tab>llc",
         keymap_inst_accept = "<Tab>",
         keymap_inst_cancel = "<Esc>",
+        ring_update_ms = 3000,
         --show_info = 0,
       }
     end,

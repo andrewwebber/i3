@@ -12,6 +12,7 @@ function thinking(){
       --top-k 20 \
       --top-p 0.8 \
       --min-p 0.0 \
+      --no-mmap \
       --cache-type-k f16 --cache-type-v f16 \
       --repeat-penalty 1.05 \
       --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
@@ -28,12 +29,12 @@ function coding(){
       -c 132000 \
       --flash-attn on  \
       -b 512  \
-      --temp 1.1 \
+      --no-mmap \
+      --temp 0.3 \
       --top-k 20 \
       --top-p 0.95 \
       --repeat-penalty 1.05 \
       --cache-type-k q4_0 --cache-type-v q4_0 \
-      -cmoe \
       -fit on
 }
 
