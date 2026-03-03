@@ -59,7 +59,7 @@
     "gitlab_mcp": {
       "type": "remote",
       "url": "https://gitlab.com/api/v4/mcp",
-      "enabled": true
+      "enabled": false
     },
   }
 }
