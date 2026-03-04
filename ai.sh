@@ -38,9 +38,27 @@ function coding(){
       -fit on
 }
 
+function small(){
+
+# gfx1032
+HSA_OVERRIDE_GFX_VERSION=10.3.0 llama-server  -hf unsloth/Qwen3.5-9B-GGUF:Q6_K\
+      --port 8012 \
+      --jinja \
+      -c 2000 \
+      --flash-attn on  \
+      --temp 0.3 \
+      --top-k 40 \
+      --top-p 0.95 \
+      --min-p 0.05 \
+      --repeat-penalty 1.05 \
+      -fit on
+}
+
+
 opt=$1
 case $opt
 in
+    small) small ;;
     coding) coding ;;
     thinking) thinking ;;
     *) echo "Nothing to do"
