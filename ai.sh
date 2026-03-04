@@ -63,17 +63,20 @@ function server(){
 function small(){
 
 # gfx1032
-HSA_OVERRIDE_GFX_VERSION=10.3.0 llama-server  -hf unsloth/Qwen3.5-9B-GGUF:Q6_K\
+ROCR_VISIBLE_DEVICES="0,1" DRI_PRIME=1 HSA_OVERRIDE_GFX_VERSION=10.3.0 llama-server  -hf unsloth/Qwen3.5-9B-GGUF:Q8_0\
       --port 8012 \
       --jinja \
-      -c 2000 \
-      --flash-attn on  \
+      -c 16384 \
+      -ngl 99 \
+      --split-mode layer \
+      --flash-attn on \
       --temp 0.3 \
       --top-k 40 \
       --top-p 0.95 \
       --min-p 0.05 \
       --repeat-penalty 1.05 \
-      -fit on
+      --cache-type-k q8_0 --cache-type-v q8_0 \
+      --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}" 
 }
 
 
