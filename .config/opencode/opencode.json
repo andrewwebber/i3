@@ -6,10 +6,12 @@
   "permission": {
     "question": "allow",
     "bash": {
-      "*": "ask",
       "cargo test *": "allow",
       "cargo clippy *": "allow",
+      "cargo build *": "allow",
+      "head *": "allow",
       "rm *": "deny",
+      "*": "ask",
     },
     "webfetch": "ask",
     "read": {
@@ -47,6 +49,13 @@
       "models": {
         "unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL": {
           "name": "unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL",
+          "limit": {
+            "context": 132000,
+            "output": 65536
+          }
+        },
+        "unsloth/Qwen3.5-27B-GGUF:UD-Q5_K_XL": {
+          "name": "unsloth/Qwen3.5-27B-GGUF:UD-Q5_K_XL",
           "limit": {
             "context": 132000,
             "output": 65536

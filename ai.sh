@@ -1,11 +1,12 @@
 #! /bin/sh -e
 function thinking(){
-# unsloth/Qwen3.5-35B-A3B-GGUF:Q4_K_M
-  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL\
+# unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL
+  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:UD-Q5_K_XL\
       --port 8012 \
       --jinja \
-      -ngl 99 \
-      -c 132000 \
+      -ngl 999 \
+      -c 32768 \
+      -t 8 \
       --flash-attn on  \
       -b 512  \
       --temp 0.7 \
@@ -22,20 +23,41 @@ function thinking(){
 }
 
 function coding(){
-  llama-server  -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M\
+    # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
+  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL\
       --port 8012 \
       --jinja \
+      -ngl 999 \
       -c 132000 \
       --flash-attn on  \
       -b 2048  \
       --no-mmap \
-      --temp 0.3 \
+      --temp 0.7 \
       --top-k 40 \
       --top-p 0.95 \
       --min-p 0.05 \
       --repeat-penalty 1.05 \
-      --cache-type-k q8_0 --cache-type-v q8_0 \
-      -fit on
+      --cache-type-k q8_0 --cache-type-v q8_0 
+      #-fit on
+}
+
+function server(){
+    # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
+  llama-server  \
+      --port 8012 \
+      --jinja \
+      -ngl 999 \
+      -c 132000 \
+      --flash-attn on  \
+      -b 2048  \
+      --no-mmap \
+      --temp 0.7 \
+      --top-k 40 \
+      --top-p 0.95 \
+      --min-p 0.05 \
+      --repeat-penalty 1.05 \
+      --cache-type-k q8_0 --cache-type-v q8_0 
+      #-fit on
 }
 
 function small(){
@@ -61,6 +83,7 @@ in
     small) small ;;
     coding) coding ;;
     thinking) thinking ;;
+    server) server ;;
     *) echo "Nothing to do"
        exit ;;
 esac
