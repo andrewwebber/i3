@@ -70,5 +70,10 @@
       "url": "https://gitlab.com/api/v4/mcp",
       "enabled": false
     },
+    "custom_gitlab_mcp": {
+      "type": "remote",
+      "url": "http://localhost:3000/sse",
+      "enabled": false
+    },
   }
 }

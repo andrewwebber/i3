@@ -41,6 +41,26 @@ function coding(){
       #-fit on
 }
 
+function fim(){
+    # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
+  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL\
+      --port 8012 \
+      --jinja \
+      -ngl 999 \
+      -c 132000 \
+      --flash-attn on  \
+      -b 2048  \
+      --no-mmap \
+      --temp 0.7 \
+      --top-k 40 \
+      --top-p 0.95 \
+      --min-p 0.05 \
+      --repeat-penalty 1.05 \
+      --cache-type-k q8_0 --cache-type-v q8_0 \
+      --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
+      #-fit on
+}
+
 function server(){
     # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
   llama-server  \
@@ -86,6 +106,7 @@ in
     small) small ;;
     coding) coding ;;
     thinking) thinking ;;
+    fim) fim ;;
     server) server ;;
     *) echo "Nothing to do"
        exit ;;
