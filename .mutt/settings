@@ -26,14 +26,14 @@ color body          color186        default        "(andrew|Andrew|webber|Webber
 # base03, bg, black, any of the non brights
 
 # basic colors ---------------------------------------------------------
-color normal        color189        color59
-color error         color167        color59
+color normal        color189        default
+color error         color167        default
 color tilde         color59        default
 color message       color111        default
 color markers       color167        default
 color attachment    color111        default
 color search        color111        color59
-color status        color146        color17
+color status        color146        default
 color indicator     color189        color59
 color tree          color111        default                                   # arrow in threads
 
@@ -169,7 +169,7 @@ set sidebar_short_path                  # Shorten mailbox names
 
 # Sidebar colors
 color sidebar_new color111 default
-color sidebar_highlight color189 color60
+color sidebar_highlight color189 default
 color sidebar_divider color17 default
 color sidebar_indicator color17 color80
 set sidebar_divider_char = ' │ '
