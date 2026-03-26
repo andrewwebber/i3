@@ -1,6 +1,7 @@
 return {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   "jamessan/vim-gnupg",
+  "norcalli/nvim-colorizer.lua",
   {
     "ovk/endec.nvim",
     event = "VeryLazy",
