@@ -1,7 +1,12 @@
 return { -- Highlight, edit, and navigate code
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
+  branch = "main",
   build = ":TSUpdate",
+  dependencies = {
+    "windwp/nvim-ts-autotag",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "MeanderingProgrammer/treesitter-modules.nvim",
+  },
   opts = {
     ensure_installed = {
       "bash",
@@ -87,9 +92,23 @@ return { -- Highlight, edit, and navigate code
   },
   config = function()
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    --
+    -- local configs = require("nvim-treesitter.configs")
+    --
+    -- configs.setup({
+    --   -- Add your languages here
+    --   ensure_installed = { "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+    --   highlight = {
+    --     enable = true,
+    --     -- Required for 0.12.x to avoid conflict with built-in highlighter
+    --     additional_vim_regex_highlighting = false,
+    --   },
+    -- })
 
     -- Prefer git instead of curl in order to improve connectivity in some environments
-    require("nvim-treesitter.install").prefer_git = true
+    -- local ts = require("nvim-treesitter.install")
+    -- ts.prefer_git = true
+    -- ts.install({ "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" })
     ---@diagnostic disable-next-line: missing-fields
     -- require("nvim-treesitter.configs").setup({
     --   ensure_installed = { "lua", "vim", "vimdoc", "query" },
