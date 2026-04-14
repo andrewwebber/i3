@@ -296,7 +296,7 @@ return { -- LSP Configuration & Plugins
               extraArgs = { "--tests", "--", "-Dwarnings" },
             },
             check = {
-              enabled = true,
+              enabled = false,
               command = "clippy",
               extraArgs = { "--tests", "--", "-Dwarnings" },
             },
