@@ -39,7 +39,7 @@ function coding(){
       --min-p 0.01 \
       --repeat-penalty 1.0 \
       --cache-type-k q4_0 --cache-type-v q4_0 
-      #--reasoning-budget 0 \
+      --reasoning-budget 0 
       #--tool-call-parser qwen3_coder
       #-fit on
 }
