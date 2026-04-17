@@ -1,21 +1,22 @@
-#! /bin/sh -e
+#! /bin/sh -xe
+LLAMA_ROCM_VMM=1
 function thinking(){
 # unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL
-  llama-server  -hf unsloth/Qwen3.5-27B-GGUF:UD-Q5_K_XL\
+  llama-server  -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL\
       --port 8012 \
       --jinja \
       -ngl 999 \
-      -c 32768 \
-      -t 8 \
+      -c 64000 \
       --flash-attn on  \
       -b 512  \
-      --temp 0.7 \
-      --top-k 40 \
-      --top-p 0.8 \
+      --temp 0.6 \
+      --top-k 20 \
+      --top-p 0.95 \
       --min-p 0.05 \
-      --cache-type-k q8_0 --cache-type-v q8_0 \
-      --repeat-penalty 1.05 \
-      --reasoning-budget -1 
+      --repeat-penalty 1.0 \
+      --cache-type-k q4_0 --cache-type-v q4_0 \
+      --reasoning-budget -1 \
+      --chat-template-kwargs "{\"enable_thinking\": true}"
       # --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
       # -cmoe 
       # -fit
@@ -24,39 +25,40 @@ function thinking(){
 
 function coding(){
     # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
-  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL\
+  llama-server  -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL\
       --port 8012 \
       --jinja \
       -ngl 999 \
-      -c 132000 \
+      -c 64000 \
       --flash-attn on  \
-      -b 2048  \
-      --no-mmap \
-      --temp 0.7 \
-      --top-k 40 \
+      -b 512  \
+      --temp 0.6 \
+      --top-k 20 \
       --top-p 0.95 \
       --min-p 0.05 \
-      --repeat-penalty 1.05 \
-      --cache-type-k q8_0 --cache-type-v q8_0 
+      --repeat-penalty 1.0 \
+      --reasoning-budget 1024 \
+      --cache-type-k q4_0 --cache-type-v q4_0 \
+      --chat-template-kwargs "{\"enable_thinking\": false}"
       #-fit on
 }
 
 function fim(){
     # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
-  llama-server  -hf unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL\
+  llama-server  -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL\
       --port 8012 \
       --jinja \
       -ngl 999 \
-      -c 132000 \
+      -c 64000 \
       --flash-attn on  \
-      -b 2048  \
-      --no-mmap \
-      --temp 0.7 \
-      --top-k 40 \
+      -b 512  \
+      --temp 0.6 \
+      --top-k 20 \
       --top-p 0.95 \
       --min-p 0.05 \
-      --repeat-penalty 1.05 \
-      --cache-type-k q8_0 --cache-type-v q8_0 \
+      --repeat-penalty 1.0 \
+      --reasoning-budget 1024 \
+      --cache-type-k q4_0 --cache-type-v q4_0 \
       --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
       #-fit on
 }
