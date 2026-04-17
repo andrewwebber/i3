@@ -25,21 +25,22 @@ function thinking(){
 
 function coding(){
     # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
-  llama-server  -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL\
+  llama-server -hf unsloth/Qwen3-Coder-Next-GGUF:UD-Q2_K_XL \
       --port 8012 \
       --jinja \
       -ngl 999 \
-      -c 64000 \
-      --flash-attn on  \
-      -b 512  \
-      --temp 0.6 \
-      --top-k 20 \
+      -c 32768 \
+      --flash-attn on \
+      -b 512 \
+      --ubatch-size 1024 \
+      --temp 1.0 \
+      --top-k 40 \
       --top-p 0.95 \
-      --min-p 0.05 \
+      --min-p 0.01 \
       --repeat-penalty 1.0 \
-      --reasoning-budget 1024 \
-      --cache-type-k q4_0 --cache-type-v q4_0 \
-      --chat-template-kwargs "{\"enable_thinking\": false}"
+      --cache-type-k q4_0 --cache-type-v q4_0 
+      #--reasoning-budget 0 \
+      #--tool-call-parser qwen3_coder
       #-fit on
 }
 
