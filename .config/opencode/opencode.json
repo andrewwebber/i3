@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL",
+  "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL",
   "small_model": "unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL",
   "enabled_providers" : ["bladerunner", "llama.cpp"],
   "permission": {
