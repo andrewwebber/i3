@@ -2,7 +2,7 @@
 LLAMA_ROCM_VMM=1
 function thinking(){
 # unsloth/Qwen3.5-35B-A3B-GGUF:UD-Q4_K_XL
-  llama-server  -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL\
+  llama-server  -hf unsloth/Qwen3.6-27B-GGUF:Q6_K\
       --port 8012 \
       --jinja \
       -ngl 999 \
@@ -25,7 +25,7 @@ function thinking(){
 
 function coding(){
     # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
-  llama-server -hf unsloth/Qwen3-Coder-Next-GGUF:UD-Q2_K_XL \
+  llama-server -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL \
       --port 8012 \
       --jinja \
       -ngl 999 \
