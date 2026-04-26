@@ -14,6 +14,7 @@ set -gx ANTHROPIC_BASE_URL http://localhost:8012
 set -gx ANTHROPIC_AUTH_TOKEN testing123
 set -gx ROCR_VISIBLE_DEVICES "GPU-0248d71683dbc479"
 set -gx OPENCODE_EXPERIMENTAL_PLAN_MODE 1
+set -gx MOZ_ENABLE_WAYLAND 1
 
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
