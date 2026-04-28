@@ -2,24 +2,30 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K",
   "small_model": "unsloth/Qwen3.6-27B-GGUF:Q6_K",
-  "enabled_providers" : ["bladerunner", "llama.cpp"],
+  "enabled_providers": [
+    "bladerunner",
+    "llama.cpp"
+  ],
   "permission": {
     "question": "allow",
     "bash": {
-      "cargo test *": "allow",
-      "cargo clippy *": "allow",
-      "cargo build *": "allow",
-      "head *": "allow",
+      "cargo test*": "allow",
+      "cargo clippy*": "allow",
+      "cargo build*": "allow",
+      "head*": "allow",
+      "git show*": "allow",
+      "ls *": "allow",
       "rm *": "deny",
-      "*": "ask",
+      "*": "ask"
     },
     "webfetch": "ask",
     "read": {
-      "*": "allow",
+      "/tmp": "deny",
       "credentials": "deny",
       "*.env": "deny",
       "*.env.*": "deny",
-      "*.env.example": "allow"
+      "*.env.example": "allow",
+      "*": "allow"
     }
   },
   "provider": {
@@ -74,6 +80,6 @@
       "type": "remote",
       "url": "http://localhost:3000/sse",
       "enabled": false
-    },
+    }
   }
 }
