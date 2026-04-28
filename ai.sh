@@ -6,6 +6,31 @@ function thinking(){
       --port 8012 \
       --jinja \
       -ngl 999 \
+      -c 32000 \
+      --flash-attn on  \
+      -b 1024  \
+      --temp 0.2 \
+      --top-k 20 \
+      --top-p 0.90 \
+      --min-p 0.01 \
+      --repeat-penalty 1.0 \
+      --cache-type-k q4_0 --cache-type-v q4_0 \
+      --reasoning-budget 8192 \
+      --chat-template-kwargs "{\"enable_thinking\": true}" --cont-batching \
+      --metrics
+
+      # --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
+      # -cmoe 
+      # -fit
+      # --chat-template-kwargs "{\"enable_thinking\": false}"
+}
+
+function coding(){
+    # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
+  llama-server  -hf unsloth/Qwen3.6-27B-GGUF:Q6_K\
+      --port 8012 \
+      --jinja \
+      -ngl 999 \
       -c 64000 \
       --flash-attn on  \
       -b 512  \
@@ -16,30 +41,9 @@ function thinking(){
       --repeat-penalty 1.0 \
       --cache-type-k q4_0 --cache-type-v q4_0 \
       --reasoning-budget -1 \
-      --chat-template-kwargs "{\"enable_thinking\": true}"
-      # --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
-      # -cmoe 
-      # -fit
-      # --chat-template-kwargs "{\"enable_thinking\": false}"
-}
-
-function coding(){
-    # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
-  llama-server -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL \
-      --port 8012 \
-      --jinja \
-      -ngl 999 \
-      -c 32768 \
-      --flash-attn on \
-      -b 512 \
-      --ubatch-size 1024 \
-      --temp 1.0 \
-      --top-k 40 \
-      --top-p 0.95 \
-      --min-p 0.01 \
-      --repeat-penalty 1.0 \
-      --cache-type-k q4_0 --cache-type-v q4_0 
-      --reasoning-budget 0 
+      --chat-template-kwargs "{\"enable_thinking\": true}" \
+      --cont-batching \
+      --metrics
       #--tool-call-parser qwen3_coder
       #-fit on
 }
@@ -50,17 +54,18 @@ function fim(){
       --port 8012 \
       --jinja \
       -ngl 999 \
-      -c 64000 \
+      -c 32000 \
       --flash-attn on  \
-      -b 512  \
-      --temp 0.6 \
+      -b 1024  \
+      --temp 0.0 \
       --top-k 20 \
       --top-p 0.95 \
       --min-p 0.05 \
       --repeat-penalty 1.0 \
-      --reasoning-budget 1024 \
-      --cache-type-k q4_0 --cache-type-v q4_0 \
-      --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}"
+      --cache-type-k q8_0 --cache-type-v q8_0 \
+      --reasoning-budget 0 --chat-template-kwargs "{\"enable_thinking\": false}" \
+      --cont-batching \
+      --metrics
       #-fit on
 }
 
