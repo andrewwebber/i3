@@ -94,7 +94,7 @@ function small(){
 ROCR_VISIBLE_DEVICES="0,1" DRI_PRIME=1 HSA_OVERRIDE_GFX_VERSION=10.3.0 llama-server  -hf unsloth/Qwen3.5-9B-GGUF:Q8_0\
       --port 8012 \
       --jinja \
-      -c 16384 \
+      -c 32000 \
       -ngl 99 \
       --split-mode layer \
       --flash-attn on \
