@@ -70,21 +70,14 @@ function fim(){
 }
 
 function server(){
-    # unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_M
   llama-server  \
-      --port 8012 \
-      --jinja \
-      -ngl 999 \
-      -c 132000 \
-      --flash-attn on  \
-      -b 2048  \
-      --no-mmap \
-      --temp 0.7 \
-      --top-k 40 \
-      --top-p 0.95 \
-      --min-p 0.05 \
-      --repeat-penalty 1.05 \
-      --cache-type-k q8_0 --cache-type-v q8_0 
+    --models-preset ~/projects/i3/models.ini \
+    --models-max 1 \
+    --models-autoload \
+    --port 8012 \
+    --metrics \
+    --cont-batching 
+#    --model ".cache/huggingface/hub/models--unsloth--Qwen3.6-35B-A3B-GGUF/snapshots/a483e9e6cbd595906af30beda3187c2663a1118c/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf"
       #-fit on
 }
 
