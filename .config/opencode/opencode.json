@@ -11,6 +11,8 @@
       "cargo build*": "allow",
       "head*": "allow",
       "git show*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
       "ls *": "allow",
       "rm *": "deny",
       "*": "ask"
