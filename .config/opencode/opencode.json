@@ -1,40 +1,40 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL",
-  "small_model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL",
+  "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
+  "small_model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
   "agent": {
     "build": {
-      "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     },
     "plan": {
-      "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     },
     "general": {
-      "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL"
+      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
     },
     "explore": {
-      "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL"
+      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
     },
     "compaction": {
-      "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL"
+      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
     },
     "summary": {
-      "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL"
+      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
     },
     "title": {
-      "model": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL"
+      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
     },
     "application_architecture_experts": {
-      "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     },
     "rust_cqrs_engineer": {
-      "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     },
     "design_critic": {
-      "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     },
     "compliance_expert": {
-      "model": "unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     }
   },
   "enabled_providers": ["bladerunner", "llama.cpp"],
@@ -94,18 +94,11 @@
             "output": 65536
           }
         },
-        "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL": {
-          "name": "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL",
+        "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL": {
+          "name": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
           "limit": {
-            "context": 64000,
+            "context": 120000,
             "output": 65536
-          }
-        },
-        "unsloth/Qwen3.5-9B-GGUF:Q8_0": {
-          "name": "unsloth/Qwen3.5-9B-GGUF:Q8_0",
-          "limit": {
-            "context": 32000,
-            "output": 32000
           }
         }
       }
