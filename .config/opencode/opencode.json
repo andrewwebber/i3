@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
-  "small_model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
+  "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
+  "small_model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
   "agent": {
     "build": {
       "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
@@ -10,16 +10,16 @@
       "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
     },
     "general": {
-      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
+      "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
     },
     "explore": {
-      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
+      "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
     },
     "compaction": {
-      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
+      "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
     },
     "summary": {
-      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
+      "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
     },
     "title": {
       "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
@@ -87,11 +87,18 @@
         "baseURL": "http://127.0.0.1:8012/v1"
       },
       "models": {
+        "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K": {
+          "name": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
+          "limit": {
+            "context": 96000,
+            "output": 16384
+          }
+        },
         "unsloth/Qwen3.6-27B-GGUF:Q6_K": {
           "name": "unsloth/Qwen3.6-27B-GGUF:Q6_K",
           "limit": {
-            "context": 64000,
-            "output": 65536
+            "context": 96000,
+            "output": 16384
           }
         },
         "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL": {

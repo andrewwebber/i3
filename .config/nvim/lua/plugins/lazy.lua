@@ -56,6 +56,9 @@ return {
       vim.o.autoread = true -- Required for `opts.events.reload`
 
       -- Recommended/example keymaps
+      vim.keymap.set({ "n", "x" }, "<C-g>", function()
+        require("opencode").ask("@buffer: ", { submit = true })
+      end, { desc = "Ask opencode…" })
       vim.keymap.set({ "n", "x" }, "<leader>o", function()
         require("opencode").ask("@this: ", { submit = true })
       end, { desc = "Ask opencode…" })
@@ -126,10 +129,49 @@ return {
     end,
   },
   {
+    "MHD-GDev/LlamaGen.nvim",
+    branch = "master",
+    dependencies = {
+      "nvim-lualine/lualine.nvim",
+    },
+    config = function()
+      require("llamagen").setup({
+        quit_map = "q",
+        retry_map = "<c-r>",
+        accept_map = "<c-cr>",
+        host = "localhost",
+        port = "8012",
+        display_mode = "float",
+        show_prompt = true,
+        show_model = true,
+        no_auto_close = false,
+        json_response = true,
+        result_filetype = "markdown",
+        debug = false,
+        model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL",
+      })
+
+      -- Key mappings
+      vim.keymap.set({ "n", "v" }, "<leader>]", ":Llamagen<CR>")
+      vim.keymap.set("n", "<leader>gc", "<CMD>Llamagen Chat<CR>", { noremap = true })
+      vim.keymap.set("n", "<leader>gg", "<CMD>Llamagen Generate<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>gD", ":'<,'>Llamagen Document_Code<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>gx", ":'<,'>Llamagen Explain_Code<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>gC", ":'<,'>Llamagen Change_Code<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>ge", ":'<,'>Llamagen Enhance_Code<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>gR", ":'<,'>Llamagen Review_Code<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>gs", ":'<,'>Llamagen Summarize<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>ga", ":'<,'>Llamagen Ask<CR>", { noremap = true })
+      vim.keymap.set("v", "<leader>gF", ":'<,'>Llamagen Fix_Code<CR>", { noremap = true })
+      vim.keymap.set("n", "<leader>gl", "<CMD>GenLoadModel<CR>", { noremap = true })
+      vim.keymap.set("n", "<leader>gu", "<CMD>GenUnloadModel<CR>", { noremap = true })
+    end,
+  },
+  {
     -- dir = "~/projects/gen.nvim",
     "andrewwebber/gen.nvim",
     opts = {
-      -- model = "unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M", -- The default model to use.
+      model = "unsloth/Qwen3.6-27B-GGUF:Q6_K", -- The default model to use.
       quit_map = "q", -- set keymap to close the response window
       retry_map = "<c-r>", -- set keymap to re-send the current prompt
       accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result
@@ -148,7 +190,7 @@ return {
       end,
       -- Function to initialize Ollama
       command = function(options)
-        local body = { model = options.model, stream = true }
+        local body = { model = options.model, stream = false }
         return "curl --silent --no-buffer -X POST http://"
           .. options.host
           .. ":"
@@ -161,7 +203,7 @@ return {
       -- (context property is optional).
       -- list_models = '<omitted lua function>', -- Retrieves a list of model names
       result_filetype = "markdown", -- Configure filetype of the result buffer
-      debug = false, -- Prints errors and the command which is run.
+      debug = true, -- Prints errors and the command which is run.
     },
   },
   {

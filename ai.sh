@@ -6,9 +6,9 @@ function thinking(){
       --port 8012 \
       --jinja \
       -ngl 999 \
-      -c 64000 \
+      -c 96000 \
       --flash-attn on  \
-      -b 1024  \
+      -b 512  \
       --temp 0.2 \
       --top-k 20 \
       --top-p 0.90 \
