@@ -71,6 +71,7 @@ function fim(){
 
 function server(){
   llama-server  \
+    --host 0.0.0.0 \
     --models-preset ~/projects/i3/models.ini \
     --models-max 1 \
     --models-autoload \
