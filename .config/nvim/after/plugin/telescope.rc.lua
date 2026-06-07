@@ -6,6 +6,21 @@ local builtin = require("telescope.builtin")
 local function telescope_buffer_dir()
   return vim.fn.expand("%:p:h")
 end
+telescope.setup({
+  defaults = {
+    file_ignore_patterns = {
+      -- "%.cargo/registry/",
+      -- "%.rustup/",
+      "target/",
+    },
+    mappings = {
+      n = {
+        ["q"] = actions.close,
+        ["<c-t>"] = open_with_trouble,
+      },
+    },
+  },
+})
 --
 -- local fb_actions = require "telescope".extensions.file_browser.actions
 --

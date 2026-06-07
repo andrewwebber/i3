@@ -71,6 +71,13 @@
         "apiKey": "{env:OPENCODE_API_KEY}"
       },
       "models": {
+        "qwen.qwen3-coder-480b-a35b-v1:0": {
+          "name": "qwen.qwen3-coder-480b-a35b-v1:0",
+          "limit": {
+            "context": 132000,
+            "output": 65536
+          }
+        },
         "qwen.qwen3-235b-a22b-2507-v1:0": {
           "name": "qwen.qwen3-235b-a22b-2507-v1:0",
           "limit": {

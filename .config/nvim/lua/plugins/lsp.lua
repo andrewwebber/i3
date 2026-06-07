@@ -118,7 +118,13 @@ return { -- LSP Configuration & Plugins
         -- Jump to the definition of the word under your cursor.
         --  This is where a variable was first declared, or where a function is defined, etc.
         --  To jump back, press <C-t>.
-        map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+        -- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+        map("gd", function()
+          require("telescope.builtin").lsp_definitions({
+            jump_type = nil,
+            reuse_win = true,
+          })
+        end, "[G]oto [D]efinition")
 
         -- Find references for the word under your cursor.
         map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -250,12 +256,12 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      bacon = {
-        enabled = true,
-      },
+      -- bacon = {
+      --   enabled = true,
+      -- },
       bacon_ls = {
         -- "cargo" or "bacon". Optional — see "Choosing a backend" below.
-        backend = "cargo",
+        backend = "bacon",
 
         cargo = {
           command = "check", -- "check" or "clippy"
@@ -267,6 +273,7 @@ return { -- LSP Configuration & Plugins
 
         bacon = {
           enabled = true,
+          watch = "clippy",
         },
       },
       rust_analyzer = {
@@ -281,7 +288,7 @@ return { -- LSP Configuration & Plugins
               },
             },
             diagnostics = {
-              enable = false,
+              enable = true,
             },
             checkOnSave = {
               enable = false,
@@ -446,7 +453,7 @@ return { -- LSP Configuration & Plugins
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-          -- server.on_attach = on_attach
+          server.on_attach = on_attach
           require("lspconfig")[server_name].setup(server)
         end,
       },
