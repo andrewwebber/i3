@@ -1,0 +1,4 @@
+[jobs.clippy]
+command = ["cargo", "clippy", "--color", "always"]
+args = ["--tests", "--", "-Dwarnings"]
+need_stdout = false

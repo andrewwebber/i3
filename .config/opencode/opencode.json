@@ -4,10 +4,10 @@
   "small_model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
   "agent": {
     "build": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     },
     "plan": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     },
     "general": {
       "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
@@ -25,16 +25,16 @@
       "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
     },
     "application_architecture_experts": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     },
     "rust_cqrs_engineer": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     },
     "design_critic": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     },
     "compliance_expert": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     }
   },
   "enabled_providers": ["bladerunner", "llama.cpp"],
@@ -101,8 +101,8 @@
             "output": 16384
           }
         },
-        "unsloth/Qwen3.6-27B-GGUF:Q6_K": {
-          "name": "unsloth/Qwen3.6-27B-GGUF:Q6_K",
+        "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K": {
+          "name": "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K",
           "limit": {
             "context": 96000,
             "output": 16384
