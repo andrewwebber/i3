@@ -35,7 +35,8 @@ fish_add_path /opt/cuda/bin/
 fish_add_path ~/projects/llama.cpp/build/bin/
 
 if test (tty) = /dev/tty1
-    sway 
+    exec dbus-run-session sway
+    #sway 
     # || 
     #WLR_DRM_DEVICES=/dev/dri/card1 sway 
     # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

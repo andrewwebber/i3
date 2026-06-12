@@ -57,13 +57,13 @@ exec --no-startup-id dunst
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec dbus-launch kitty
+bindsym $mod+Return exec kitty
 # bindsym $mod+Return exec dbus-launch wezterm
 # bindsym $mod+Return exec "MESA_LOADER_DRIVER_OVERRIDE=amdgpu_dri kitty"
 bindsym Control+$mod+l exec swaylock
 bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
-#bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
-bindsym $mod+d exec dbus-launch wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
+bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
+#bindsym $mod+d exec dbus-launch wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
 
 bindsym XF86MonBrightnessUp exec brightnessctl s +20
 bindsym XF86MonBrightnessDown exec brightnessctl s 20-
@@ -236,10 +236,10 @@ assign [instance="signal"] $ws7
 #     status_command waybar
 
 # }
-exec dbus-launch wl-paste -t text --watch clipman store --no-persist
-exec dbus-launch waybar
-exec dbus-launch nm-applet --indicator
-exec dbus-launch swayidle -w \
+exec wl-paste -t text --watch clipman store --no-persist
+exec waybar
+exec nm-applet --indicator
+exec swayidle -w \
 	timeout 120 'swaylock -f' \
 	timeout 125 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
@@ -248,4 +248,7 @@ exec dbus-launch swayidle -w \
 # }
 
 include /etc/sway/config.d/*
-exec systemctl --user start xdg-desktop-portal
+#exec systemctl --user start xdg-desktop-portal
+
+# Restart portals cleanly so screen sharing initializes perfectly
+exec systemctl --user restart xdg-desktop-portal xdg-desktop-portal-wlr
