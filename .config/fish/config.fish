@@ -7,6 +7,11 @@ source ~/projects/i3/.config/fish/fish_greeting.fish
 source ~/projects/i3/.config/fish/conf.d/abbr.fish
 source ~/projects/i3/.config/fish/functions.fish
 
+# Set these globally so they are inherited by child processes
+set -gx XDG_SESSION_TYPE wayland
+set -gx XDG_CURRENT_DESKTOP sway
+set -gx WLR_DRM_DEVICES /dev/dri/card1:/dev/dri/card0
+
 set -gx EDITOR /usr/bin/vim
 set -gx VISUAL /usr/bin/vim
 set -gx BROWSER firefox
@@ -30,6 +35,9 @@ fish_add_path /opt/cuda/bin/
 fish_add_path ~/projects/llama.cpp/build/bin/
 
 if test (tty) = /dev/tty1
-    sway || WLR_DRM_DEVICES=/dev/dri/card1 sway 
+    sway 
+    # || 
+    #WLR_DRM_DEVICES=/dev/dri/card1 sway 
+    # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     #|| sway --unsupported-gpu
 end

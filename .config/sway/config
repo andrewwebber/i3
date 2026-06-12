@@ -31,8 +31,12 @@ font Fira Code Nerd Font 11
 # exec hash dbus-update-activation-environment 2>/dev/null && \
 #      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
+
+#exec systemctl --user restart llama.service
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE=wayland MOZ_ENABLE_WAYLAND
+#exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 #exec systemctl --user start xdg-desktop-portal
-exec systemctl --user restart llama.service
+#exec systemctl --user start graphical-session.target
 
 # exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/austria.jpg
 output "*" bg ~/Downloads/austria2.jpg fill
@@ -58,7 +62,9 @@ bindsym $mod+Return exec dbus-launch kitty
 # bindsym $mod+Return exec "MESA_LOADER_DRIVER_OVERRIDE=amdgpu_dri kitty"
 bindsym Control+$mod+l exec swaylock
 bindsym $mod+P exec grim -g "$(slurp)" - | swappy -f -
-bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
+#bindsym $mod+d exec wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
+bindsym $mod+d exec dbus-launch wofi -show-icons --allow-images --allow-markup -modi combi --show drun -combi-modi drun --style .config/wofi/style.css
+
 bindsym XF86MonBrightnessUp exec brightnessctl s +20
 bindsym XF86MonBrightnessDown exec brightnessctl s 20-
 
@@ -242,3 +248,4 @@ exec swayidle -w \
 # }
 
 include /etc/sway/config.d/*
+exec systemctl --user start xdg-desktop-portal
