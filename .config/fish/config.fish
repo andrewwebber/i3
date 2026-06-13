@@ -10,7 +10,7 @@ source ~/projects/i3/.config/fish/functions.fish
 # Set these globally so they are inherited by child processes
 set -gx XDG_SESSION_TYPE wayland
 set -gx XDG_CURRENT_DESKTOP sway
-set -gx WLR_DRM_DEVICES /dev/dri/card1:/dev/dri/card0
+# set -gx WLR_DRM_DEVICES /dev/dri/card1:/dev/dri/card0
 
 set -gx EDITOR /usr/bin/vim
 set -gx VISUAL /usr/bin/vim
