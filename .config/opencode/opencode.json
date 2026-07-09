@@ -37,7 +37,10 @@
       "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     }
   },
-  "enabled_providers": ["bladerunner", "llama.cpp"],
+  "enabled_providers": [
+    "bladerunner",
+    "llama.cpp"
+  ],
   "permission": {
     "question": "allow",
     "bash": {
@@ -97,22 +100,22 @@
         "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K": {
           "name": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
           "limit": {
-            "context": 96000,
-            "output": 16384
+            "context": 32768,
+            "output": 4096
           }
         },
         "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K": {
           "name": "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K",
           "limit": {
-            "context": 96000,
-            "output": 16384
+            "context": 32768,
+            "output": 4096
           }
         },
         "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL": {
           "name": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
           "limit": {
-            "context": 120000,
-            "output": 65536
+            "context": 32768,
+            "output": 4096
           }
         }
       }
