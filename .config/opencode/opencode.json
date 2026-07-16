@@ -74,6 +74,20 @@
         "apiKey": "{env:OPENCODE_API_KEY}"
       },
       "models": {
+        "eu.anthropic.claude-fable-5": {
+          "name": "eu.anthropic.claude-fable-5",
+          "limit": {
+            "context": 132000,
+            "output": 65536
+          }
+        },
+        "eu.anthropic.claude-sonnet-5": {
+          "name": "eu.anthropic.claude-sonnet-5",
+          "limit": {
+            "context": 132000,
+            "output": 65536
+          }
+        },
         "qwen.qwen3-coder-480b-a35b-v1:0": {
           "name": "qwen.qwen3-coder-480b-a35b-v1:0",
           "limit": {
