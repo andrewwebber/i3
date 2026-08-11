@@ -259,21 +259,45 @@ return { -- LSP Configuration & Plugins
       -- bacon = {
       --   enabled = true,
       -- },
+      --bacon_ls = {
+      --  -- "cargo" or "bacon". Optional — see "Choosing a backend" below.
+      --  backend = "bacon",
+
+      --  cargo = {
+      --    command = "check", -- "check" or "clippy"
+      --    cancelRunning = true, -- cancel an in-flight run when a new one is triggered
+      --    refreshIntervalSeconds = 5, -- partial publish interval; null/negative = wait until done
+      --    checkOnSave = true, -- trigger cargo on textDocument/didSave
+      --    clearDiagnosticsOnCheck = false, -- clear existing diagnostics before each run
+      --  },
+
+      --  bacon = {
+      --    enabled = true,
+      --    watch = "clippy",
+      --  },
+      --},
       bacon_ls = {
-        -- "cargo" or "bacon". Optional — see "Choosing a backend" below.
-        backend = "bacon",
+        -- Anchor the LSP to the Rust project root to prevent global workspace scans
+        root_dir = util.root_pattern("Cargo.toml", ".git"),
 
-        cargo = {
-          command = "check", -- "check" or "clippy"
-          cancelRunning = true, -- cancel an in-flight run when a new one is triggered
-          refreshIntervalSeconds = 5, -- partial publish interval; null/negative = wait until done
-          checkOnSave = true, -- trigger cargo on textDocument/didSave
-          clearDiagnosticsOnCheck = false, -- clear existing diagnostics before each run
-        },
+        settings = {
+          bacon_ls = {
+            -- "cargo" or "bacon". Now correctly passed to the server!
+            backend = "bacon",
 
-        bacon = {
-          enabled = true,
-          watch = "clippy",
+            cargo = {
+              command = "check", -- "check" or "clippy"
+              cancelRunning = true, -- cancel an in-flight run when a new one is triggered
+              refreshIntervalSeconds = 5, -- partial publish interval; null/negative = wait until done
+              checkOnSave = true, -- trigger cargo on textDocument/didSave
+              clearDiagnosticsOnCheck = false, -- clear existing diagnostics before each run
+            },
+
+            bacon = {
+              enabled = true,
+              watch = "clippy",
+            },
+          },
         },
       },
       rust_analyzer = {

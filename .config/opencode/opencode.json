@@ -7,34 +7,67 @@
       "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
     },
     "plan": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
-    },
-    "general": {
-      "model": "llama.cpp/unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
-    },
-    "explore": {
-      "model": "llama.cpp/unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
-    },
-    "compaction": {
-      "model": "llama.cpp/unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
-    },
-    "summary": {
-      "model": "llama.cpp/unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K"
-    },
-    "title": {
-      "model": "llama.cpp/unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL"
-    },
-    "application_architecture_experts": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
-    },
-    "rust_cqrs_engineer": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
-    },
-    "design_critic": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
-    },
-    "compliance_expert": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "cargo test": "allow",
+          "cargo test *": "allow",
+          "cargo clippy": "allow",
+          "cargo clippy *": "allow",
+          "cargo build": "allow",
+          "cargo build *": "allow",
+          "git show*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "git status": "allow",
+          "git status *": "allow",
+          "git branch": "allow",
+          "git branch *": "allow",
+          "ls": "allow",
+          "ls *": "allow",
+          "echo": "allow",
+          "echo *": "allow",
+          "rg": "allow",
+          "rg *": "allow",
+          "awk": "allow",
+          "awk *": "allow",
+          "grep": "allow",
+          "grep *": "allow",
+          "head": "allow",
+          "head *": "allow",
+          "cat": "allow",
+          "cat *": "allow",
+          "find": "allow",
+          "find *": "allow",
+          "wc": "allow",
+          "wc *": "allow",
+          "sort": "allow",
+          "sort *": "allow",
+          "uniq": "allow",
+          "uniq *": "allow",
+          "cut": "allow",
+          "cut *": "allow",
+          "tr": "allow",
+          "tr *": "allow",
+          "diff": "allow",
+          "diff *": "allow",
+          "tree": "allow",
+          "tree *": "allow",
+          "pwd": "allow",
+          "pwd *": "allow",
+          "which": "allow",
+          "which *": "allow",
+          "stat": "allow",
+          "stat *": "allow",
+          "file": "allow",
+          "file *": "allow",
+          "git commit*": "ask",
+          "git push*": "deny",
+          "rm *": "deny"
+        }
+      }
     }
   },
   "enabled_providers": [
@@ -44,16 +77,59 @@
   "permission": {
     "question": "allow",
     "bash": {
-      "cargo test*": "allow",
-      "cargo clippy*": "allow",
-      "cargo build*": "allow",
-      "head*": "allow",
+      "*": "ask",
+      "cargo test": "allow",
+      "cargo test *": "allow",
+      "cargo clippy": "allow",
+      "cargo clippy *": "allow",
+      "cargo build": "allow",
+      "cargo build *": "allow",
       "git show*": "allow",
       "git diff*": "allow",
       "git log*": "allow",
+      "git status": "allow",
+      "git status *": "allow",
+      "git branch": "allow",
+      "git branch *": "allow",
+      "ls": "allow",
       "ls *": "allow",
-      "rm *": "deny",
-      "*": "ask"
+      "echo": "allow",
+      "echo *": "allow",
+      "rg": "allow",
+      "rg *": "allow",
+      "awk": "allow",
+      "awk *": "allow",
+      "grep": "allow",
+      "grep *": "allow",
+      "head": "allow",
+      "head *": "allow",
+      "cat": "allow",
+      "cat *": "allow",
+      "find": "allow",
+      "find *": "allow",
+      "wc": "allow",
+      "wc *": "allow",
+      "sort": "allow",
+      "sort *": "allow",
+      "uniq": "allow",
+      "uniq *": "allow",
+      "cut": "allow",
+      "cut *": "allow",
+      "tr": "allow",
+      "tr *": "allow",
+      "diff": "allow",
+      "diff *": "allow",
+      "tree": "allow",
+      "tree *": "allow",
+      "pwd": "allow",
+      "pwd *": "allow",
+      "which": "allow",
+      "which *": "allow",
+      "stat": "allow",
+      "stat *": "allow",
+      "file": "allow",
+      "file *": "allow",
+      "rm *": "deny"
     },
     "webfetch": "ask",
     "read": {
@@ -114,22 +190,29 @@
         "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K": {
           "name": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
           "limit": {
-            "context": 32768,
-            "output": 4096
+            "context": 65536,
+            "output": 8192
           }
         },
         "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K": {
           "name": "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K",
           "limit": {
-            "context": 32768,
-            "output": 4096
+            "context": 65536,
+            "output": 10240
           }
         },
         "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL": {
           "name": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
           "limit": {
-            "context": 32768,
+            "context": 65536,
             "output": 4096
+          }
+        },
+        "open_steuerllm": {
+          "name": "open_steuerllm",
+          "limit": {
+            "context": 32768,
+            "output": 2048
           }
         }
       }
