@@ -71,6 +71,7 @@
     }
   },
   "enabled_providers": [
+    "openai",
     "bladerunner",
     "llama.cpp"
   ],
@@ -142,6 +143,17 @@
     }
   },
   "provider": {
+    "openai": {
+      "models": {
+        "gpt-5.4-mini": {
+          "name": "gpt-5.4-mini",
+          "limit": {
+            "context": 132000,
+            "output": 65536
+          }
+        }
+      }
+    },
     "bladerunner": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Bladerunner",
