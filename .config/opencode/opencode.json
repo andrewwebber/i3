@@ -1,13 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
-  "small_model": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q6_K",
+  "model": "llama.cpp/unsloth/Qwen3.8-27B-GGUF:UD-Q6_K_XL",
+  "small_model": "llama.cpp/unsloth/Qwen3.8-27B-GGUF:UD-Q6_K_XL",
   "agent": {
     "build": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K"
+      "model": "llama.cpp/unsloth/Qwen3.8-27B-GGUF:UD-Q6_K_XL"
     },
     "plan": {
-      "model": "llama.cpp/unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K",
+      "model": "llama.cpp/unsloth/Qwen3.8-27B-GGUF:UD-Q6_K_XL",
       "permission": {
         "edit": "deny",
         "bash": {
@@ -204,6 +204,13 @@
           "limit": {
             "context": 65536,
             "output": 8192
+          }
+        },
+        "unsloth/Qwen3.8-27B-GGUF:UD-Q6_K_XL": {
+          "name": "unsloth/Qwen3.8-27B-GGUF:UD-Q6_K_XL",
+          "limit": {
+            "context": 65536,
+            "output": 10240
           }
         },
         "unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K": {
