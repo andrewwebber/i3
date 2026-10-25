@@ -58,6 +58,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec kitty
+bindsym --no-repeat $mod+v exec voxtype record start
+bindsym --release $mod+v exec voxtype record stop
 # bindsym $mod+Return exec dbus-launch wezterm
 # bindsym $mod+Return exec "MESA_LOADER_DRIVER_OVERRIDE=amdgpu_dri kitty"
 bindsym Control+$mod+l exec swaylock
