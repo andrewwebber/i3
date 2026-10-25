@@ -33,6 +33,7 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/bin/
 fish_add_path /opt/cuda/bin/
 fish_add_path ~/projects/llama.cpp/build/bin/
+fish_add_path ~/.runai/bin/2.114.4
 
 if test (tty) = /dev/tty1
     exec dbus-run-session sway
