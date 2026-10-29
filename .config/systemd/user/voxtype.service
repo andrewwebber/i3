@@ -1,0 +1,18 @@
+[Unit]
+Description=Voxtype push-to-talk voice-to-text daemon
+Documentation=https://voxtype.io
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/awebber/projects/voxtype/target/release/voxtype daemon
+Restart=on-failure
+RestartSec=5
+
+# Ensure display access and add your build directory to PATH for sidecar binaries
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PATH=/home/awebber/projects/voxtype/target/release:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=graphical-session.target

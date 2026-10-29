@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "GitLab": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitlab.com/api/v4/mcp",
+        "--header", "X-Gitlab-Enabled-Mcp-Server-Toolsets: core,work_items",
+        "Authorization: Bearer ${GITLAB_TOKEN}"
+      ],
+      "env": {
+        "GITLAB_TOKEN": "${GITLAB_TOKEN}",
+        "BROWSER": "firefox"
+      }
+    }
+  }
+}

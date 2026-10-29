@@ -1,0 +1,9 @@
+.mutt/temp
+.opencode
+.config/fish/completions/
+.config/fish/conf.d/fish_frozen_key_bindings.fish
+.config/fish/conf.d/fish_frozen_theme.fish
+.config/fish/fish_variables
+.config/opencode/opencode.json.tui-migration.bak
+.config/opencode/package-lock.json
+.config/opencode/tui.json
