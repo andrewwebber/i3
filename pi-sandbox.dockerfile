@@ -22,5 +22,6 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 RUN uv tool install graphifyy
 RUN graphify install pi
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 ENTRYPOINT ["pi-bolt"]
