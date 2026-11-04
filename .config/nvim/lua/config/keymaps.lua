@@ -15,6 +15,11 @@ keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("n", ";", ":")
 keymap.set("n", "<leader>gg", ":DogeGenerate<CR>")
 keymap.set("n", "fp", ":Prettier<CR>")
+-- Ask pi with the current buffer as context
+keymap.set("n", "<leader>p", ":PiAsk<CR>", { desc = "Ask pi" })
+
+-- Ask pi with visual selection as context
+keymap.set("v", "<leader>p", ":PiAskSelection<CR>", { desc = "Ask pi (selection)" })
 
 -- Split window
 keymap.set("n", "ss", ":split<Return><C-w>w")
