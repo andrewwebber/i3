@@ -193,7 +193,7 @@
       "skillFolderHash": "ce24892bd2d4b9e7fd5ac9b95c03175e18bef388",
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-10-29T19:07:45.601Z",
-      "updatedAt": "2026-10-29T19:07:45.601Z"
+      "updatedAt": "2026-11-06T09:04:25.108Z"
     },
     "research": {
       "source": "mattpocock/skills",
@@ -203,7 +203,27 @@
       "skillFolderHash": "2f8f36af48796faed5c687c75bb650071631a984",
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-10-29T19:07:45.601Z",
-      "updatedAt": "2026-10-29T19:07:45.601Z"
+      "updatedAt": "2026-11-06T09:04:25.108Z"
+    },
+    "retro": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/retro/SKILL.md",
+      "skillFolderHash": "335c1862a43da9d629abafdb79ca0c0de118be08",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-11-06T08:51:34.444Z",
+      "updatedAt": "2026-11-06T09:04:25.099Z"
+    },
+    "writing-for-agents": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "skillFolderHash": "ad2925850efb8973a72d2e666f7a975f9a2d4a9b",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-11-06T09:04:25.098Z",
+      "updatedAt": "2026-11-06T09:04:25.098Z"
     }
   },
   "dismissed": {
